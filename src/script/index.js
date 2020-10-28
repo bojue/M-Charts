@@ -1,6 +1,7 @@
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext('2d');
+
 let init = function() {
-    var canvas = document.getElementById("canvas");
-    var ctx = canvas.getContext('2d');
     ctx.beginPath();
     ctx.fillStyle='#4988FE';
     ctx.moveTo(300, 300);
@@ -26,4 +27,17 @@ let init = function() {
     ctx.fill();
 }
 
+let addLister = function() {
+    canvas.addEventListener('mousemove', (event) => {
+        let x = event.clientX;
+        let y = event.clientY;
+        let res = (Math.pow(x-300, 2) + Math.pow(y-300, 2)) < Math.pow(180, 2);
+        if(res) {
+            console.log(res);
+        }
+        
+    })
+}
+
 init();
+addLister();
