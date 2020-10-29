@@ -65,6 +65,7 @@ function drawInit() {
         ctx.lineTo(_ex + 300, _ey + 300);
         let str = "当前下标 " + i;
         ctx.fillStyle= color;
+        ctx.font = "100 20px";
         if(midArgs > Math.PI * 3 /2 || midArgs < Math.PI /2) {
             ctx.textAlign = 'left';
         }else {
@@ -72,7 +73,6 @@ function drawInit() {
         }
         if(_sx >= 0) {
             ctx.lineTo(_ex + 315, _ey + 300);
-            ctx.font = "100 20px";
             ctx.fillText(str, _ex + 320 , _ey + 300);
         }else {
             ctx.lineTo(_ex + 285, _ey + 300);
@@ -114,10 +114,15 @@ function updateContent(event) {
         let angle = Math.atan2(y - 300, x - 300);
         angle = angle >= 0 ? angle : angle + Math.PI * 2;
         let currIndex = getCurrentItemIndex(angle);
-        if(activeIndex !== currIndex || !activeIndex) {
-            activeIndex = currIndex;
-            updateDraw(activeIndex);
-        }
+        // 优化方案
+        // if(activeIndex !== currIndex || !activeIndex) {
+        //     activeIndex = currIndex;
+        //     updateDraw(activeIndex);
+        //     drawText(event);
+        // }
+        activeIndex = currIndex;
+        updateDraw(activeIndex);
+        drawText(event);
     }else {
         if( canvas.style.cursor === 'pointer') {
             canvas.style.cursor = 'default';
@@ -132,6 +137,20 @@ function updateContent(event) {
 
 function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function drawText(event) {
+    let x = event.clientX - clientRect.x;
+    let y = event.clientY - clientRect.y;
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+    ctx.fillRect(x + 10, y + 10, 90, 30);
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = '#ff704d';
+    ctx.strokeRect(x + 9.5, y + 9.5, 90, 30);
+    ctx.fillStyle = colsArr[activeIndex];
+    ctx.font = "30px";
+    ctx.fillText("区域下标  "+ activeIndex, x + 20, y + 28);
+
 }
 
 function updateDraw(currIndex, state) {
@@ -152,7 +171,6 @@ function getCurrentItemIndex(args) {
             return i;
         }
     }
-
     return len-1;
 }
 function throttle(fn, time) {
