@@ -158,9 +158,15 @@ function updateDraw(currIndex, state) {
     drawInit();
     ctx.beginPath();
     ctx.moveTo(300, 300);
-    ctx.fillStyle= colsArr[currIndex];
+    ctx.fillStyle = colsArr[currIndex];
     ctx.arc(300, 300, 210, argleCurrentArr[currIndex -1] || 0, argleCurrentArr[currIndex], false);
     ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(300, 300);
+    ctx.strokeStyle = colsArr[currIndex];;
+    ctx.arc(300, 300, 212, argleCurrentArr[currIndex -1] || 0, argleCurrentArr[currIndex], false);
+    ctx.stroke();
 }
 
 function getCurrentItemIndex(args) {
