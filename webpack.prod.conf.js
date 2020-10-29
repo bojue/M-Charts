@@ -45,7 +45,7 @@ module.exports = {
         new htmlWebpackPlugin({
             template: "./public/index.html",
             filename:'index.html',
-            favicon:'./dist/favicon.ico'
+            favicon:'./public/favicon.ico'
         }),
         new CleanWebpackPlugin(
             {
