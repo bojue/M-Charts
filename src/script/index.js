@@ -1,3 +1,4 @@
+import {throttle} from './utils/throttle';
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext('2d');
 let clientRect = canvas.getBoundingClientRect();
@@ -14,7 +15,7 @@ let argleArr = [
     Math.PI /6,
     Math.PI /2,
     Math.PI /3
-]
+];
 let argleCurrentArr = [];
 let activeIndex = null;
 let option = {
@@ -99,6 +100,7 @@ function addLister() {
 }
 
 function throttleMouseMove(event) {
+    if(!event) return;
     event.preventDefault();
     throttle(updateContent(event), 16)
 }
@@ -179,16 +181,7 @@ function getCurrentItemIndex(args) {
     }
     return len-1;
 }
-function throttle(fn, time) {
-    let _lastTime = null;
-    return function () {
-      let _nowTime = + new Date()
-      if (_nowTime - _lastTime > time || !_lastTime) {
-        fn();
-        _lastTime = _nowTime
-      }
-    }
-}
+
 
 drawInit();
 addLister();

@@ -24,7 +24,7 @@ module.exports = {
     hot:true,
     host:"localhost",
     historyApiFallback: true,
-    compress: true,
+    compress: false,
     open:"Chrome",
     openPage:''
   },
