@@ -12,7 +12,7 @@ const github = require('./assets/imgs/github.png');
 let App = function() {
     return <Router >
     <div className="nav">
-        <a href="/" className="item">
+        <a href="#/" className="item">
             <img src={icon && icon.default} alt=""/>
             
         </a>
