@@ -23,7 +23,7 @@ let App = function() {
                 <span>M-Charts</span>
             </a>
         </StaticRouter>
-        <a href="/" className="item github">
+        <a href="https://bojue.github.io/M-Charts/" className="item github">
             <img src={github && github.default} alt=""/>
         </a>
     </div>
