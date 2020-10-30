@@ -236,5 +236,4 @@ class PieComponent extends React.Component {
             </div>
     }
 }
-
 export default PieComponent;

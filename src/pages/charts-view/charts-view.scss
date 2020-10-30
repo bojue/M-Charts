@@ -1,0 +1,14 @@
+.charts {
+    margin: 20px;
+    .back {
+        position: absolute;
+        right: 10px;
+    }
+    .img {
+        width: 40px;
+        padding: 12px;
+    }
+    canvas {
+        background: #f3f3f3;
+    }
+}
