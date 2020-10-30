@@ -4,6 +4,7 @@
     box-shadow: 0 2px 8px #f0f1f2;
     display: flex;
     width: 100%;
+    position: relative;
     user-select: none;
 }
 a {
@@ -31,5 +32,16 @@ a {
     color:#fff;
     span {
         width: 100%;
+    }
+}
+
+.github {
+    width: 70px;
+    position: absolute;
+    right: 10px;
+    img {
+        width: 50px;
+        height: 14px;
+        margin-top: 7px;
     }
 }

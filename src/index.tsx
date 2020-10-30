@@ -9,6 +9,7 @@ import Home from './pages/home/Home';
 import ChartsList from './pages/charts-list/charts-list';
 import ChartsView from './pages/charts-view/charts-view';
 import NoMatch  from './pages/error/404';
+const github = require('./assets/imgs/github.png');
 
 let App = function() {
     return <Router>
@@ -22,6 +23,9 @@ let App = function() {
                 <span>M-Charts</span>
             </a>
         </StaticRouter>
+        <a href="/" className="item github">
+            <img src={github && github.default} alt=""/>
+        </a>
     </div>
     <Switch>
         <Route exact path="/">
