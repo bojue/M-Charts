@@ -7,6 +7,7 @@ module.exports = {
     mode: 'production',
     entry: {   
         app:"./src/script/index.js",
+        vendor: ['react', 'react-dom']
     },
     output: {
         path: path.resolve(__dirname, 'dist'),

@@ -3,10 +3,43 @@ const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/script/index.js',
+  entry: {
+    app:'./src/index.tsx',
+    vendor: ['react', 'react-dom']
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    publicPath:'',
+    filename: 'js/[name].bundle.[hash].js'
+  },
+  devtool: "source-map",
+  resolve: {
+      extensions: [".ts", ".tsx", ".js", ".json"]
+  },
+  module: {
+      rules: [
+          { 
+              test: /\.tsx?$/, loader: "awesome-typescript-loader" 
+          },
+          {
+              test: /\.s[ac]ss$/i,
+              use: [
+                  'style-loader',
+                  'css-loader',
+                  'sass-loader',
+              ],
+          },
+          {
+              test: /\.(png|svg|jpg|gif)$/,
+              use: {
+                  loader: 'url-loader',
+                  options: {
+                     imit: 3*1024
+                  }
+              }
+          }
+      
+      ]
   },
   plugins: [
     new webpack.ProvidePlugin({
