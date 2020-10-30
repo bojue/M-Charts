@@ -16,7 +16,7 @@ let App = function() {
             <img src={icon && icon.default} alt=""/>
             
         </a>
-        <a href="/charts" className="item tit">
+        <a href="#/charts" className="item tit">
             <span>M-Charts</span>
         </a>
         <a href="https://bojue.github.io/M-Charts/" className="item github">
