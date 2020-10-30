@@ -1,5 +1,4 @@
 import { throttle } from './utils/throttle';
-import { canvasInit } from './dom/canvas';
 let canvas = document.getElementById("canvas");
 if(!canvas) return;
 let ctx = canvas.getContext('2d');
@@ -184,6 +183,6 @@ function getCurrentItemIndex(args) {
     return len-1;
 }
 
-canvasInit();
+
 drawInit();
 addLister();
