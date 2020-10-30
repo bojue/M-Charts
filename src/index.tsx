@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from "react-dom";
-import {BrowserRouter as Router, Route, Switch, StaticRouter, Link} from 'react-router-dom'
+import {HashRouter as Router, Route, Switch, StaticRouter, Link} from 'react-router-dom'
 import './style.scss';
 const icon = require('./assets/imgs/icon.png');
 
