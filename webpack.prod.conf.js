@@ -5,17 +5,18 @@ const webpack = require('webpack');
 
 module.exports = {
     mode: 'production',
-    entry: {   
-        app:"./src/script/index.js",
+    entry: {
+        app:'./src/index.tsx',
         vendor: ['react', 'react-dom']
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
         publicPath:'',
-        filename: 'js/[name].bundle.[chunkhash].js'
+        filename: 'js/[name].bundle.[hash].js'
     },
+    devtool: "source-map",
     resolve: {
-        extensions: [".ts",".js", ".json"]
+        extensions: [".ts", ".tsx", ".js", ".json"]
     },
     module: {
         rules: [
