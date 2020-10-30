@@ -1,5 +1,7 @@
-import {throttle} from './utils/throttle';
+import { throttle } from './utils/throttle';
+import { canvasInit } from './dom/canvas';
 let canvas = document.getElementById("canvas");
+if(!canvas) return;
 let ctx = canvas.getContext('2d');
 let clientRect = canvas.getBoundingClientRect();
 let colsArr = [
@@ -147,7 +149,7 @@ function drawText(event) {
     ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
     ctx.fillRect(x + 10, y + 10, 90, 30);
     ctx.lineWidth = 1;
-    ctx.strokeStyle = '#ff704d';
+    ctx.strokeStyle = colsArr[activeIndex];
     ctx.strokeRect(x + 9.5, y + 9.5, 90, 30);
     ctx.fillStyle = colsArr[activeIndex];
     ctx.font = "30px";
@@ -182,6 +184,6 @@ function getCurrentItemIndex(args) {
     return len-1;
 }
 
-
+canvasInit();
 drawInit();
 addLister();

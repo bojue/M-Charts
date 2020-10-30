@@ -1,0 +1,35 @@
+.nav {
+    height: 50px;
+    line-height: 50px;
+    box-shadow: 0 2px 8px #f0f1f2;
+    display: flex;
+    width: 100%;
+    user-select: none;
+}
+a {
+    text-decoration: none;
+}
+.item {
+    display: inline-flex;
+    width: 100px;
+    color: #fff;
+    height: 50px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    &:first-child {
+        width: 60px;
+    }
+    img {
+        width: 30px;
+        height: 30px;
+        padding: 10px 15px;
+    }
+}
+.tit {
+    background: #4988fe;
+    color:#fff;
+    span {
+        width: 100%;
+    }
+}
