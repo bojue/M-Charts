@@ -139,8 +139,6 @@ class PieComponent extends React.Component {
         let y = event.clientY - this.clientRect.y;
         let hoverBool = (Math.pow(x- this.config.COORDINATE_X, 2) + Math.pow(y- this.config.COORDINATE_Y, 2)) < Math.pow(this.config.RADIUS * this.config.HOVER_RADIUS_RATIO, 2);
         let activeBool = (Math.pow(x- this.config.COORDINATE_X, 2) + Math.pow(y- this.config.COORDINATE_Y, 2)) < Math.pow(this.config.RADIUS, 2);
-
-        console.log(hoverBool, activeBool, this.activeIndex)
         if(activeBool || hoverBool && this.activeIndex > -1) {
             if( this.canvas.style.cursor !== 'pointer') {
                 this.canvas.style.cursor = 'pointer'
