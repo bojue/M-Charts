@@ -116,7 +116,7 @@ class PieComponent extends React.Component {
         this.clientRect = this.canvas.getBoundingClientRect();
     }
 
-    getFun() {
+    moveEvent() {
         if(!event) return;
         event.preventDefault();
         this.throttle(this.updateCont(event), 16)
@@ -152,8 +152,9 @@ class PieComponent extends React.Component {
                 this.canvas.style.cursor = 'default';
             }
             if(this.activeIndex >= 0) {
-                this.updateDraw(this.activeIndex);
                 this.activeIndex = -1;
+                this.clearCanvas();
+                this.drawInit();
             }
     
         }
@@ -202,7 +203,7 @@ class PieComponent extends React.Component {
 
     render() {
         return  <div className="charts">
-                <canvas id="canvas" onMouseMove={e => this.getFun()} width="600" height="500"></canvas>
+                <canvas id="canvas" onMouseMove={e => this.moveEvent()} width="600" height="500"></canvas>
             </div>
     }
 }
