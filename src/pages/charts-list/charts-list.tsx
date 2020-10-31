@@ -10,18 +10,19 @@ class ChartsList extends React.Component<{}, object>  {
         {
             name:"饼图",
             type:'pie',
-            thumbnail: imgPie && imgPie.default,
+            thumbnail: imgPie
         },
+        {
+            name:"折线",
+            type:'line',
+            thumbnail: imgPie
+        }
     ]
-
     render() {
         const items = this.charts.map((item:any) => {
            return  <div className="charts-item">
-               <Link to={{
-                   pathname:'/detail',
-                   search: `?type=${item.type}`
-               }}><div className="name">饼图</div>
-               <img src={imgPie && imgPie.default} alt=""/> </Link>
+               <Link to={`/detail/${item.type}`}><div className="name">{item.name}</div>
+               <img src={item.thumbnail && item.thumbnail.default} alt=""/> </Link>
            </div>
 
         })

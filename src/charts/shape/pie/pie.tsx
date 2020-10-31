@@ -17,6 +17,13 @@ class PieComponent extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        this.initData();
+        this.initCanvas();
+        this.drawInit();
+        this.addLister();
+    }
+
     initData() {
         this.activeIndex = -1;
         this.colsArr =  [
@@ -43,13 +50,6 @@ class PieComponent extends React.Component {
             Math.PI /2,
             Math.PI /3
         ];
-    }
-
-    componentDidMount() {
-        this.initData();
-        this.initCanvas();
-        this.drawInit();
-        this.addLister();
     }
 
     componentWillUnmount() {

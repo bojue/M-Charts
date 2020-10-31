@@ -26,7 +26,7 @@ let App = function() {
         <Switch>
             <Route exact path="/" component={ChartsList}/>
             <Route path="/charts" component={ChartsList}/>
-            <Route path="/detail" component={ChartsView}/>
+            <Route path="/detail/:type" component={ChartsView}/>
             <Route>
                 <NoMatch/>
             </Route>
