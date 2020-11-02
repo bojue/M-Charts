@@ -1,8 +1,7 @@
 
 import * as React from 'react';
 import { Props } from 'react';
-import { canvasInit } from './../../provider/initCanvas';
-
+import { init } from '../../provider/canvas';
 import "./line.scss";
 
 class PieComponent extends React.Component {
@@ -25,7 +24,7 @@ class PieComponent extends React.Component {
 
     initCanvas() {
         this.canvas = document.getElementById('canvas');
-        canvasInit(this.canvas);
+        init(this.canvas);
         if(!this.canvas) return;
         this.ctx = this.canvas.getContext('2d');
         this.clientRect = this.canvas.getBoundingClientRect();

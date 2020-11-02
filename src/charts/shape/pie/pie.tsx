@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import { Props } from 'react';
-import { canvasInit } from './../../provider/initCanvas';
+import { init, getEventCoordinates } from '../../provider/canvas';
 import "./pie.scss";
 
 class PieComponent extends React.Component {
@@ -59,7 +59,7 @@ class PieComponent extends React.Component {
     initCanvas() {
         this.canvas = document.getElementById('canvas');
         if(!this.canvas) return;
-        canvasInit(this.canvas);
+        init(this.canvas);
         this.ctx = this.canvas.getContext('2d');
         this.clientRect = this.canvas.getBoundingClientRect();
     }
@@ -136,8 +136,10 @@ class PieComponent extends React.Component {
     };
 
     updateCont(event:MouseEvent|any) {
-        let x = event.clientX - this.clientRect.x;
-        let y = event.clientY - this.clientRect.y;
+        let coords = getEventCoordinates(event, this.clientRect);
+        let x = coords.x;
+        let y = coords.y;
+
         let hoverBool = (Math.pow(x- this.config.COORDINATE_X, 2) + Math.pow(y- this.config.COORDINATE_Y, 2)) < Math.pow(this.config.RADIUS * this.config.HOVER_RADIUS_RATIO, 2);
         let activeBool = (Math.pow(x- this.config.COORDINATE_X, 2) + Math.pow(y- this.config.COORDINATE_Y, 2)) < Math.pow(this.config.RADIUS, 2);
         if(activeBool || hoverBool && this.activeIndex > -1) {
@@ -168,8 +170,10 @@ class PieComponent extends React.Component {
     }
 
     drawText(event:MouseEvent) {
-        let x = event.clientX - this.clientRect.x;
-        let y = event.clientY - this.clientRect.y;
+        let coords = getEventCoordinates(event, this.clientRect);
+        let x = coords.x;
+        let y = coords.y
+
         this.ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
         this.ctx.fillRect(x + 10, y + 10, 90, 30);
         this.ctx.lineWidth = 1;
