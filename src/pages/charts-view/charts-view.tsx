@@ -4,11 +4,9 @@ import { Props } from 'react';
 import { RouteProps } from 'react-router';
 import { RouteComponentProps } from "react-router-dom";
 import "./charts-view.scss";
-import PieComponent from '../../charts/shape/pie/pie';
-import LineComponent from './../../charts/shape/line/line';
+import { LineComponent, PieComponent } from './../../charts/shape/index';
 import RouteBackComponent from '../../components/route-back/route-back';
 import NoMatch  from './../../pages/error/404';
-
 interface MProps {}
 interface MState {}
 type ChartsProps = MProps & RouteComponentProps;
