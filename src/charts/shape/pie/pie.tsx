@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { Props } from 'react';
 import { init, getEventCoordinates } from '../../provider/canvas';
+import { pieData } from './../../mock/index'
 import "./pie.scss";
 
 class PieComponent extends React.Component {
@@ -42,14 +43,7 @@ class PieComponent extends React.Component {
             TEXT_LINE_POLYLINE_WIDTH:10, // 线条折线部分程度
             TEXT_PADDING: 5, // 文本
         }
-    
-        this.argleArr =  [
-            Math.PI /4,
-            Math.PI /4 * 3,
-            Math.PI /6,
-            Math.PI /2,
-            Math.PI /3
-        ];
+        this.argleArr = pieData;
     }
 
     componentWillUnmount() {

@@ -9,9 +9,9 @@ let init = function(canvas:any) {
     var w = canvas.width;
     var h = canvas.height;
     canvas.width = Math.round(w * dpr);
-    canvas.height = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
     canvas.style.width = w + 'px';
-    canvas.style.height = w + 'px';
+    canvas.style.height = h + 'px';
     ctx.scale(dpr, dpr);
     return ctx;
 }
