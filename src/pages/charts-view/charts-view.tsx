@@ -7,6 +7,7 @@ import "./charts-view.scss";
 import { LineComponent, PieComponent } from './../../charts/shape/index';
 import RouteBackComponent from '../../components/route-back/route-back';
 import NoMatch  from './../../pages/error/404';
+import ScatterComponent from '../../charts/shape/scatter/scatter';
 interface MProps {}
 interface MState {}
 type ChartsProps = MProps & RouteComponentProps;
@@ -28,6 +29,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
                 break;
             case 'line':
                 chartComp = <LineComponent/>
+                break;
+            case 'scatter':
+                chartComp = <ScatterComponent/>
                 break;
             default:
                 chartComp = <NoMatch/>

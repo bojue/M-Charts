@@ -1,10 +1,10 @@
 
 import * as React from 'react';
-import { Props } from 'react';
 import "./charts-list.scss";
 import { Link } from 'react-router-dom'
 let imgPie = require('./../../assets/imgs/shape/pie.png');
 let imgLine = require('./../../assets/imgs/shape/line.png');
+let imgScatter = require('./../../assets/imgs/shape/scatter.png');
 
 class ChartsList extends React.Component<{}, object>  {
     charts:any[] = [
@@ -17,7 +17,12 @@ class ChartsList extends React.Component<{}, object>  {
             name:"折线",
             type:'line',
             thumbnail: imgLine
-        }
+        },
+        {
+            name:"散点图",
+            type:'scatter',
+            thumbnail: imgScatter
+        },
     ]
     render() {
         const items = this.charts.map((item:any) => {
