@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 let imgPie = require('./../../assets/imgs/shape/pie.png');
 let imgLine = require('./../../assets/imgs/shape/line.png');
 let imgScatter = require('./../../assets/imgs/shape/scatter.png');
+let imgGauge = require('./../../assets/imgs/shape/gauge.png');
 
 class ChartsList extends React.Component<{}, object>  {
     charts:any[] = [
@@ -23,6 +24,11 @@ class ChartsList extends React.Component<{}, object>  {
             type:'scatter',
             thumbnail: imgScatter
         },
+        {
+            name:"仪表盘",
+            type:'guage',
+            thumbnail: imgGauge
+        }
     ]
     render() {
         const items = this.charts.map((item:any) => {

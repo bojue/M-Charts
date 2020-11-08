@@ -2,7 +2,6 @@
 import * as React from 'react';
 import { init, getEventCoordinates } from '../../provider/canvas';
 import "./scatter.scss";
-
 class ScatterComponent extends React.Component {
     canvas:any;
     ctx:any;

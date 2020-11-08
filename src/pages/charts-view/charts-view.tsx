@@ -1,13 +1,15 @@
 
 import * as React from 'react';
-import { Props } from 'react';
-import { RouteProps } from 'react-router';
 import { RouteComponentProps } from "react-router-dom";
 import "./charts-view.scss";
-import { LineComponent, PieComponent } from './../../charts/shape/index';
 import RouteBackComponent from '../../components/route-back/route-back';
 import NoMatch  from './../../pages/error/404';
-import ScatterComponent from '../../charts/shape/scatter/scatter';
+import { 
+    LineComponent, 
+    PieComponent, 
+    ScatterComponent, 
+    GuageComponent} from './../../charts/shape/index';
+
 interface MProps {}
 interface MState {}
 type ChartsProps = MProps & RouteComponentProps;
@@ -33,6 +35,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
             case 'scatter':
                 chartComp = <ScatterComponent/>
                 break;
+            case 'guage':
+                chartComp = <GuageComponent/>
+                break;   
             default:
                 chartComp = <NoMatch/>
                 break;
