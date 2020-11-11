@@ -23,12 +23,13 @@ class GuageComponent extends React.Component {
     initData() {
         this.config = {
             INTERNAL_RADIUS: 150, // 圆饼半径
-            IN_WIDHT: 2,
+            IN_WIDHT: 4,
+            MIDDLE_WIDTH:10,
             MIDDLE_RADIUS: 160, // middle半径
             OUBLINE_RADIUS: 200, // 外部半径
             COORDINATE_X:250, // x坐标
             COORDINATE_Y:250, // y坐标
-            NUMS:60
+            NUMS:75
         }
         this.data = [
 
@@ -59,8 +60,15 @@ class GuageComponent extends React.Component {
         this.ctx.beginPath();
         this.ctx.save();
         this.ctx.translate(this.config.COORDINATE_X,this.config.COORDINATE_Y);
-        let cell = 2 * Math.PI / this.config.NUMS;
         let len = this.config.NUMS;
+        let number = 90;
+
+        let ShortCell = 2 * Math.PI / len;
+        // text 
+        this.ctx.font='30px Arial';
+        this.ctx.textAlign = 'center';
+        this.ctx.fillText(`${number}%`,0,0);
+
 
         // 短刻度
         for(let i=0;i<len;i++) {
@@ -71,41 +79,51 @@ class GuageComponent extends React.Component {
             this.ctx.moveTo(this.config.INTERNAL_RADIUS,0);
             this.ctx.lineTo(this.config.INTERNAL_RADIUS -this.config.IN_WIDHT, 0);
             this.ctx.stroke();    
-            this.ctx.rotate(cell);
+            this.ctx.rotate(ShortCell);
             this.ctx.closePath();
         }
-        this.ctx.rotate( Math.PI / 6 * 5);
-        let Labcell = 4/ 15 * Math.PI;
-        for(let i=0;i<=5;i++) {
+
+        let Labcell = 4 /  15  * Math.PI;
+        for(let i=0;i<6;i++) {
             // 长刻度
+            if(i === 0) {
+                this.ctx.rotate(31 * ShortCell);
+            }else {
+                this.ctx.rotate(Labcell);
+            }
             this.ctx.beginPath();
             this.ctx.strokeStyle = 'rgba(0,0, 0, 0.4)';
             this.ctx.lineWidth = 1;
             this.ctx.fillStyle = 'rgba(0,0, 0, 0.4)';
             this.ctx.moveTo(this.config.INTERNAL_RADIUS,0);
-            this.ctx.lineTo(this.config.INTERNAL_RADIUS -10, 0);
+            this.ctx.lineTo(this.config.INTERNAL_RADIUS - this.config.MIDDLE_WIDTH, 0);
             this.ctx.stroke();    
             // 文本
             this.ctx.font = '12px Microsoft'; 
             this.ctx.textAlign = 'right';
-            this.ctx.fillText(20 * i, this.config.INTERNAL_RADIUS - 25, 0);
-            this.ctx.rotate(Labcell);
+            this.ctx.fillText(20 * (i), this.config.INTERNAL_RADIUS - 25, 0);
+  
             this.ctx.closePath();
         }
 
         // MIDDLE_RADIUS
-        this.ctx.rotate(  2/ 5 * Math.PI);
         let Middlecell =  2 * Math.PI / this.config.NUMS;
         // middle
-        for(let i=0;i<=40;i++) {
+        for(let i=0;i<=50;i++) {
             this.ctx.beginPath();
             this.ctx.strokeStyle = '#4988FE';
             this.ctx.lineWidth = 1;
             this.ctx.moveTo(this.config.MIDDLE_RADIUS,0);
             this.ctx.lineTo(this.config.MIDDLE_RADIUS + 30, 0);
+
+            if(i === 0) {
+                this.ctx.rotate(2 / 3 * Math.PI);
+            }else {
+                this.ctx.rotate(Middlecell);
+            }
             this.ctx.stroke();    
-            this.ctx.rotate(Middlecell);
             this.ctx.closePath();
+
         }
 
         // outline
@@ -116,11 +134,9 @@ class GuageComponent extends React.Component {
         gradient.addColorStop("0", "#4988FE");
         gradient.addColorStop("0.8", "#4944FE");
         this.ctx.strokeStyle = gradient;
-        this.ctx.arc(0, 0, this.config.OUBLINE_RADIUS,  3/ 5 * Math.PI  +  2 * Math.PI / this.config.NUMS,  9 / 5 * Math.PI, false);
+        this.ctx.arc(0, 0, this.config.OUBLINE_RADIUS,  2 / 3 * Math.PI ,  ( (number / 100) * 4 / 3 + 2 / 3 )* Math.PI , false);
         this.ctx.stroke();
         this.ctx.restore();
-
-
         this.ctx.closePath();
     }
 
