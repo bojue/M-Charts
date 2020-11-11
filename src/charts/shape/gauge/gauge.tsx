@@ -134,10 +134,26 @@ class GuageComponent extends React.Component {
         gradient.addColorStop("0", "#4988FE");
         gradient.addColorStop("0.8", "#4944FE");
         this.ctx.strokeStyle = gradient;
-        this.ctx.arc(0, 0, this.config.OUBLINE_RADIUS,  2 / 3 * Math.PI ,  ( (number / 100) * 4 / 3 + 2 / 3 )* Math.PI , false);
+        let angle = ( (number / 100) * 4 / 3 + 2 / 3 )* Math.PI;
+        this.ctx.arc(0, 0, this.config.OUBLINE_RADIUS,  2 / 3 * Math.PI , angle , false);
         this.ctx.stroke();
         this.ctx.restore();
         this.ctx.closePath();
+
+        this.ctx.beginPath(); 
+        this.ctx.strokeStyle = '#4944FE';
+        this.ctx.lineWidth = 2;
+        this.ctx.fillStyle="white"; 
+        this.ctx.arc( (this.config.OUBLINE_RADIUS )* Math.cos(angle),  (this.config.OUBLINE_RADIUS )* Math.sin(angle), 10,0,Math.PI*2,true); 
+        this.ctx.stroke();
+        this.ctx.closePath(); 
+        this.ctx.fill()
+
+        this.ctx.beginPath(); 
+        this.ctx.arc( (this.config.OUBLINE_RADIUS )* Math.cos(angle),  (this.config.OUBLINE_RADIUS )* Math.sin(angle), 7,0,Math.PI*2,true); 
+        this.ctx.fillStyle="#4944FE"; 
+        this.ctx.closePath(); 
+        this.ctx.fill()
     }
 
     render() {
