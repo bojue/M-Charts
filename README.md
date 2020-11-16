@@ -22,3 +22,20 @@ npm i
 npm run dev
 
 ```
+
+## 已经实现Chart类型
+
+- 饼图图
+- 折线图
+- 散点图
+- 仪表盘
+- 漏斗图
+
+## TODO List 
+
+- 实现基础Chart Demo展示(Doing) 
+- 交互
+- 完善chart
+- 动画
+- 变量封装
+- 框架封装

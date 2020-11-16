@@ -8,7 +8,9 @@ import {
     LineComponent, 
     PieComponent, 
     ScatterComponent, 
-    GuageComponent} from './../../charts/shape/index';
+    GuageComponent,
+    FunnelComponent
+} from './../../charts/shape/index';
 
 interface MProps {}
 interface MState {}
@@ -37,7 +39,10 @@ class ChartsView extends React.Component<ChartsProps, MState> {
                 break;
             case 'guage':
                 chartComp = <GuageComponent/>
-                break;   
+                break;  
+            case 'funnel':
+                chartComp = <FunnelComponent/>
+                break;
             default:
                 chartComp = <NoMatch/>
                 break;

@@ -6,6 +6,7 @@ let imgPie = require('./../../assets/imgs/shape/pie.png');
 let imgLine = require('./../../assets/imgs/shape/line.png');
 let imgScatter = require('./../../assets/imgs/shape/scatter.png');
 let imgGauge = require('./../../assets/imgs/shape/gauge.png');
+let imgFunnel = require('./../../assets/imgs/shape/funnel.png');
 
 class ChartsList extends React.Component<{}, object>  {
     charts:any[] = [
@@ -28,6 +29,11 @@ class ChartsList extends React.Component<{}, object>  {
             name:"仪表盘",
             type:'guage',
             thumbnail: imgGauge
+        }, 
+        {
+            name:"漏斗图",
+            type:'funnel',
+            thumbnail: imgFunnel
         }
     ]
     render() {

@@ -106,9 +106,8 @@ class GuageComponent extends React.Component {
             this.ctx.closePath();
         }
 
-        // MIDDLE_RADIUS
-        let Middlecell =  2 * Math.PI / this.config.NUMS;
         // middle
+        let Middlecell =  2 * Math.PI / this.config.NUMS;
         for(let i=0;i<=50;i++) {
             this.ctx.beginPath();
             this.ctx.strokeStyle = '#4988FE';
