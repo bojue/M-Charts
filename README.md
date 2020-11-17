@@ -30,6 +30,7 @@ npm run dev
 - 散点图
 - 仪表盘
 - 漏斗图
+- 柱状图
 
 ## TODO List 
 

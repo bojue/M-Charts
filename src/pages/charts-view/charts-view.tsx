@@ -9,7 +9,8 @@ import {
     PieComponent, 
     ScatterComponent, 
     GuageComponent,
-    FunnelComponent
+    FunnelComponent,
+    BarComponent
 } from './../../charts/shape/index';
 
 interface MProps {}
@@ -43,6 +44,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
             case 'funnel':
                 chartComp = <FunnelComponent/>
                 break;
+            case 'bar':
+                chartComp = <BarComponent/>
+                break;   
             default:
                 chartComp = <NoMatch/>
                 break;
