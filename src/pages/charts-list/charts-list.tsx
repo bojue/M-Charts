@@ -40,6 +40,11 @@ class ChartsList extends React.Component<{}, object>  {
             name:"柱状图",
             type:'bar',
             thumbnail: imgBar
+        }, 
+        {
+            name:"雷达图",
+            type:'radar',
+            thumbnail: imgBar
         }
     ]
     render() {
