@@ -8,6 +8,7 @@ let imgScatter = require('./../../assets/imgs/shape/scatter.png');
 let imgGauge = require('./../../assets/imgs/shape/gauge.png');
 let imgFunnel = require('./../../assets/imgs/shape/funnel.png');
 let imgBar = require('./../../assets/imgs/shape/bar.png');
+let imgRadar = require('./../../assets/imgs/shape/radar.png');
 
 class ChartsList extends React.Component<{}, object>  {
     charts:any[] = [
@@ -44,7 +45,7 @@ class ChartsList extends React.Component<{}, object>  {
         {
             name:"雷达图",
             type:'radar',
-            thumbnail: imgBar
+            thumbnail: imgRadar
         }
     ]
     render() {
