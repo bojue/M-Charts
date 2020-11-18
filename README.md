@@ -31,6 +31,7 @@ npm run dev
 - 仪表盘
 - 漏斗图
 - 柱状图
+- 雷达图
 
 ## TODO List 
 
