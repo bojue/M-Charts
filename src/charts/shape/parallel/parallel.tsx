@@ -38,10 +38,12 @@ class ParallelComponent extends React.Component {
                     reverse: true,
                     min:0,
                     max:30,
+                    name:"日期",
                     datas: [
                         30, 25, 20, 25, 20, 15, 10, 5, 0
                     ]
                 },{
+                    name:"AQI",
                     reverse: false,
                     min:0,
                     max:300,
@@ -49,6 +51,7 @@ class ParallelComponent extends React.Component {
                         0, 50, 100, 150, 200, 250, 300
                     ]
                 },{
+                    name:"PM2.5",
                     reverse: false,
                     min:0,
                     max:250,
@@ -56,6 +59,7 @@ class ParallelComponent extends React.Component {
                         0, 50, 100, 150, 200, 250
                     ]
                 },{
+                    name:"PM10",
                     reverse: false,
                     min:0,
                     max:300,
@@ -63,6 +67,7 @@ class ParallelComponent extends React.Component {
                         0, 50, 100, 150, 200, 250, 300
                     ]
                 },{
+                    name:'CO',
                     reverse: false,
                     min:0,
                     max:5,
@@ -70,6 +75,7 @@ class ParallelComponent extends React.Component {
                         0, 1, 2, 3, 4, 5
                     ]
                 },{
+                    name:'NO2',
                     reverse: false,
                     min:0,
                     max:140,
@@ -77,6 +83,7 @@ class ParallelComponent extends React.Component {
                         0, 20, 40, 50, 80, 100, 120, 140
                     ]
                 },{
+                    name:"SO2",
                     reverse: false,
                     min:0,
                     max:80,
@@ -84,6 +91,7 @@ class ParallelComponent extends React.Component {
                         0, 20, 40, 50, 80
                     ]
                 },{
+                    name:"等级",
                     reverse: false,
                     min:0,
                     max:100,
@@ -107,7 +115,6 @@ class ParallelComponent extends React.Component {
             [4,33,7,29,0.33,16,6,"优"],
             [10,185,127,216,2.52,61,27,"中度污染"],
         ]
-
     }
 
     componentWillUnmount() {
@@ -137,14 +144,22 @@ class ParallelComponent extends React.Component {
             let x = sX + width * i;
             this.ctx.moveTo(x , sY);
             this.ctx.lineTo(x , eY);
+            this.drawText(this.config.lines[i].name, x, eY );
             this.drwaLinesLab(this.config.lines[i], x , sY );
         }
         this.ctx.stroke();
         this.drawLine();
     }
 
-    drawLine() {
+    drawText(val: string, x:number, y:number) {
+        this.ctx.textAlign = 'center';
+        this.ctx.font = "12px serif";    
+        this.ctx.fillStyle = '#aaa';
+        this.ctx.textBaseline = 'bottom';
+        this.ctx.fillText(val, x, y - 15 );
+    }
 
+    drawLine() {
         let len = this.data.length;
         this.ctx.beginPath();
         let sX = this.config.startX;
@@ -196,6 +211,8 @@ class ParallelComponent extends React.Component {
     }
 
     drwaLinesLab(config:any, x:number, sY:number) {
+        this.ctx.textAlign = 'left';
+        this.ctx.fillStyle = '#4988FE';
         let obj = config || {
             reverse: true,
             min:0,
@@ -231,7 +248,7 @@ class ParallelComponent extends React.Component {
     }
 
     render() {
-        return  <div className="charts">
+        return  <div className="charts parallel">
                 <canvas id="canvas" width="600" height="500"></canvas>
             </div>
     }
