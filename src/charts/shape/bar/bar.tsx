@@ -112,7 +112,7 @@ class BarComponent extends React.Component {
         this.ctx.textBaseline = 'middle';
         this.ctx.textAlign = "right";
         this.ctx.font = "14px serif";    
-        this.ctx.fillStyle = '#999';
+        this.ctx.fillStyle = '#4988FE';
         for(let i=0;i<= this.config.COUNT;i++) {
             this.ctx.beginPath();
             this.ctx.moveTo(this.config.START_X, this.config.START_Y - this.config.H * i);

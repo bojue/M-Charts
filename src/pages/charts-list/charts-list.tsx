@@ -9,6 +9,7 @@ let imgGauge = require('./../../assets/imgs/shape/gauge.png');
 let imgFunnel = require('./../../assets/imgs/shape/funnel.png');
 let imgBar = require('./../../assets/imgs/shape/bar.png');
 let imgRadar = require('./../../assets/imgs/shape/radar.png');
+let imgParallel = require('./../../assets/imgs/shape/parallel.png');
 
 class ChartsList extends React.Component<{}, object>  {
     charts:any[] = [
@@ -46,7 +47,13 @@ class ChartsList extends React.Component<{}, object>  {
             name:"雷达图",
             type:'radar',
             thumbnail: imgRadar
+        }, 
+        {
+            name:"平行坐标系",
+            type:'parallel',
+            thumbnail: imgParallel
         }
+        
     ]
     render() {
         const items = this.charts.map((item:any) => {

@@ -68,7 +68,7 @@ class RadarComponent extends React.Component {
 
     // drawText
     drawText(val:string ,x: number, y:number, state?:string) {
-        this.ctx.fillStyle = '#99cc00';
+        this.ctx.fillStyle = '#4988FE';
         if(state === 'left') {
             this.ctx.fillRect(x - 5 , y - 10, this.ctx.measureText(val).width + 10, 24);
         }else if(state === 'right') {
@@ -134,7 +134,6 @@ class RadarComponent extends React.Component {
             }
         }
 
-    
 
         // 绘制区域分割
         let len = points.length;

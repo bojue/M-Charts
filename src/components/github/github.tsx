@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import "./github.scss";
-let github = require('./../../assets/imgs/github.png');
+let github = require('./../../assets/imgs/github.svg');
 
 class GitHubComponent extends React.Component {
   

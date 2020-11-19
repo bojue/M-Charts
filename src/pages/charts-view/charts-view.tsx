@@ -11,7 +11,8 @@ import {
     GuageComponent,
     FunnelComponent,
     BarComponent,
-    RadarComponent
+    RadarComponent,
+    ParallelComponent
 } from './../../charts/shape/index';
 
 interface MProps {}
@@ -51,6 +52,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
             case 'radar':
                 chartComp = <RadarComponent/>
                 break;    
+            case 'parallel':
+                chartComp = <ParallelComponent/> 
+                break;
             default:
                 chartComp = <NoMatch/>
                 break;

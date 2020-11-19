@@ -5,6 +5,7 @@ import GuageComponent from './gauge/gauge';
 import FunnelComponent from './funnel/funnel';
 import BarComponent from './bar/bar';
 import RadarComponent from './radar/radar';
+import ParallelComponent from './parallel/parallel';
 
 export { 
     PieComponent, // 饼图
@@ -13,5 +14,6 @@ export {
     GuageComponent, // 仪表盘
     FunnelComponent, // 漏斗图
     BarComponent, // 柱状图
-    RadarComponent // 雷达图
+    RadarComponent, // 雷达图
+    ParallelComponent //
 }

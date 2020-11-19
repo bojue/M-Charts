@@ -1,14 +1,14 @@
 import * as React from 'react';
 import * as ReactDOM from "react-dom";
 import {HashRouter  as Router, Route, Switch, StaticRouter, Link} from 'react-router-dom'
-import './style.scss';
-const icon = require('./assets/imgs/icon.png');
-import Home from './pages/home/Home';
 import ChartsList from './pages/charts-list/charts-list';
 import ChartsView from './pages/charts-view/charts-view';
 import NoMatch  from './pages/error/404';
-import GitHubComponent from './components/github/github';
-
+import GitHubComponent from './components/github/github'
+// img 
+const icon = require('./assets/imgs/icon.png');
+// css
+import './style.scss';
 
 let App = function() {
     return <Router >
