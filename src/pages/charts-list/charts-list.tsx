@@ -10,6 +10,7 @@ let imgFunnel = require('./../../assets/imgs/shape/funnel.png');
 let imgBar = require('./../../assets/imgs/shape/bar.png');
 let imgRadar = require('./../../assets/imgs/shape/radar.png');
 let imgParallel = require('./../../assets/imgs/shape/parallel.png');
+let imgTree = require('./../../assets/imgs/shape/tree.png');
 
 class ChartsList extends React.Component<{}, object>  {
     charts:any[] = [
@@ -52,7 +53,13 @@ class ChartsList extends React.Component<{}, object>  {
             name:"平行坐标系",
             type:'parallel',
             thumbnail: imgParallel
-        }
+        },    
+        {
+            name:"树图",
+            type:'tree',
+            thumbnail: imgTree
+        },
+
         
     ]
     render() {

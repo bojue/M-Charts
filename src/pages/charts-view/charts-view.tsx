@@ -12,7 +12,8 @@ import {
     FunnelComponent,
     BarComponent,
     RadarComponent,
-    ParallelComponent
+    ParallelComponent,
+    TreeComponent
 } from './../../charts/shape/index';
 
 interface MProps {}
@@ -54,6 +55,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
                 break;    
             case 'parallel':
                 chartComp = <ParallelComponent/> 
+                break;
+            case 'tree':
+                chartComp = <TreeComponent/> 
                 break;
             default:
                 chartComp = <NoMatch/>

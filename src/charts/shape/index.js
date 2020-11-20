@@ -6,6 +6,7 @@ import FunnelComponent from './funnel/funnel';
 import BarComponent from './bar/bar';
 import RadarComponent from './radar/radar';
 import ParallelComponent from './parallel/parallel';
+import TreeComponent from './tree/tree';
 
 export { 
     PieComponent, // 饼图
@@ -15,5 +16,6 @@ export {
     FunnelComponent, // 漏斗图
     BarComponent, // 柱状图
     RadarComponent, // 雷达图
-    ParallelComponent //
+    ParallelComponent, // 平行坐标系
+    TreeComponent // 树图
 }
