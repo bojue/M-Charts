@@ -11,6 +11,7 @@ let imgBar = require('./../../assets/imgs/shape/bar.png');
 let imgRadar = require('./../../assets/imgs/shape/radar.png');
 let imgParallel = require('./../../assets/imgs/shape/parallel.png');
 let imgTree = require('./../../assets/imgs/shape/tree.png');
+let imgCandlestick = require('./../../assets/imgs/shape/candlestick.png');
 
 class ChartsList extends React.Component<{}, object>  {
     charts:any[] = [
@@ -63,7 +64,7 @@ class ChartsList extends React.Component<{}, object>  {
         {
             name:"K线图",
             type:'candlestick',
-            thumbnail: imgParallel
+            thumbnail: imgCandlestick
         },     
     ]
     render() {
