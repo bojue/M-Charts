@@ -15,11 +15,6 @@ let imgTree = require('./../../assets/imgs/shape/tree.png');
 class ChartsList extends React.Component<{}, object>  {
     charts:any[] = [
         {
-            name:"饼图",
-            type:'pie',
-            thumbnail: imgPie
-        },
-        {
             name:"折线",
             type:'line',
             thumbnail: imgLine
@@ -30,10 +25,11 @@ class ChartsList extends React.Component<{}, object>  {
             thumbnail: imgScatter
         },
         {
-            name:"仪表盘",
-            type:'guage',
-            thumbnail: imgGauge
-        }, 
+            name:"树图",
+            type:'tree',
+            thumbnail: imgTree
+        },
+
         {
             name:"漏斗图",
             type:'funnel',
@@ -45,22 +41,30 @@ class ChartsList extends React.Component<{}, object>  {
             thumbnail: imgBar
         }, 
         {
+            name:"仪表盘",
+            type:'guage',
+            thumbnail: imgGauge
+        }, 
+        {
             name:"雷达图",
             type:'radar',
             thumbnail: imgRadar
         }, 
         {
+            name:"饼图",
+            type:'pie',
+            thumbnail: imgPie
+        },
+        {
             name:"平行坐标系",
             type:'parallel',
             thumbnail: imgParallel
-        },    
+        },  
         {
-            name:"树图",
-            type:'tree',
-            thumbnail: imgTree
-        },
-
-        
+            name:"K线图",
+            type:'candlestick',
+            thumbnail: imgParallel
+        },     
     ]
     render() {
         const items = this.charts.map((item:any) => {

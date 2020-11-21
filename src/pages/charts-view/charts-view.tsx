@@ -13,7 +13,8 @@ import {
     BarComponent,
     RadarComponent,
     ParallelComponent,
-    TreeComponent
+    TreeComponent,
+    CandlestickComponent
 } from './../../charts/shape/index';
 
 interface MProps {}
@@ -58,6 +59,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
                 break;
             case 'tree':
                 chartComp = <TreeComponent/> 
+                break;
+            case 'candlestick':
+                chartComp = <CandlestickComponent/> 
                 break;
             default:
                 chartComp = <NoMatch/>
