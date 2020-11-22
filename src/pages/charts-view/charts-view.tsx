@@ -14,7 +14,8 @@ import {
     RadarComponent,
     ParallelComponent,
     TreeComponent,
-    CandlestickComponent
+    CandlestickComponent,
+    AreaStackedComponent 
 } from './../../charts/shape/index';
 
 interface MProps {}
@@ -62,6 +63,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
                 break;
             case 'candlestick':
                 chartComp = <CandlestickComponent/> 
+                break;
+            case 'areaStartk':
+                chartComp = <AreaStackedComponent/>
                 break;
             default:
                 chartComp = <NoMatch/>

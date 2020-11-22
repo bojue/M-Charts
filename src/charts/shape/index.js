@@ -8,6 +8,7 @@ import RadarComponent from './radar/radar';
 import ParallelComponent from './parallel/parallel';
 import TreeComponent from './tree/tree';
 import CandlestickComponent from './candlestick/candlestick';
+import  AreaStackedComponent from './area-stacked/area-stacked';
 
 export { 
     PieComponent, // 饼图
@@ -19,5 +20,6 @@ export {
     RadarComponent, // 雷达图
     ParallelComponent, // 平行坐标系
     TreeComponent, // 树图
-    CandlestickComponent
+    CandlestickComponent,  // 面积折叠图
+    AreaStackedComponent // 面积折叠图
 }

@@ -65,7 +65,12 @@ class ChartsList extends React.Component<{}, object>  {
             name:"K线图",
             type:'candlestick',
             thumbnail: imgCandlestick
-        },     
+        },    
+        {
+            name:"面积折叠图",
+            type:'areaStartk',
+            thumbnail: imgCandlestick
+        } 
     ]
     render() {
         const items = this.charts.map((item:any) => {
