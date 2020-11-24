@@ -12,6 +12,7 @@ let imgRadar = require('./../../assets/imgs/shape/radar.png');
 let imgParallel = require('./../../assets/imgs/shape/parallel.png');
 let imgTree = require('./../../assets/imgs/shape/tree.png');
 let imgCandlestick = require('./../../assets/imgs/shape/candlestick.png');
+let imgAreaStartk = require('./../../assets/imgs/shape/area-stacked.png');
 
 class ChartsList extends React.Component<{}, object>  {
     charts:any[] = [
@@ -35,6 +36,11 @@ class ChartsList extends React.Component<{}, object>  {
             name:"漏斗图",
             type:'funnel',
             thumbnail: imgFunnel
+        },    
+        {
+            name:"面积折叠图",
+            type:'areaStartk',
+            thumbnail: imgAreaStartk
         }, 
         {
             name:"柱状图",
@@ -65,12 +71,7 @@ class ChartsList extends React.Component<{}, object>  {
             name:"K线图",
             type:'candlestick',
             thumbnail: imgCandlestick
-        },    
-        {
-            name:"面积折叠图",
-            type:'areaStartk',
-            thumbnail: imgCandlestick
-        } 
+        }
     ]
     render() {
         const items = this.charts.map((item:any) => {
