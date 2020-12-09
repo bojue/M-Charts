@@ -15,7 +15,8 @@ import {
     ParallelComponent,
     TreeComponent,
     CandlestickComponent,
-    AreaStackedComponent 
+    AreaStackedComponent,
+    HeatmapCartesianComponent 
 } from './../../charts/shape/index';
 
 interface MProps {}
@@ -67,6 +68,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
             case 'areaStartk':
                 chartComp = <AreaStackedComponent/>
                 break;
+            case 'heatmapCartesian':
+                chartComp = <HeatmapCartesianComponent/>
+                break;    
             default:
                 chartComp = <NoMatch/>
                 break;

@@ -13,6 +13,7 @@ let imgParallel = require('./../../assets/imgs/shape/parallel.png');
 let imgTree = require('./../../assets/imgs/shape/tree.png');
 let imgCandlestick = require('./../../assets/imgs/shape/candlestick.png');
 let imgAreaStartk = require('./../../assets/imgs/shape/area-stacked.png');
+let imgHeatmapCartesian = require('./../../assets/imgs/shape/heatmap-cartesian.png');
 
 class ChartsList extends React.Component<{}, object>  {
     charts:any[] = [
@@ -71,6 +72,11 @@ class ChartsList extends React.Component<{}, object>  {
             name:"K线图",
             type:'candlestick',
             thumbnail: imgCandlestick
+        },
+        {
+            name:'热力图',
+            type:'heatmapCartesian',
+            thumbnail: imgHeatmapCartesian
         }
     ]
     render() {
