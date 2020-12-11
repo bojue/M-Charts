@@ -4,6 +4,7 @@ import { RouteComponentProps } from "react-router-dom";
 import "./charts-view.scss";
 import RouteBackComponent from '../../components/route-back/route-back';
 import NoMatch  from './../../pages/error/404';
+
 import { 
     LineComponent, 
     PieComponent, 
@@ -16,7 +17,8 @@ import {
     TreeComponent,
     CandlestickComponent,
     AreaStackedComponent,
-    HeatmapCartesianComponent 
+    HeatmapCartesianComponent,
+    CalendarChartsComponent 
 } from './../../charts/shape/index';
 
 interface MProps {}
@@ -70,6 +72,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
                 break;
             case 'heatmapCartesian':
                 chartComp = <HeatmapCartesianComponent/>
+                break;    
+            case 'calendarCharts':
+                chartComp = <CalendarChartsComponent/>
                 break;    
             default:
                 chartComp = <NoMatch/>
