@@ -1,4 +1,5 @@
 
+import { timingSafeEqual } from 'crypto';
 import * as React from 'react';
 import { init } from '../../provider/canvas';
 import "./calendar-charts.scss";
@@ -68,19 +69,34 @@ class CalendarChartsComponent extends React.Component {
         let _h = this.config.H / 5;
         let startY = this.config.startY + this.config.titleHeight;
         let startX = this.config.startX;
-        this.ctx.font = "14px serif";    
+        this.ctx.font = "12px serif";    
         this.ctx.textBaseline = 'top';
         this.ctx.textAlign = "left";
         for(let i=0;i<len;i++) {
             let day = bigin -1 + i;
             let xIndex = day % 7;
             let yIndex = (day - day % 7)/ 7;
-            this.ctx.fillStyle = '#4988FE';
-            this.ctx.fillRect(startX + xIndex * _w, startY + yIndex * _h,  _w, _h);
+            let fir_time =  Math.round(Math.random() * 24);
+            let fir_end_angle= fir_time / 24 * 2 * Math.PI;
             this.ctx.beginPath();
-            this.ctx.fillStyle = '#ffffff';
+            this.ctx.fillStyle = '#00b33c';
+            this.ctx.moveTo(startX + (xIndex + 0.5)* _w, startY + (yIndex + 0.5 + 0.1) * _h );
+            this.ctx.arc(startX + (xIndex + 0.5)* _w, startY + (yIndex + 0.5 + 0.1) * _h ,_w / 3, 0, fir_end_angle);
+            this.ctx.fill();
+
+            this.ctx.beginPath();
+            this.ctx.fillStyle = '#4944FE';
+            this.ctx.moveTo(startX + (xIndex + 0.5)* _w, startY + (yIndex + 0.5 + 0.1) * _h );
+            this.ctx.arc(startX + (xIndex + 0.5)* _w, startY + (yIndex + 0.5 + 0.1) * _h ,_w / 3,  fir_end_angle, 2* Math.PI);
+            this.ctx.fill();
+
+            this.ctx.strokeStyle = '#99cc00';
+            this.ctx.rect(startX + xIndex * _w, startY + yIndex * _h,  _w, _h);
+            this.ctx.stroke();
+            this.ctx.beginPath();
+            this.ctx.fillStyle = '#555555';
             let txt =  i + 1 > 9 ? i + 1 : '0'+(i + 1);
-            this.ctx.fillText( txt, startX + (xIndex + 0.2) * _w, startY + (yIndex + 0.2) * _h);
+            this.ctx.fillText( txt, startX + (xIndex + 0.1) * _w, startY + (yIndex + 0.1) * _h);
             this.ctx.stroke();
         }
 
@@ -96,15 +112,15 @@ class CalendarChartsComponent extends React.Component {
         let endIndex = monthInfo.end;
 
         this.ctx.strokeStyle = '#4944FE';
-        this.ctx.lineWidth = 5;
+        this.ctx.lineWidth = 2;
         this.ctx.beginPath();
         this.ctx.moveTo(sX + (bigin -1) * w, sY); // 绘制起点
         this.ctx.lineTo(sX + 7 * w, sY); // 绘制左上角
         this.ctx.lineTo(sX + 7 * w, sY + yIndex * h); // 绘制左上角到占据满列的左侧
         if(endIndex !== 7) {
             this.ctx.lineTo(sX + (endIndex) * w, sY + yIndex  * h); // 绘制左上角到占据满列的左侧
-            this.ctx.lineTo(sX + (endIndex) * w, sY + (yIndex + 1) * h + 1); // 绘制左上角到占据满列的左侧
-            this.ctx.lineTo(sX , sY + (yIndex +1 ) * h + 1); 
+            this.ctx.lineTo(sX + (endIndex) * w, sY + (yIndex + 1) * h ); // 绘制左上角到占据满列的左侧
+            this.ctx.lineTo(sX , sY + (yIndex +1 ) * h ); 
         }
 
         if(bigin !== 1) {
