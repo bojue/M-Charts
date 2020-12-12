@@ -14,18 +14,25 @@ class HeatmapCartesianComponent extends React.Component {
     hours:any[];
     days:any[];
     colors = [
-        '#EBDEF0',
-        '#D7BDE2',
-        '#D5F5E3',
-        '#ABEBC6',
-        '#82E0AA',
-        '#58D68D',
-        '#3498DB',
-        '#2E86C1',
-        '#2874A6',
-        '#B03A2E',
-        '#943126',
-        '#FF5733'
+        'rgba(204,204,204,0.5)', 
+        'rgba(204, 228, 252, 0.8)',
+        'rgb(204, 228, 252)',
+        'rgb(180, 228, 244)',
+        'rgba(163,218,255,1)',
+        'rgba(30,192,255,0.5)',
+
+
+        'rgba(30,192,255,0.5)',
+        'rgba(30,192,255,0.8)',
+        'rgba(30,192,255,1)',
+        'rgba(3,166,255,0.6)',
+        'rgba(3,166,255,0.8)',
+
+        'rgba(3,166,255,0.8)',
+        'rgba(3,166,255,1)',
+        'rgba(0,128,255,0.8)',
+        'rgba(0,128,255,1)',
+
     ]
     constructor(props:any) {
         super(props);
@@ -142,7 +149,7 @@ class HeatmapCartesianComponent extends React.Component {
             let xNumber = i % xLen;
             let yNumber = parseInt((i / xLen) +'')
             this.ctx.beginPath();
-            this.ctx.fillStyle = this.colors[val] || '#FF5733';
+            this.ctx.fillStyle = this.colors[val] || 'rgba(0,128,255,1)';
             this.ctx.fillRect(x + w * xNumber, y - h - h * yNumber,  w, h);
             this.ctx.fillStyle = '#FFFFFF';
             this.ctx.fillText(val,x + w * xNumber + w /2, y - h /2 - h * yNumber)
