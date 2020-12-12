@@ -1,7 +1,6 @@
 
 import * as React from 'react';
-import { Props } from 'react';
-import { init } from '../../provider/canvas';
+import CanvasComponent from './../../comps/canvas';
 import { lineData } from './../../mock/index';
 import "./line.scss";
 
@@ -25,7 +24,6 @@ class PieComponent extends React.Component {
 
     initCanvas() {
         this.canvas = document.getElementById('canvas');
-        init(this.canvas);
         if(!this.canvas) return;
         this.ctx = this.canvas.getContext('2d');
         this.clientRect = this.canvas.getBoundingClientRect();
@@ -134,9 +132,9 @@ class PieComponent extends React.Component {
 
     }
     render() {
-        return  <div className="charts">
-                <canvas id="canvas" onMouseMove={e => this.moveEvent()} width="600" height="500"></canvas>
-            </div>
+        return <> 
+            <CanvasComponent/>
+        </>
     }
 }
 export default PieComponent;

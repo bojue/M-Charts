@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { init, getEventCoordinates } from '../../provider/canvas';
+import CanvasComponent from './../../comps/canvas';
 import "./radar.scss";
 import { array } from 'prop-types';
 class RadarComponent extends React.Component {
@@ -61,7 +61,6 @@ class RadarComponent extends React.Component {
     initCanvas() {
         this.canvas = document.getElementById('canvas');
         if(!this.canvas) return;
-        init(this.canvas);
         this.ctx = this.canvas.getContext('2d');
         this.clientRect = this.canvas.getBoundingClientRect();
     }
@@ -203,9 +202,7 @@ class RadarComponent extends React.Component {
     }
 
     render() {
-        return  <div className="charts">
-                <canvas id="canvas" width="600" height="500"></canvas>
-            </div>
+        return  <><CanvasComponent/></>
     }
 }
 export default RadarComponent;

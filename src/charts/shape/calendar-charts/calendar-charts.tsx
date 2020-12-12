@@ -63,8 +63,6 @@ class CalendarChartsComponent extends React.Component {
         let monthInfo = this.getCurrentMouthDays();
         let bigin = monthInfo.start;
         let len = monthInfo.days;
-
-        console.log(monthInfo)
         let _w = this.config.W / this.datas.length;
         let _h = this.config.H / 5;
         let startY = this.config.startY + this.config.titleHeight;
