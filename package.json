@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "TODO：基于Canvas的Charts实现",
   "main": "webpack.dev.config.js",
+  "scripts": {
+    "start":"npm run dev",
+    "dev": "webpack serve --config ./webpack.dev.conf.js",
+    "build": "webpack --config ./webpack.prod.conf.js"
+  },
   "dependencies": {
     "@types/react": "^16.9.55",
     "@types/react-dom": "^16.9.8",
@@ -34,10 +39,6 @@
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
-  },
-  "scripts": {
-    "dev": "webpack serve --config ./webpack.dev.conf.js",
-    "build": "webpack --config ./webpack.prod.conf.js"
   },
   "repository": {
     "type": "git",

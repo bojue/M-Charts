@@ -14,7 +14,8 @@ let imgTree = require('./../../assets/imgs/shape/tree.png');
 let imgCandlestick = require('./../../assets/imgs/shape/candlestick.png');
 let imgAreaStartk = require('./../../assets/imgs/shape/area-stacked.png');
 let imgHeatmapCartesian = require('./../../assets/imgs/shape/heatmap-cartesian.png');
-let imgCalendarCharts = require('./../../assets/imgs/shape/calendarCharts.png')
+let imgCalendarCharts = require('./../../assets/imgs/shape/calendarCharts.png');
+let imgRingCharts = require('./../../assets/imgs/shape/ring.png');
 
 class ChartsList extends React.Component<{}, object>  {
     charts:any[] = [
@@ -83,6 +84,11 @@ class ChartsList extends React.Component<{}, object>  {
             name:'日历坐标系',
             type:'calendarCharts',
             thumbnail: imgCalendarCharts
+        },
+        {
+            name:'24色环',
+            type:'ring',
+            thumbnail: imgRingCharts          
         }
        
     ]

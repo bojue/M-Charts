@@ -38,7 +38,7 @@ npm run dev
 11. K线图
 12. 热力图
 13. 日历坐标系
-
+14. 24色环
 ## TODO List 
 
 - 实现基础Chart Demo展示(Doing) 

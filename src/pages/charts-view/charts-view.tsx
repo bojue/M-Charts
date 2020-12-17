@@ -18,7 +18,8 @@ import {
     CandlestickComponent,
     AreaStackedComponent,
     HeatmapCartesianComponent,
-    CalendarChartsComponent 
+    CalendarChartsComponent,
+    RingComponent 
 } from './../../charts/shape/index';
 
 interface MProps {}
@@ -76,6 +77,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
             case 'calendarCharts':
                 chartComp = <CalendarChartsComponent/>
                 break;    
+            case 'ring':
+                chartComp = <RingComponent/>
+                break;
             default:
                 chartComp = <NoMatch/>
                 break;

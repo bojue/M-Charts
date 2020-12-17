@@ -11,6 +11,7 @@ import CandlestickComponent from './candlestick/candlestick';
 import AreaStackedComponent from './area-stacked/area-stacked';
 import HeatmapCartesianComponent from './heatmap-cartesian/heatmap-cartesian';
 import CalendarChartsComponent from './calendar-charts/calendar-charts';
+import RingComponent from './ring/ring';
 
 export { 
     PieComponent, // 饼图
@@ -25,5 +26,6 @@ export {
     CandlestickComponent,  // 面积折叠图
     AreaStackedComponent, // 面积折叠图
     HeatmapCartesianComponent, // 热力图
-    CalendarChartsComponent // 日历坐标系
+    CalendarChartsComponent, // 日历坐标系
+    RingComponent //色环
 }

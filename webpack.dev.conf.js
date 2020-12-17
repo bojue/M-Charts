@@ -7,6 +7,9 @@ module.exports = {
     app:'./src/index.tsx',
     vendor: ['react', 'react-dom']
   },
+  optimization:{
+
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath:'',

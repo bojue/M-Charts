@@ -19,14 +19,11 @@ class HeatmapCartesianComponent extends React.Component {
         'rgb(180, 228, 244)',
         'rgba(163,218,255,1)',
         'rgba(30,192,255,0.5)',
-
-
         'rgba(30,192,255,0.5)',
         'rgba(30,192,255,0.8)',
         'rgba(30,192,255,1)',
         'rgba(3,166,255,0.6)',
         'rgba(3,166,255,0.8)',
-
         'rgba(3,166,255,0.8)',
         'rgba(3,166,255,1)',
         'rgba(0,128,255,0.8)',
