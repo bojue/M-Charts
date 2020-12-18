@@ -8,6 +8,7 @@ class BarNagativeComponent extends React.Component {
     clientRect:any;
     config: any;
     datas:any[];
+    data:any[];
     colors = [];
 
     constructor(props:any) {
@@ -22,21 +23,27 @@ class BarNagativeComponent extends React.Component {
 
     initData() {
         this.config = {
-            startX:50.5,
-            startY:40.5,
-            titleHeight: 40,
+            startX:40.5,
+            startY:55.5,
             H: 400, // 高度
             W:490, // 宽度
+            labelWidth: 8,
+            labelCount:5,
+            vals:[-0.4,-0.2, 0, 0.2, 0.4, 0.6]
         }
-        this.datas = [
-            '一',
-            '二',
-            '三',
-            '四',
-            '五',
-            '六',
-            '日'
-        ];
+        this.datas = ['ten', 'nine', 'eight', 'seven', 'six', 'five', 'four', 'three', 'two', 'one']
+        this.data = [
+            -0.17,
+            -0.29,
+            0.2, 
+            0.44,
+            -0.23,
+            0.13,
+            -0.17,
+            0.47,
+            -0.36,
+            0.18
+        ]
     }
 
     componentWillUnmount() {
@@ -53,110 +60,81 @@ class BarNagativeComponent extends React.Component {
 
 
     drawInit() {
-        this.drawTitle(); // 绘制标题
+        this.drawTitle();
         this.drawData(); // 绘制数据
     }
 
-    drawData() {    
-        let monthInfo = this.getCurrentMouthDays();
-        let bigin = monthInfo.start;
-        let len = monthInfo.days;
-        let _w = this.config.W / this.datas.length;
-        let _h = this.config.H / 5;
-        let startY = this.config.startY + this.config.titleHeight;
-        let startX = this.config.startX;
-        this.ctx.font = "12px serif";    
-        this.ctx.textBaseline = 'top';
-        this.ctx.textAlign = "left";
-        for(let i=0;i<len;i++) {
-            let day = bigin -1 + i;
-            let xIndex = day % 7;
-            let yIndex = (day - day % 7)/ 7;
-            let fir_time =  Math.round(Math.random() * 24);
-            let fir_end_angle= fir_time / 24 * 2 * Math.PI;
+    drawData() {   
+
+        // 绘制虚线
+        let len = this.config.labelCount;
+        let w = this.config.W / len ;
+        this.ctx.setLineDash([5,15]);
+        this.ctx.strokeStyle = 'rgba(0,0, 0, 0.3)';
+        this.ctx.lineWidth = 1;
+        for(let i=0;i<=len;i++) {
             this.ctx.beginPath();
-            this.ctx.fillStyle = '#00b33c';
-            this.ctx.moveTo(startX + (xIndex + 0.5)* _w, startY + (yIndex + 0.5 + 0.1) * _h );
-            this.ctx.arc(startX + (xIndex + 0.5)* _w, startY + (yIndex + 0.5 + 0.1) * _h ,_w / 3, 0, fir_end_angle);
-            this.ctx.fill();
-
-            this.ctx.beginPath();
-            this.ctx.fillStyle = '#4944FE';
-            this.ctx.moveTo(startX + (xIndex + 0.5)* _w, startY + (yIndex + 0.5 + 0.1) * _h );
-            this.ctx.arc(startX + (xIndex + 0.5)* _w, startY + (yIndex + 0.5 + 0.1) * _h ,_w / 3,  fir_end_angle, 2* Math.PI);
-            this.ctx.fill();
-
-            this.ctx.strokeStyle = '#99cc00';
-            this.ctx.rect(startX + xIndex * _w, startY + yIndex * _h,  _w, _h);
-            this.ctx.stroke();
-            this.ctx.beginPath();
-            this.ctx.fillStyle = '#555555';
-            let txt =  i + 1 > 9 ? i + 1 : '0'+(i + 1);
-            this.ctx.fillText( txt, startX + (xIndex + 0.1) * _w, startY + (yIndex + 0.1) * _h);
-            this.ctx.stroke();
+            let x = this.config.startX + w * i;
+            this.ctx.moveTo( x , this.config.startY);
+            this.ctx.lineTo( x , this.config.startY + this.config.H);
+            this.ctx.stroke();  
         }
 
-        this.drawBorder(startX, startY, _w, _h); // 绘制边框,实际开发可以绘制在Data里面，减少计算过程
-        this.ctx.stroke();
-    }
-
-    drawBorder(sX:number, sY:number, w:number, h:number) {
-        let monthInfo = this.getCurrentMouthDays();
-        let bigin = monthInfo.start;
-        let days = monthInfo.days;
-        let yIndex = (days + bigin-1) % 7; // 计算最后一天左侧整列
-        let endIndex = monthInfo.end;
-
-        this.ctx.strokeStyle = '#4944FE';
-        this.ctx.lineWidth = 2;
-        this.ctx.beginPath();
-        this.ctx.moveTo(sX + (bigin -1) * w, sY); // 绘制起点
-        this.ctx.lineTo(sX + 7 * w, sY); // 绘制左上角
-        this.ctx.lineTo(sX + 7 * w, sY + yIndex * h); // 绘制左上角到占据满列的左侧
-        if(endIndex !== 7) {
-            this.ctx.lineTo(sX + (endIndex) * w, sY + yIndex  * h); // 绘制左上角到占据满列的左侧
-            this.ctx.lineTo(sX + (endIndex) * w, sY + (yIndex + 1) * h ); // 绘制左上角到占据满列的左侧
-            this.ctx.lineTo(sX , sY + (yIndex +1 ) * h ); 
-        }
-
-        if(bigin !== 1) {
-            this.ctx.lineTo(sX ,  sY + h); // 绘制左上角到占据满列的左侧  
-            this.ctx.lineTo(sX + (bigin -1) * w, sY + h)
-        }
-        this.ctx.closePath();
-        this.ctx.stroke();
-    }
-
-    getCurrentMouthDays() {
-        let data = new Date('2020-12-01T03:24:00');
-        let currMonthDays = new Date(data.getFullYear(), data.getMonth() + 1, 0).getDate(); // 当月天数
-        let currMonthStartDay = new Date(data.getFullYear(), data.getMonth() , 1).getDay(); // 当月开始星期
-        let currMonthEndDay =  new Date(data.getFullYear(), data.getMonth() , currMonthDays).getDay(); // 当月结束星期
-        return {
-            start: currMonthStartDay,
-            end: currMonthEndDay,
-            days: currMonthDays
-        }
-    }
-    
-    drawTitle() {
-        let len = this.datas.length;
-        let _w = this.config.W / len;
-        this.ctx.fillStyle = '#555555';
-        this.ctx.textBaseline = 'middle';
+        // 绘制data
+        this.ctx.font = "16px serif";   
         this.ctx.textAlign = "center";
-        this.ctx.beginPath();
-        this.ctx.font = "12px serif";    
-        let tit = '2020年12月';
-        this.ctx.fillText(tit, this.config.startX + (_w * 3.5) , this.config.startY - 30);
-        this.ctx.font = "16px serif";    
-        for(let i = 0;i<len;i++) {
-            let _txt = '星期' + this.datas[i];
-            this.ctx.fillText(_txt, this.config.startX + (i+0.5) * _w , this.config.startY);
+        this.ctx.textBaseline = 'middle';
+        let dataLen = this.datas.length;
+        let h = this.config.H  / dataLen;
+        let ZeroX = this.config.startX + w * 2;
+        for(let i=0;i<dataLen;i++) {
+            let lab = this.datas[this.datas.length -1 -i];
+            let val = this.data[i];
+            this.ctx.fillStyle = i % 2 === 0 ? '#99cc00' : '#4988fe';
+            let _sY =  h * i + 0.1 * h+ this.config.startY ;
+            let _h = h * 0.8;
+            if(val < 0) {
+                let _sX = w / 0.2 * (0 - val);
+                console.log(_sY, i)
+                this.ctx.fillRect(ZeroX - _sX, _sY, _sX, _h);
+                this.ctx.fillStyle = '#ffffff'
+                this.ctx.fillText( lab,  ZeroX -  _sX /2 ,  h * i + 0.5 * h + this.config.startY );
+            }else {
+                let _sX = w / 0.2 * val;
+                this.ctx.fillRect(ZeroX, _sY, _sX, _h);
+                this.ctx.fillStyle = '#ffffff'
+                this.ctx.fillText( lab,  ZeroX +  _sX /2 ,  h * i + 0.5 * h + this.config.startY );
+            }
+            
         }
-        this.ctx.stroke();
     }
 
+    drawTitle() {
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = 'rgba(0,0, 0, 0.8)';
+        this.ctx.lineWidth = 1;
+
+        // 绘制横轴
+        this.ctx.moveTo(this.config.startX, this.config.startY );
+        this.ctx.lineTo(this.config.startX + this.config.W , this.config.startY);
+        this.ctx.stroke();  
+
+        // 绘制Label 
+        let len = this.config.labelCount;
+        let w = this.config.W / len ;
+        this.ctx.font = "14px serif";    
+        this.ctx.fillStyle = 'rgba(0,0, 0, 0.8)';
+        this.ctx.textAlign = "center";
+        for(let i=0;i<=len;i++) {
+            this.ctx.beginPath();
+            let x = this.config.startX + w * i;
+            this.ctx.moveTo( x , this.config.startY - this.config.labelWidth );
+            this.ctx.lineTo( x , this.config.startY);
+            this.ctx.fillText( this.config.vals[i], x , this.config.startY - 2 * this.config.labelWidth  );
+            this.ctx.stroke();  
+        }
+
+    }
 
 
     render() {

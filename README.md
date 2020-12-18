@@ -25,6 +25,8 @@ npm run dev
 
 ## 已经实现Chart类型
 
+[组价代码](https://github.com/bojue/M-Charts/tree/main/src/charts/shape)
+
 1. 饼图图
 2. 折线图
 3. 散点图
@@ -39,6 +41,7 @@ npm run dev
 12. 热力图
 13. 日历坐标系
 14. 24色环
+14. 交错正负标签
 ## TODO List 
 
 - 实现基础Chart Demo展示(Doing) 

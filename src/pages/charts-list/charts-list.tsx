@@ -16,7 +16,7 @@ let imgAreaStartk = require('./../../assets/imgs/shape/area-stacked.png');
 let imgHeatmapCartesian = require('./../../assets/imgs/shape/heatmap-cartesian.png');
 let imgCalendarCharts = require('./../../assets/imgs/shape/calendarCharts.png');
 let imgRingCharts = require('./../../assets/imgs/shape/ring.png');
-
+let imgBarNegative = require('./../../assets/imgs/shape/bar-negative.png');
 class ChartsList extends React.Component<{}, object>  {
     charts:any[] = [
         {
@@ -54,6 +54,16 @@ class ChartsList extends React.Component<{}, object>  {
             name:"仪表盘",
             type:'guage',
             thumbnail: imgGauge
+        },
+        {
+            name:'24色环',
+            type:'ring',
+            thumbnail: imgRingCharts          
+        },
+        {
+            name:'交错正负轴标签',
+            type:'barNegative',
+            thumbnail: imgBarNegative          
         }, 
         {
             name:"雷达图",
@@ -84,17 +94,7 @@ class ChartsList extends React.Component<{}, object>  {
             name:'日历坐标系',
             type:'calendarCharts',
             thumbnail: imgCalendarCharts
-        },
-        {
-            name:'24色环',
-            type:'ring',
-            thumbnail: imgRingCharts          
-        },
-        {
-            name:'交错正负轴标签',
-            type:'barNegative',
-            thumbnail: imgRingCharts          
-        },
+        }
        
     ]
     render() {
