@@ -89,7 +89,12 @@ class ChartsList extends React.Component<{}, object>  {
             name:'24色环',
             type:'ring',
             thumbnail: imgRingCharts          
-        }
+        },
+        {
+            name:'交错正负轴标签',
+            type:'barNegative',
+            thumbnail: imgRingCharts          
+        },
        
     ]
     render() {

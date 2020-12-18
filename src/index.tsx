@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import {HashRouter  as Router, Route, Switch, StaticRouter, Link} from 'react-router-dom'
 import ChartsList from './pages/charts-list/charts-list';
 import ChartsView from './pages/charts-view/charts-view';
-import NoMatch  from './pages/error/404';
+import NoMatch  from './pages/404/page/404';
 import GitHubComponent from './components/github/github'
 // img 
 const icon = require('./assets/imgs/icon.png');

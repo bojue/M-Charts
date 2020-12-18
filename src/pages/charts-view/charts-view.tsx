@@ -3,7 +3,7 @@ import * as React from 'react';
 import { RouteComponentProps } from "react-router-dom";
 import "./charts-view.scss";
 import RouteBackComponent from '../../components/route-back/route-back';
-import NoMatch  from './../../pages/error/404';
+import NoMatchChart  from '../404/chart/no-match-chart';
 
 import { 
     LineComponent, 
@@ -19,7 +19,8 @@ import {
     AreaStackedComponent,
     HeatmapCartesianComponent,
     CalendarChartsComponent,
-    RingComponent 
+    RingComponent,
+    BarNagativeComponent 
 } from './../../charts/shape/index';
 
 interface MProps {}
@@ -80,8 +81,11 @@ class ChartsView extends React.Component<ChartsProps, MState> {
             case 'ring':
                 chartComp = <RingComponent/>
                 break;
+            case 'barNegative':
+                chartComp = <BarNagativeComponent/>
+                break;
             default:
-                chartComp = <NoMatch/>
+                chartComp = <NoMatchChart/>
                 break;
         }
         return  <div className="charts">
