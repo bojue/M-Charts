@@ -14,7 +14,7 @@ let App = function() {
     return <Router >
         <div className="nav">
             <a href="#/" className="item">
-                <img src={icon && icon.default} alt=""/>
+                <img src={icon!.default} alt=""/>
                 
             </a>
             <a href="#/charts" className="item tit">

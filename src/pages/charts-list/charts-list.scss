@@ -4,6 +4,7 @@
     display: flex;
     flex-wrap: wrap;
     .charts-item {
+        position: relative;
         width: 200px;
         height: 200px;
         background: #f9f9f9;
@@ -17,7 +18,14 @@
             line-height: 30px;
             font-size: 16px;
         }
-        img {
+        .icon {
+            position: absolute;
+            right: 8px;
+            top: 4px;
+            width: 18px;
+            height: 18px;
+        }
+        .thumbnail {
             width: 180px;
             height: 150px;
             cursor: pointer;

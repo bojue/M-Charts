@@ -2,6 +2,8 @@
 import * as React from 'react';
 import "./charts-list.scss";
 import { Link } from 'react-router-dom'
+
+let imgEventIcon = require('./../../assets/imgs/event.svg');
 let imgPie = require('./../../assets/imgs/shape/pie.png');
 let imgLine = require('./../../assets/imgs/shape/line.png');
 let imgScatter = require('./../../assets/imgs/shape/scatter.png');
@@ -17,8 +19,14 @@ let imgHeatmapCartesian = require('./../../assets/imgs/shape/heatmap-cartesian.p
 let imgCalendarCharts = require('./../../assets/imgs/shape/calendarCharts.png');
 let imgRingCharts = require('./../../assets/imgs/shape/ring.png');
 let imgBarNegative = require('./../../assets/imgs/shape/bar-negative.png');
+interface Charts {
+    name: string, // 组件名称
+    type: string, // 组件类型
+    thumbnail: any, // 缩略图
+    eventBool?:boolean // 支持鼠标事件
+}
 class ChartsList extends React.Component<{}, object>  {
-    charts:any[] = [
+    charts:Charts[] = [
         {
             name:"折线",
             type:'line',
@@ -73,7 +81,8 @@ class ChartsList extends React.Component<{}, object>  {
         {
             name:"饼图",
             type:'pie',
-            thumbnail: imgPie
+            thumbnail: imgPie,
+            eventBool:true // 支持事件
         },
         {
             name:"平行坐标系",
@@ -100,8 +109,16 @@ class ChartsList extends React.Component<{}, object>  {
     render() {
         const items = this.charts.map((item:any) => {
            return  <div className="charts-item">
-               <Link to={`/detail/${item.type}`}><div className="name">{item.name}</div>
-               <img src={item.thumbnail && item.thumbnail.default} alt=""/> </Link>
+               <Link to={`/detail/${item.type}`}>
+                <div className="name">{item.name}</div>
+                {
+                    item.eventBool
+                    && <img className="icon" src={imgEventIcon!.default} alt="支持事件" title="支持事件"/>
+                }
+
+                <img className="thumbnail" 
+                    src={item.thumbnail!.default} 
+                    alt={item.name} title={item.name}/> </Link>
            </div>
 
         })

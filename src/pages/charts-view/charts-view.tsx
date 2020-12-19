@@ -37,7 +37,7 @@ class ChartsView extends React.Component<ChartsProps, MState> {
     }
     render() {
         let chartComp ;
-        let type = this.parms  && this.parms.type;
+        let type = this.parms!.type;
         switch(type) {
             case 'pie':
                 chartComp = <PieComponent/>
