@@ -63,10 +63,10 @@ class FunnelComponent extends React.Component {
                 this.ctx.lineTo(startX + tanRatio * _H, startY + _H);
                 this.ctx.lineTo(startX - tanRatio * _H, startY + _H);
             }else {
-                this.ctx.moveTo(startX  + tanRatio * _H * i, startY + _H * i);
+                this.ctx.moveTo(startX  + tanRatio * _H * i, startY + _H * i + 2);
                 this.ctx.lineTo(startX + tanRatio * _H * (i + 1), startY + _H  * (i + 1));
                 this.ctx.lineTo(startX - tanRatio * _H * (i + 1), startY + _H  * (i + 1));
-                this.ctx.lineTo(startX - tanRatio * _H * i, startY + _H  * i);
+                this.ctx.lineTo(startX - tanRatio * _H * i, startY + _H  * i + 2) ;
             }
             this.ctx.fill();
             this.ctx.closePath();
@@ -75,8 +75,6 @@ class FunnelComponent extends React.Component {
             this.ctx.textBaseline = 'middle';
             this.ctx.textAlign = 'center';
             this.ctx.fillText(this.data[i].name, startX, startY + _H  *  i + _H / 2 );
-         
-
         }
 
     }
