@@ -103,6 +103,11 @@ class ChartsList extends React.Component<{}, object>  {
             name:'日历坐标系',
             type:'calendarCharts',
             thumbnail: imgCalendarCharts
+        },
+        {
+            name:'六边形矩阵',
+            type:'hexagon',
+            thumbnail: imgCalendarCharts
         }
        
     ]

@@ -13,6 +13,7 @@ import HeatmapCartesianComponent from './heatmap-cartesian/heatmap-cartesian';
 import CalendarChartsComponent from './calendar-charts/calendar-charts';
 import RingComponent from './ring/ring';
 import BarNagativeComponent from './bar-negative/bar-negative';
+import HexagonComponent from './hexagon/hexagon';
 
 export { 
     PieComponent, // 饼图
@@ -29,5 +30,6 @@ export {
     HeatmapCartesianComponent, // 热力图
     CalendarChartsComponent, // 日历坐标系
     RingComponent, //色环
-    BarNagativeComponent // 交错正负轴标签
+    BarNagativeComponent, // 交错正负轴标签
+    HexagonComponent
 }

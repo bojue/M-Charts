@@ -20,7 +20,8 @@ import {
     HeatmapCartesianComponent,
     CalendarChartsComponent,
     RingComponent,
-    BarNagativeComponent 
+    BarNagativeComponent,
+    HexagonComponent 
 } from './../../charts/shape/index';
 
 interface MProps {}
@@ -83,6 +84,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
                 break;
             case 'barNegative':
                 chartComp = <BarNagativeComponent/>
+                break;
+            case 'hexagon':
+                chartComp = <HexagonComponent></HexagonComponent>    
                 break;
             default:
                 chartComp = <NoMatchChart/>

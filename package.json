@@ -4,7 +4,7 @@
   "description": "TODO：基于Canvas的Charts实现",
   "main": "webpack.dev.config.js",
   "scripts": {
-    "start":"npm run dev",
+    "start": "npm run dev",
     "dev": "webpack serve --config ./webpack.dev.conf.js",
     "build": "webpack --config ./webpack.prod.conf.js"
   },
