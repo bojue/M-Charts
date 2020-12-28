@@ -34,7 +34,8 @@ class HexagonComponent extends React.Component {
             H: 405, //高度
             START_X: 100, // 起点X
             START_Y: 100, // 起点Y
-            RADIUS:50 //半径
+            RADIUS:50, //半径
+            COLUMN:2 // 列数
         }
     }
 
@@ -42,8 +43,13 @@ class HexagonComponent extends React.Component {
         this.ctx.beginPath();
         this.ctx.fillStyle = '#ffffff';
         this.ctx.strokeStyle ='#4988FE';
-        this.ctx.lineWidth = 4;
-        this.drawHeagon(100, 100);
+        this.ctx.lineWidth = 2;
+        for(let i=0;i<this.config.COLUMN;i++) {
+            let x = this.config.START_X + this.config.RADIUS * Math.cos(Math.PI /3) * i * 2;
+            let y = this.config.START_Y;
+            this.drawHeagon(x, y);
+        }
+
         this.ctx.fill();
     }
 
