@@ -9,6 +9,7 @@ class HexagonComponent extends React.Component {
     clientRect:any;
     config: any;
     data:any[];
+    cols:any[];
     vals:number[];
     constructor(props:any) {
         super(props);
@@ -38,12 +39,19 @@ class HexagonComponent extends React.Component {
             COLUMN:5, // 列数
             ROW:5 //
         }
+        this.cols = [
+            'red',
+            '#22D3AA',
+            '#00b33c',
+            '#99cc00',
+            '#4944FE'
+        ]
     }
 
     drawInit() {
         this.ctx.lineWidth = 3;
         this.ctx.fillStyle = '#ffffff';
-        this.ctx.strokeStyle ='#4988FE';
+        this.ctx.strokeStyle ='#ffffff';
         this.drawColumn();
     }
 
@@ -70,6 +78,7 @@ class HexagonComponent extends React.Component {
         let beginPoint_x:number = 0; 
         let beginPoint_y:number = 0;
         this.ctx.beginPath();
+        this.ctx.fillStyle = this.getCols();
         for(let i=0;i<6;i++) {
             let _angle = angle * i + angle_begin;
             let _x = (this.config.RADIUS * Math.cos(_angle) + x).toFixed(2);
@@ -89,8 +98,10 @@ class HexagonComponent extends React.Component {
         this.ctx.fill();
     }
 
-
-
+    getCols() {
+        let index = parseInt((Math.random()*5 ) + '', 10)
+        return this.cols[index];
+    }
 
     render() {
         return <> 
