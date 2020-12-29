@@ -40,7 +40,6 @@ class HexagonComponent extends React.Component {
             ROW:5 //
         }
         this.cols = [
-            'red',
             '#22D3AA',
             '#00b33c',
             '#99cc00',
@@ -99,7 +98,7 @@ class HexagonComponent extends React.Component {
     }
 
     getCols() {
-        let index = parseInt((Math.random()*5 ) + '', 10)
+        let index = parseInt((Math.random()*4 ) + '', 10)
         return this.cols[index];
     }
 
