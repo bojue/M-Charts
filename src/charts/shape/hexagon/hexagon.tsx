@@ -35,26 +35,36 @@ class HexagonComponent extends React.Component {
             START_X: 100, // 起点X
             START_Y: 100, // 起点Y
             RADIUS:50, //半径
-            COLUMN:2 // 列数
+            COLUMN:5, // 列数
+            ROW:5 //
         }
     }
 
     drawInit() {
-        this.ctx.beginPath();
+        this.ctx.lineWidth = 3;
         this.ctx.fillStyle = '#ffffff';
         this.ctx.strokeStyle ='#4988FE';
-        this.ctx.lineWidth = 2;
-        for(let i=0;i<this.config.COLUMN;i++) {
-            let x = this.config.START_X + this.config.RADIUS * Math.cos(Math.PI /3) * i * 2;
-            let y = this.config.START_Y;
-            this.drawHeagon(x, y);
-        }
-
-        this.ctx.fill();
+        this.drawColumn();
     }
 
+    drawColumn() {
+        for(let i=0;i<this.config.ROW;i++) {
+            let x = i % 2 === 1 ? this.config.START_X + this.config.RADIUS * Math.cos(Math.PI /6) : this.config.START_X;
+            let y = this.config.START_Y + this.config.RADIUS * ( 1 + Math.sin(Math.PI /6)) * i ;
+            this.drawRow(x, y);
+        }
+    }
+
+    drawRow(startX:number, startY:number) {
+        for(let i=0;i<this.config.COLUMN;i++) {
+            let x = startX + this.config.RADIUS * Math.cos(Math.PI /6) * i * 2 ;
+            let y = startY;
+            this.drawHeagon(x, y);
+        }
+    }
 
     drawHeagon(x:number,y:number) {
+        this.ctx.beginPath();
         let angle = Math.PI / 3;
         let angle_begin = Math.PI / 6;
         let beginPoint_x:number = 0; 
@@ -76,6 +86,7 @@ class HexagonComponent extends React.Component {
             }
             this.ctx.stroke();
         }
+        this.ctx.fill();
     }
 
 
