@@ -64,7 +64,6 @@ class HexagonComponent extends React.Component {
 
     drawColumn(startX:number, startY:number, row:number) {
         let _column = row % 2 === 0 ? this.config.COLUMN_MAX : this.config.COLUMN_MAX - 1 ;
-        console.log(_column, row)
         for(let i=0;i<_column;i++) {
             let x = startX + this.config.RADIUS * Math.cos(Math.PI /6) * i * 2 ;
             let y = startY;

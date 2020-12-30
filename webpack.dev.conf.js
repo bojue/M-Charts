@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
+const chunkChangeWebpackPlugin = require('./chunk-change-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -47,6 +48,9 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
         "React": "react",
+    }),
+    new chunkChangeWebpackPlugin({
+      
     }),
     new htmlWebpackPlugin({
         template: path.join(__dirname, './public/index.html'),
