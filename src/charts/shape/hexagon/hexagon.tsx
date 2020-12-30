@@ -36,7 +36,7 @@ class HexagonComponent extends React.Component {
             START_X: 100, // 起点X
             START_Y: 100, // 起点Y
             RADIUS:50, //半径
-            COLUMN:5, // 列数
+            COLUMN_MAX:5, // 列数
             ROW:5 //
         }
         this.cols = [
@@ -51,19 +51,21 @@ class HexagonComponent extends React.Component {
         this.ctx.lineWidth = 3;
         this.ctx.fillStyle = '#ffffff';
         this.ctx.strokeStyle ='#ffffff';
-        this.drawColumn();
+        this.drawRow();
     }
 
-    drawColumn() {
+    drawRow() {
         for(let i=0;i<this.config.ROW;i++) {
             let x = i % 2 === 1 ? this.config.START_X + this.config.RADIUS * Math.cos(Math.PI /6) : this.config.START_X;
             let y = this.config.START_Y + this.config.RADIUS * ( 1 + Math.sin(Math.PI /6)) * i ;
-            this.drawRow(x, y);
+            this.drawColumn(x, y,i);
         }
     }
 
-    drawRow(startX:number, startY:number) {
-        for(let i=0;i<this.config.COLUMN;i++) {
+    drawColumn(startX:number, startY:number, row:number) {
+        let _column = row % 2 === 0 ? this.config.COLUMN_MAX : this.config.COLUMN_MAX - 1 ;
+        console.log(_column, row)
+        for(let i=0;i<_column;i++) {
             let x = startX + this.config.RADIUS * Math.cos(Math.PI /6) * i * 2 ;
             let y = startY;
             this.drawHeagon(x, y);

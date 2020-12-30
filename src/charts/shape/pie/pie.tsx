@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { init, getEventCoordinates } from '../../provider/canvas';
+import { init, getEventCoordinates } from './../../provider/canvas';
 import { pieData } from './../../mock/index'
 import "./pie.scss";
 
