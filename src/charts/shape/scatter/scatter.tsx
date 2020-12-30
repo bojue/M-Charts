@@ -1,6 +1,8 @@
 
 import * as React from 'react';
 import CanvasComponent from './../../comps/canvas';
+import { getColByRandom } from './../../provider/getColorByRandom';
+import { getSizeByRandom } from './../../provider/getSizeByRandom';
 import "./scatter.scss";
 class ScatterComponent extends React.Component {
     canvas:any;
@@ -14,7 +16,6 @@ class ScatterComponent extends React.Component {
     yLen:number;
     yCellVal:number;
     yCellWidth:number;
-    symbolSize:number;
     constructor(props:any) {
         super(props);
     }
@@ -53,7 +54,7 @@ class ScatterComponent extends React.Component {
         this.yLen = 7;
         this.yCellVal=65;
         this.yCellWidth = 2;
-        this.symbolSize = 5;
+
     }
 
     componentWillUnmount() {
@@ -139,20 +140,30 @@ class ScatterComponent extends React.Component {
         let len = this.data.length;
         for(let i=0;i<len;i++) {
             this.ctx.beginPath();
-            this.ctx.strokeStyle = '#4988fe';
-            this.ctx.fillStyle = '#4988FE';
+            let _col = this.getColor();
+            this.ctx.strokeStyle = _col;
+            this.ctx.fillStyle = _col;
 
             let item = this.data[i];
             if(!Array.isArray(item)) return;
             let _currW = item[0] / this.xCellWidth * this.xCellVal;
             let _currH = item[1] / this.yCellWidth * this.yCellVal;
-            this.ctx.arc(this.config.START_X + _currW + 0.5,this.config.START_Y + this.config.H - _currH + 0.5,this.symbolSize,0,2*Math.PI);
+            let _r = this.getSize();
+            this.ctx.arc(this.config.START_X + _currW + 0.5,this.config.START_Y + this.config.H - _currH + 0.5, _r,0,2*Math.PI);
             this.ctx.fill(); 
             this.ctx.stroke();    
         }
 
         this.ctx.stroke();        
         this.ctx.closePath();
+    }
+
+    getColor() {
+        return getColByRandom();
+    }
+
+    getSize() {
+        return getSizeByRandom(20, 8);
     }
 
     render() {

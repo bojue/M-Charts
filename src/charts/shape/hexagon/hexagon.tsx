@@ -1,6 +1,7 @@
 
 import * as React from 'react';
 import CanvasComponent from './../../comps/canvas';
+import { getColByRandom } from './../../provider/getColorByRandom';
 import "./hexagon.scss";
 
 class HexagonComponent extends React.Component {
@@ -9,7 +10,6 @@ class HexagonComponent extends React.Component {
     clientRect:any;
     config: any;
     data:any[];
-    cols:any[];
     vals:number[];
     constructor(props:any) {
         super(props);
@@ -39,12 +39,6 @@ class HexagonComponent extends React.Component {
             COLUMN_MAX:5, // 列数
             ROW:5 //
         }
-        this.cols = [
-            '#22D3AA',
-            '#00b33c',
-            '#99cc00',
-            '#4944FE'
-        ]
     }
 
     drawInit() {
@@ -99,8 +93,7 @@ class HexagonComponent extends React.Component {
     }
 
     getCols() {
-        let index = parseInt((Math.random()*4 ) + '', 10)
-        return this.cols[index];
+        return getColByRandom();
     }
 
     render() {
