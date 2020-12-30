@@ -1,15 +1,22 @@
 const path = require('path');
 const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
-const chunkChangeWebpackPlugin = require('./chunk-change-webpack-plugin');
+const chunkChangeWebpackPlugin = require('chunk-change-time-webpack-plugin');
 
 module.exports = {
   entry: {
     app:'./src/index.tsx',
     vendor: ['react', 'react-dom']
   },
+  performance: {
+    hints: false
+  },
   optimization:{
-
+    splitChunks: {
+      minSize: 10000,
+      maxSize: 244000,
+    },
+    runtimeChunk:true
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -50,7 +57,7 @@ module.exports = {
         "React": "react",
     }),
     new chunkChangeWebpackPlugin({
-      
+      logName:'testTime'
     }),
     new htmlWebpackPlugin({
         template: path.join(__dirname, './public/index.html'),
@@ -60,6 +67,7 @@ module.exports = {
   ],
   watch:true,
   devServer: {
+    stats: false,
     contentBase: path.join(__dirname, 'public'),
     port: 3100,
     hot:true,
@@ -67,6 +75,6 @@ module.exports = {
     historyApiFallback: true,
     compress: false,
     open:"Chrome",
-    openPage:''
+    openPage:'',
   },
 };
