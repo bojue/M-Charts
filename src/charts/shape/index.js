@@ -14,6 +14,7 @@ import CalendarChartsComponent from './calendar-charts/calendar-charts';
 import RingComponent from './ring/ring';
 import BarNagativeComponent from './bar-negative/bar-negative';
 import HexagonComponent from './hexagon/hexagon';
+import SunburstComponent from './sunburst/sunburst';
 
 export { 
     PieComponent, // 饼图
@@ -31,5 +32,6 @@ export {
     CalendarChartsComponent, // 日历坐标系
     RingComponent, //色环
     BarNagativeComponent, // 交错正负轴标签
-    HexagonComponent
+    HexagonComponent, // 六边形图
+    SunburstComponent // 旭日图
 }

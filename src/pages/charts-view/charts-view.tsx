@@ -21,7 +21,8 @@ import {
     CalendarChartsComponent,
     RingComponent,
     BarNagativeComponent,
-    HexagonComponent 
+    HexagonComponent,
+    SunburstComponent 
 } from './../../charts/shape/index';
 
 interface MProps {}
@@ -86,7 +87,10 @@ class ChartsView extends React.Component<ChartsProps, MState> {
                 chartComp = <BarNagativeComponent/>
                 break;
             case 'hexagon':
-                chartComp = <HexagonComponent></HexagonComponent>    
+                chartComp = <HexagonComponent/>    
+                break;
+            case 'sunburse':
+                chartComp = <SunburstComponent/>
                 break;
             default:
                 chartComp = <NoMatchChart/>

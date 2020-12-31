@@ -109,8 +109,12 @@ class ChartsList extends React.Component<{}, object>  {
             name:'六边形矩阵',
             type:'hexagon',
             thumbnail: imgHexagon
+        },
+        {            
+            name:'旭日图',
+            type:'sunburse',
+            thumbnail: imgHexagon
         }
-       
     ]
     render() {
         const items = this.charts.map((item:any) => {
