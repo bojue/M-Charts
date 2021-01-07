@@ -57,7 +57,7 @@ module.exports = {
         "React": "react",
     }),
     new chunkChangeWebpackPlugin({
-      logName:'testTime'
+      name:'chunk-change-time-webpack-plugin'
     }),
     new htmlWebpackPlugin({
         template: path.join(__dirname, './public/index.html'),
