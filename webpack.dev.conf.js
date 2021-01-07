@@ -74,7 +74,7 @@ module.exports = {
     host:"localhost",
     historyApiFallback: true,
     compress: true,
-    open:'Google Chrome',
+    open:true,
     openPage:'index.html',
   },
 };

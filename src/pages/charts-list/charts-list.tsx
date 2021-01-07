@@ -20,6 +20,7 @@ let imgCalendarCharts = require('./../../assets/imgs/shape/calendarCharts.png');
 let imgRingCharts = require('./../../assets/imgs/shape/ring.png');
 let imgBarNegative = require('./../../assets/imgs/shape/bar-negative.png');
 let imgHexagon = require('./../../assets/imgs/shape/hexagon.png');
+let imgSunburst = require('./../../assets/imgs/shape/sunburst.png');
 interface Charts {
     name: string, // 组件名称
     type: string, // 组件类型
@@ -113,7 +114,7 @@ class ChartsList extends React.Component<{}, object>  {
         {            
             name:'旭日图',
             type:'sunburse',
-            thumbnail: imgHexagon
+            thumbnail: imgSunburst
         }
     ]
     render() {
