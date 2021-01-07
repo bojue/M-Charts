@@ -73,8 +73,8 @@ module.exports = {
     hot:true,
     host:"localhost",
     historyApiFallback: true,
-    compress: false,
-    open:"Chrome",
-    openPage:'',
+    compress: true,
+    open:'Google Chrome',
+    openPage:'index.html',
   },
 };
