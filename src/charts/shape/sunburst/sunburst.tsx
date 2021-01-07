@@ -32,24 +32,39 @@ class SunburstComponent extends React.Component {
         this.data = [
             {
                 val:10,
+                level:1,
                 child:[
                     {
+                        level:3,
                         val:7,
                         child:[]
                     },{
+                        level:2,
                         val:3,
                         child:[],
                     }
                 ]
             },{
+                level:1,
                 val:6,
                 child:[],
             }, {
+                level:1,
                 val:15,
                 child:[{
+                    level:2,
                     val:7,
-                    child:[]
+                    child:[{
+                        level:2,
+                        val:7,
+                        child:[]
+                    },{
+                        level:2,
+                        val:7,
+                        child:[]
+                    }]
                 },{
+                    level:2,
                     val:3,
                     child:[],
                 }]
@@ -95,7 +110,7 @@ class SunburstComponent extends React.Component {
         }
 
         for(let i=0;i<len;i++) {
-            this.ctx.fillStyle = level ? [        
+            this.ctx.fillStyle = level == 1 ? [        
                 '#4988FE',
                 '#22D3AA',
                 '#00b33c',
@@ -108,7 +123,7 @@ class SunburstComponent extends React.Component {
          
             let _currAngle = angle * (item.val / count) ;
             if(Array.isArray(item['child']) && item['child'].length) {
-                this.drawData(item['child'],1, curr_angle, _currAngle);
+                this.drawData(item['child'],item.level, curr_angle, _currAngle);
             }
             this.ctx.beginPath();
             this.ctx.moveTo(this.config.COORDINATE_X, this.config.COORDINATE_Y);
