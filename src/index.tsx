@@ -9,7 +9,6 @@ import GitHubComponent from './components/github/github'
 const icon = require('./assets/imgs/icon.png');
 // css
 import './style.scss';
-
 let App = function() {
     return <Router >
         <div className="nav">
@@ -21,7 +20,6 @@ let App = function() {
                 <span>M-Charts</span>
             </a>
             <GitHubComponent/>
-
         </div>
         <Switch>
             <Route exact path="/" component={ChartsList}/>
