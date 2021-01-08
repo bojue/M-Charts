@@ -22,7 +22,8 @@ import {
     RingComponent,
     BarNagativeComponent,
     HexagonComponent,
-    SunburstComponent 
+    SunburstComponent, 
+    BoxPlotComponent
 } from './../../charts/shape/index';
 
 interface MProps {}
@@ -91,6 +92,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
                 break;
             case 'sunburse':
                 chartComp = <SunburstComponent/>
+                break;
+            case 'boxplot': 
+                chartComp = <BoxPlotComponent/>
                 break;
             default:
                 chartComp = <NoMatchChart/>

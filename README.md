@@ -44,6 +44,7 @@ npm run dev
 15. 交错正负标签
 16. 六边形矩阵
 17. 日旭图
+18. 盒须图
 ## TODO List 
 
 - 实现基础Chart Demo展示(Doing) 

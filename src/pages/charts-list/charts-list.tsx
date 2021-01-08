@@ -21,6 +21,7 @@ let imgRingCharts = require('./../../assets/imgs/shape/ring.png');
 let imgBarNegative = require('./../../assets/imgs/shape/bar-negative.png');
 let imgHexagon = require('./../../assets/imgs/shape/hexagon.png');
 let imgSunburst = require('./../../assets/imgs/shape/sunburst.png');
+let imgBoxPlot = require('./../../assets/imgs/shape/boxplot.png');
 interface Charts {
     name: string, // 组件名称
     type: string, // 组件类型
@@ -110,6 +111,11 @@ class ChartsList extends React.Component<{}, object>  {
             name:'六边形矩阵',
             type:'hexagon',
             thumbnail: imgHexagon
+        },
+        {            
+            name:'盒须图',
+            type:'boxplot',
+            thumbnail: imgBoxPlot
         },
         {            
             name:'旭日图',
