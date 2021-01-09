@@ -45,6 +45,7 @@ npm run dev
 16. 六边形矩阵
 17. 日旭图
 18. 盒须图
+19. 极地图
 ## TODO List 
 
 - 实现基础Chart Demo展示(Doing) 

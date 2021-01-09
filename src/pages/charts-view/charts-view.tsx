@@ -23,7 +23,8 @@ import {
     BarNagativeComponent,
     HexagonComponent,
     SunburstComponent, 
-    BoxPlotComponent
+    BoxPlotComponent,
+    PolarAreaComponent
 } from './../../charts/shape/index';
 
 interface MProps {}
@@ -95,6 +96,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
                 break;
             case 'boxplot': 
                 chartComp = <BoxPlotComponent/>
+                break;
+            case 'polarArea':
+                chartComp = <PolarAreaComponent/>
                 break;
             default:
                 chartComp = <NoMatchChart/>

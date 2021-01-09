@@ -16,6 +16,7 @@ import BarNagativeComponent from './bar-negative/bar-negative';
 import HexagonComponent from './hexagon/hexagon';
 import SunburstComponent from './sunburst/sunburst';
 import BoxPlotComponent from './boxplot/boxplot';
+import PolarAreaComponent from './polar-area/polar-area';
 
 export { 
     PieComponent, // 饼图
@@ -35,5 +36,6 @@ export {
     BarNagativeComponent, // 交错正负轴标签
     HexagonComponent, // 六边形图
     SunburstComponent, // 旭日图
-    BoxPlotComponent // 盒箱图
+    BoxPlotComponent, // 盒箱图
+    PolarAreaComponent // 极地图
 }

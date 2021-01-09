@@ -22,6 +22,7 @@ let imgBarNegative = require('./../../assets/imgs/shape/bar-negative.png');
 let imgHexagon = require('./../../assets/imgs/shape/hexagon.png');
 let imgSunburst = require('./../../assets/imgs/shape/sunburst.png');
 let imgBoxPlot = require('./../../assets/imgs/shape/boxplot.png');
+let imgPolarArea = require('./../../assets/imgs/shape/polar-area.png');
 interface Charts {
     name: string, // 组件名称
     type: string, // 组件类型
@@ -121,6 +122,11 @@ class ChartsList extends React.Component<{}, object>  {
             name:'旭日图',
             type:'sunburse',
             thumbnail: imgSunburst
+        },
+        {            
+            name:'极地图',
+            type:'polarArea',
+            thumbnail: imgPolarArea
         }
     ]
     render() {
