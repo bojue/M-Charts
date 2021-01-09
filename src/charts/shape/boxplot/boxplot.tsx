@@ -155,20 +155,17 @@ class BoxPlotComponent extends React.Component {
     _drawFillRectByData(sY:number,eY:number, sx:number, i:number, w:number, state: string) {
         let sy = sY/ 40000 * this.config.H ;
         let ey = eY/ 40000 * this.config.H ;
-        let _width = 2;
-        // '#4988FE',
-        // '#22D3AA',
-        // '#00b33c',
-        // '#99cc00',
-        // '#4944FE'
-        this.ctx.fillStyle = state === 'upper' ? "#FFC28D": '#9ECCB8';
-        // this.ctx.fillStyle = '#99cc00';
+        let _width = 1;
+        let _innderWidth = 2;
         this.ctx.beginPath();
         let _x = sx + w * i + w / 2;
         let _y = this.config.START_Y - sy;
         let _w = this.config.PADDING * 2;
         let _h = sy - ey;
+        this.ctx.fillStyle = '#ffffff';
         this.ctx.fillRect(_x - this.config.PADDING + _width , _y + _width, _w - 2 * _width, _h - 2 * _width);
+        this.ctx.fillStyle = state === 'upper' ? "#FFC28D": '#9ECCB8';
+        this.ctx.fillRect(_x - this.config.PADDING + _innderWidth , _y + _innderWidth, _w - 2 * _innderWidth, _h - 2 * _innderWidth);
         this.ctx.fill();
         this.ctx.stroke();  
     }
