@@ -83,7 +83,7 @@ class BoxPlotComponent extends React.Component {
             obj.Q1 = _data[3];
             obj.lower = _data[4];
 
-            this.ctx.strokeStyle = '#4988FE';
+            this.ctx.strokeStyle = '#4944FE';
             this.ctx.lineWidth = 1;
             
             // 绘制矩形
@@ -155,13 +155,14 @@ class BoxPlotComponent extends React.Component {
     _drawFillRectByData(sY:number,eY:number, sx:number, i:number, w:number, state: string) {
         let sy = sY/ 40000 * this.config.H ;
         let ey = eY/ 40000 * this.config.H ;
-        let _width = 1;
+        let _width = 2;
         // '#4988FE',
         // '#22D3AA',
         // '#00b33c',
         // '#99cc00',
         // '#4944FE'
-        this.ctx.fillStyle = state === 'upper' ? "#00b33c": '#22D3AA';
+        this.ctx.fillStyle = state === 'upper' ? "#FFC28D": '#9ECCB8';
+        // this.ctx.fillStyle = '#99cc00';
         this.ctx.beginPath();
         let _x = sx + w * i + w / 2;
         let _y = this.config.START_Y - sy;

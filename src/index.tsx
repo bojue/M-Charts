@@ -1,11 +1,12 @@
 import * as React from 'react';
 import * as ReactDOM from "react-dom";
-import {HashRouter  as Router, Route, Switch, StaticRouter, Link} from 'react-router-dom'
+import {HashRouter  as Router, Route, Switch, StaticRouter, Link} from 'react-router-dom';
+
+// img 
 import ChartsList from './pages/charts-list/charts-list';
 import ChartsView from './pages/charts-view/charts-view';
 import NoMatch  from './pages/404/page/404';
 import GitHubComponent from './components/github/github'
-// img 
 const icon = require('./assets/imgs/icon.png');
 // css
 import './style.scss';
