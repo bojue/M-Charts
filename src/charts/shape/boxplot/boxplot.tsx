@@ -121,8 +121,8 @@ class BoxPlotComponent extends React.Component {
         this.ctx.beginPath();
         let _x = sx + w * i + w / 2;
         let _y = this.config.START_Y - y;
-        this.ctx.moveTo(_x - this.config.PADDING, _y );
-        this.ctx.lineTo(_x + this.config.PADDING, _y);
+        this.ctx.moveTo(_x - this.config.PADDING * 2, _y );
+        this.ctx.lineTo(_x + this.config.PADDING * 2, _y);
         this.ctx.stroke();  
     }
 
@@ -145,9 +145,9 @@ class BoxPlotComponent extends React.Component {
         this.ctx.beginPath();
         let _x = sx + w * i + w / 2;
         let _y = this.config.START_Y - Q1Y;
-        let _w = this.config.PADDING * 2;
+        let _w = this.config.PADDING * 4;
         let _h = Q1Y - Q3Y;
-        this.ctx.strokeRect(_x - this.config.PADDING, _y, _w, _h);
+        this.ctx.strokeRect(_x - this.config.PADDING * 2, _y, _w, _h);
         this.ctx.stroke();  
     }
 
@@ -160,12 +160,12 @@ class BoxPlotComponent extends React.Component {
         this.ctx.beginPath();
         let _x = sx + w * i + w / 2;
         let _y = this.config.START_Y - sy;
-        let _w = this.config.PADDING * 2;
+        let _w = this.config.PADDING * 4;
         let _h = sy - ey;
         this.ctx.fillStyle = '#ffffff';
-        this.ctx.fillRect(_x - this.config.PADDING + _width , _y + _width, _w - 2 * _width, _h - 2 * _width);
+        this.ctx.fillRect(_x - this.config.PADDING * 2 + _width , _y + _width, _w - 2 * _width, _h - 2 * _width);
         this.ctx.fillStyle = state === 'upper' ? "#FFC28D": '#9ECCB8';
-        this.ctx.fillRect(_x - this.config.PADDING + _innderWidth , _y + _innderWidth, _w - 2 * _innderWidth, _h - 2 * _innderWidth);
+        this.ctx.fillRect(_x - this.config.PADDING * 2 + _innderWidth , _y + _innderWidth, _w - 2 * _innderWidth, _h - 2 * _innderWidth);
         this.ctx.fill();
         this.ctx.stroke();  
     }
