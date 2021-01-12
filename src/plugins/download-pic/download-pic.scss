@@ -1,0 +1,14 @@
+.download-png {
+    position: absolute;
+    left: 605px;
+    top: 124px;
+    .icon {
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        opacity: 0.8;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

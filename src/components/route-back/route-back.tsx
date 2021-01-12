@@ -1,6 +1,5 @@
 
 import * as React from 'react';
-import { Props } from 'react';
 import "./route-back.scss";
 let backIcon = require('./../../assets/imgs/return.png');
 

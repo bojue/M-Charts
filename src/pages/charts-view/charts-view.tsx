@@ -27,6 +27,11 @@ import {
     PolarAreaComponent
 } from './../../charts/shape/index';
 
+import {
+    DownLoadPicture
+} from './../../plugins/index';
+
+
 interface MProps {}
 interface MState {}
 type ChartsProps = MProps & RouteComponentProps;
@@ -106,6 +111,7 @@ class ChartsView extends React.Component<ChartsProps, MState> {
         }
         return  <div className="charts">
                     <RouteBackComponent/>
+                    <DownLoadPicture/>
                     {chartComp}
                 </div>
         }
