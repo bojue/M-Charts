@@ -1,10 +1,30 @@
 
 import * as React from 'react';
+import { useLocation } from 'react-router-dom'
 let imgDownloadPng = require('./../../assets/imgs/download.svg');
 import "./download-pic.scss";
-
-class DownLoadPicture extends React.Component<{}, object>  {
+class DownLoadPicture extends React.Component  {
     MIME = 'image/png';
+    route_param:string;
+
+    constructor(props:any) {
+        super(props);
+    }
+
+    componentDidMount() {
+        let locaHash = location.hash;
+        let reg = new RegExp(`#/detail/`);
+        if(locaHash.match(reg)) {
+            let arr = locaHash.split('#/detail/')
+            if(arr.length > 1) {
+                this.route_param = arr[1];
+            }
+        }
+    }
+
+    getParams() {
+        let routeMath = useLocation() ;
+    }
 
     savePic() {
         let picDom:any = document.getElementById('canvas');
@@ -15,7 +35,7 @@ class DownLoadPicture extends React.Component<{}, object>  {
         let imgUrl = picDom.toDataURL(this.MIME);
         let _link = document.createElement('a');
         _link.style.display = 'none';
-        _link.download = 'download';
+        _link.download = this.route_param || 'download';
         _link.href = imgUrl;
         _link.dataset.downloadurl = `${this.MIME}:${_link.download}:${_link.href}`;
         document.body.appendChild(_link);
