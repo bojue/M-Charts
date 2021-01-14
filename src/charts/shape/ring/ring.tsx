@@ -2,6 +2,8 @@
 import * as React from 'react';
 import CanvasComponent from '../../comps/canvas';
 import "./ring.scss";
+import { CONFIG } from './../../config/color_def';
+import { ringData } from './../../mock/index';
 
 class RingComponent extends React.Component {
     canvas:any;
@@ -9,7 +11,7 @@ class RingComponent extends React.Component {
     clientRect:any;
     config: any;
     data:any[];
-    colsArr:any[];
+    cols:any[];
     constructor(props:any) {
         super(props);
     }
@@ -21,44 +23,15 @@ class RingComponent extends React.Component {
     }
 
     initData() {
+        this.cols = CONFIG.DEF_COLS;
         this.config = {
             RADIUS: 180, // 圆饼半径
-            INNTER_RADIUS: 60, // 内部圆的半径
-            RADIUS_VAL: 20, // 小圆半径
-            COORDINATE_X:250, // x坐标
+            RADIUS_INNER: 130, // 内部圆形
+            COORDINATE_X:300, // x坐标
             COORDINATE_Y:250, // y坐标
-            NUMS:75,
             START_ANGLE:0 ,// 起始角度
         }
-        this.data = [
-            '#00A099',
-            '#00A0C3',
-            '#00A2EA',
-            '#008AD2',
-            '#0067B7',
-            '#00479F',
-            '#141B8C',
-
-            '#611087',
-            '#960185',
-            '#C00082',
-            '#E70080',
-            '#E7006A',
-            '#E90050',
-            '#E90034',
-            
-            '#E6000a',
-            '#EC6000',
-            '#F29800',
-            '#FDC900',
-            '#FFEF00',
-            
-            '#D1DD00',
-            '#8EC614',
-            '#1DAE37',
-            '#009A44',
-            '#009A44'
-        ]
+        this.data = ringData;
     }
 
     initCanvas() {
@@ -73,49 +46,47 @@ class RingComponent extends React.Component {
     }
     
     initDraw() {
-        let ctx = this.ctx;
-        ctx.beginPath();
-        ctx.save();
-        ctx.translate(this.config.COORDINATE_X,this.config.COORDINATE_Y);
+        let _count = this.getCount();
+        let _sAngle = this.config.START_ANGLE;
         let len = this.data.length;
-        let _angle = 2*Math.PI / len;
+        let ctx = this.ctx;
+        this.ctx.lineWidth = 2;
+        ctx.strokeStyle = '#ffffff';
 
         for(let i=0;i<len;i++) {
-            let cols = this.data[i];
+            let item = this.data[i];
+            let _currAngle = item.val / _count * Math.PI * 2;
+            let _eAngle = _sAngle + _currAngle;
+            ctx.fillStyle = this.cols[i];
             ctx.beginPath();
-            ctx.fillStyle = cols;
-            ctx.strokeStyle = cols;
-            let angle = _angle * i;
-            let _x =  (this.config.RADIUS )* Math.cos(angle);
-            let _y = (this.config.RADIUS )* Math.sin(angle);
-            ctx.arc(_x, _y,this.config.RADIUS_VAL,0,2*Math.PI);
+            ctx.moveTo(this.config.COORDINATE_X, this.config.COORDINATE_Y );
+            ctx.arc(this.config.COORDINATE_X, this.config.COORDINATE_Y ,this.config.RADIUS,_sAngle,  _eAngle);
+            _sAngle = _eAngle;
             ctx.stroke();
             ctx.fill();
         }
 
-        // 绘制指针
-        for(let i=0;i<4;i++) {
-            ctx.beginPath();
-            ctx.lineWidth = 1;
-            ctx.strokeStyle = this.data[i * 6];
-            ctx.moveTo(this.config.INNTER_RADIUS + this.config.RADIUS_VAL * 0.2 ,0);
-            ctx.lineTo(this.config.RADIUS - this.config.RADIUS_VAL * 1.2, 0);
-            ctx.rotate(2 / 4 * Math.PI);
-            ctx.stroke();    
-        }
+        this.clearArea();
+    }
 
-        // 绘制文字
+    clearArea() {
+        let ctx = this.ctx;
+        ctx.fillStyle = '#ffffff';
         ctx.beginPath();
-        ctx.fillStyle = '#979797';
-        ctx.strokeStyle = '#979797';
-        ctx.arc(0,0,this.config.INNTER_RADIUS,0,2*Math.PI);
+        ctx.moveTo(this.config.COORDINATE_X, this.config.COORDINATE_Y );
+        ctx.arc(this.config.COORDINATE_X, this.config.COORDINATE_Y ,this.config.RADIUS_INNER,0, Math.PI * 2);
         ctx.stroke();
         ctx.fill();
-        this.ctx.fillStyle = 'white';
-        this.ctx.font = "36px serif";
-        this.ctx.textBaseline = 'middle';
-        this.ctx.textAlign = 'center';
-        this.ctx.fillText('24色', 0,0 );
+    }
+
+    getCount() {
+        let list = this.data;
+        let count = 0;
+        let len = list.length;
+        for(let i=0;i<list.length;i++) {
+            count += list[i].val;
+        }
+        return count;
     }
    
     render() {

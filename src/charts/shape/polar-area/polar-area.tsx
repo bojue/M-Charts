@@ -23,7 +23,7 @@ class PolarAreaComponent extends React.Component {
     initData() {
         this.config = {
             R:20,
-            COORDINATE_X:250, // x坐标
+            COORDINATE_X:300, // x坐标
             COORDINATE_Y:250, // y坐标
             ANGULAR: Math.PI /3, //转角角度
             COUNT:10, // 维度个数
@@ -32,11 +32,16 @@ class PolarAreaComponent extends React.Component {
          
         }
         this.cols = [
-            'rgba(255, 99, 132, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(201, 203, 207,1)',
-            'rgba(255, 205, 86,1)',
-            'rgba(54, 162, 235,1)'
+            // 'rgba(255, 99, 132, 1)',
+            // 'rgba(75, 192, 192, 1)',
+            // 'rgba(201, 203, 207,1)',
+            // 'rgba(255, 205, 86,1)',
+            // 'rgba(54, 162, 235,1)'
+            '#4988FE',
+            '#22D3AA',
+            '#00b33c',
+            '#99cc00',
+            '#4944FE'
         ]
         this.data = [52, 72, 54, 58, 74]
     }

@@ -1,11 +1,13 @@
-import { pieData } from './pie/pie';
-import { lineData } from './line/line';
-import { heatmapCartesianData } from './heatmap-cartesian/heatmap-cartesian';
-import { sunburstData } from './sunburst/sunburst';
+import { pieData } from './shape/pie';
+import { lineData } from './shape/line';
+import { heatmapCartesianData } from './shape/heatmap-cartesian';
+import { sunburstData } from './shape/sunburst';
+import { ringData } from './shape/ring';
 
 export { 
     pieData, 
     lineData,
     heatmapCartesianData,
-    sunburstData
+    sunburstData,
+    ringData
 }

@@ -68,7 +68,7 @@ class ChartsList extends React.Component<{}, object>  {
             thumbnail: imgGauge
         },
         {
-            name:'24色环',
+            name:'环图',
             type:'ring',
             thumbnail: imgRingCharts          
         },
