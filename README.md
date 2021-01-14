@@ -25,7 +25,7 @@ npm run dev
 
 ## 已经实现Chart类型
 
-[组价代码](https://github.com/bojue/M-Charts/tree/main/src/charts/shape)
+[组件code](https://github.com/bojue/M-Charts/tree/main/src/charts/shape)
 
 1. 饼图图
 2. 折线图
@@ -42,7 +42,7 @@ npm run dev
 13. 日历坐标系
 14. 环图
 15. 交错正负标签
-16. 六边形矩阵
+16. 蜂窝矩阵
 17. 日旭图
 18. 盒须图
 19. 极地图
