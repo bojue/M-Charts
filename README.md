@@ -46,6 +46,7 @@ npm run dev
 17. 日旭图
 18. 盒须图
 19. 极地图
+19. 玉珏图
 ## TODO List 
 
 - 实现基础Chart Demo展示(Doing) 

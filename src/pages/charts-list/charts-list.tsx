@@ -23,6 +23,7 @@ let imgHexagon = require('./../../assets/imgs/shape/hexagon.png');
 let imgSunburst = require('./../../assets/imgs/shape/sunburst.png');
 let imgBoxPlot = require('./../../assets/imgs/shape/boxplot.png');
 let imgPolarArea = require('./../../assets/imgs/shape/polar-area.png');
+let imgRedialBar = require('./../../assets/imgs/shape/radialBar.png');
 interface Charts {
     name: string, // 组件名称
     type: string, // 组件类型
@@ -30,7 +31,7 @@ interface Charts {
     eventBool?:boolean // 支持鼠标事件
 }
 class ChartsList extends React.Component<{}, object>  {
-    charts:Charts[] = [
+    charts:Charts[] =  [
         {
             name:"折线",
             type:'line',
@@ -68,7 +69,7 @@ class ChartsList extends React.Component<{}, object>  {
             thumbnail: imgGauge
         },
         {
-            name:'环图',
+            name:'24色环',
             type:'ring',
             thumbnail: imgRingCharts          
         },
@@ -127,8 +128,13 @@ class ChartsList extends React.Component<{}, object>  {
             name:'极地图',
             type:'polarArea',
             thumbnail: imgPolarArea
+        },
+        {            
+            name:'玉珏图',
+            type:'radialBar',
+            thumbnail: imgRedialBar
         }
-    ]
+    ];
     render() {
         const items = this.charts.map((item:any) => {
            return  <div className="charts-item">

@@ -24,7 +24,8 @@ import {
     HexagonComponent,
     SunburstComponent, 
     BoxPlotComponent,
-    PolarAreaComponent
+    PolarAreaComponent,
+    RadialBarComponent
 } from './../../charts/shape/index';
 
 import {
@@ -104,6 +105,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
                 break;
             case 'polarArea':
                 chartComp = <PolarAreaComponent/>
+                break;
+            case 'radialBar':
+                chartComp = <RadialBarComponent/>
                 break;
             default:
                 chartComp = <NoMatchChart/>
