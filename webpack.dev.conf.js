@@ -69,12 +69,10 @@ module.exports = {
   devServer: {
     stats: false,
     contentBase: path.join(__dirname, 'public'),
-    port: 4000,
+    port: 3000,
     hot:true,
     host:"localhost",
-    historyApiFallback: true,
     compress: true,
     open:true,
-    openPage:'index.html',
   },
 };
