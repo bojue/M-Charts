@@ -1,15 +1,17 @@
-let cols = [
-    '#22D3AA',
-    '#00b33c',
-    '#99cc00',
-    '#4988FE'
-]
+import { CONFIG } from './../config/color_def';
+
+let cols = CONFIG.DEF_COLS;
 
 let getColByRandom = function() {
     let index = parseInt((Math.random() * cols.length ) + '', 10)
     return cols[index];
 }
 
+let getColByIndex = function(index:number) {
+    return cols[index];
+}
+
 export {
-    getColByRandom
+    getColByRandom,
+    getColByIndex
 }

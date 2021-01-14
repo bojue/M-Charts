@@ -2,6 +2,7 @@
 import * as React from 'react';
 import CanvasComponent from './../../comps/canvas';
 import { heatmapCartesianData } from './../../mock/index';
+import { getColByIndex } from './../../provider/getColorByRandom';
 import "./heatmap-cartesian.scss";
 
 class HeatmapCartesianComponent extends React.Component {
@@ -12,24 +13,6 @@ class HeatmapCartesianComponent extends React.Component {
     data:any[];
     hours:any[];
     days:any[];
-    colors = [
-        'rgba(204,204,204,0.5)', 
-        'rgba(204, 228, 252, 0.8)',
-        'rgb(204, 228, 252)',
-        'rgb(180, 228, 244)',
-        'rgba(163,218,255,1)',
-        'rgba(30,192,255,0.5)',
-        'rgba(30,192,255,0.5)',
-        'rgba(30,192,255,0.8)',
-        'rgba(30,192,255,1)',
-        'rgba(3,166,255,0.6)',
-        'rgba(3,166,255,0.8)',
-        'rgba(3,166,255,0.8)',
-        'rgba(3,166,255,1)',
-        'rgba(0,128,255,0.8)',
-        'rgba(0,128,255,1)',
-
-    ]
     constructor(props:any) {
         super(props);
     }
@@ -144,12 +127,17 @@ class HeatmapCartesianComponent extends React.Component {
             let xNumber = i % xLen;
             let yNumber = parseInt((i / xLen) +'')
             this.ctx.beginPath();
-            this.ctx.fillStyle = this.colors[val] || 'rgba(0,128,255,1)';
+            this.ctx.fillStyle = this.getCols(val);
             this.ctx.fillRect(x + w * xNumber, y - h - h * yNumber,  w, h);
             this.ctx.fillStyle = '#FFFFFF';
             this.ctx.fillText(val,x + w * xNumber + w /2, y - h /2 - h * yNumber)
             this.ctx.fill();
         }
+    }
+
+    getCols(value:number) {
+        let cols = getColByIndex(parseInt(Math.min(value, 11) / 3 + ""));
+        return cols || '#ffffff';
     }
 
     render() {
