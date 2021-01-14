@@ -69,7 +69,7 @@ class ChartsList extends React.Component<{}, object>  {
             thumbnail: imgGauge
         },
         {
-            name:'24色环',
+            name:'环图',
             type:'ring',
             thumbnail: imgRingCharts          
         },
@@ -133,7 +133,13 @@ class ChartsList extends React.Component<{}, object>  {
             name:'玉珏图',
             type:'radialBar',
             thumbnail: imgRedialBar
+        },
+        {            
+            name:'基本弧线图',
+            type:'arcDiagram',
+            thumbnail: imgRedialBar
         }
+        
     ];
     render() {
         const items = this.charts.map((item:any) => {

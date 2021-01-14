@@ -4,6 +4,7 @@ import { heatmapCartesianData } from './shape/heatmap-cartesian';
 import { sunburstData } from './shape/sunburst';
 import { ringData } from './shape/ring';
 import { radialBarData } from './shape/radial-bar';
+import { arcDiagramData } from './shape/arc-diagram';
 
 export { 
     pieData, 
@@ -11,5 +12,6 @@ export {
     heatmapCartesianData,
     sunburstData,
     ringData,
-    radialBarData
+    radialBarData,
+    arcDiagramData
 }

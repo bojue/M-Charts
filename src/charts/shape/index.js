@@ -18,6 +18,7 @@ import SunburstComponent from './sunburst/sunburst';
 import BoxPlotComponent from './boxplot/boxplot';
 import PolarAreaComponent from './polar-area/polar-area';
 import RadialBarComponent from './radial-bar/radial-bar';
+import ArcDiagramComponent from './arc-diagram/arc-diagram';
 
 export { 
     PieComponent, // 饼图
@@ -39,5 +40,6 @@ export {
     SunburstComponent, // 旭日图
     BoxPlotComponent, // 盒箱图
     PolarAreaComponent, // 极地图
-    RadialBarComponent
+    RadialBarComponent, // 玉珏图
+    ArcDiagramComponent // 基础弧线图
 }

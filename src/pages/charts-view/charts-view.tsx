@@ -25,7 +25,8 @@ import {
     SunburstComponent, 
     BoxPlotComponent,
     PolarAreaComponent,
-    RadialBarComponent
+    RadialBarComponent,
+    ArcDiagramComponent
 } from './../../charts/shape/index';
 
 import {
@@ -108,6 +109,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
                 break;
             case 'radialBar':
                 chartComp = <RadialBarComponent/>
+                break;
+            case 'arcDiagram':
+                chartComp = <ArcDiagramComponent/>
                 break;
             default:
                 chartComp = <NoMatchChart/>
