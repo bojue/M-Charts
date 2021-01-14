@@ -1,5 +1,6 @@
 import * as React from 'react';
 import CanvasComponent from '../../comps/canvas';
+import { CONFIG} from './../../config/color_def';
 import "./boxplot.scss";
 
 class BoxPlotComponent extends React.Component {
@@ -164,7 +165,7 @@ class BoxPlotComponent extends React.Component {
         let _h = sy - ey;
         this.ctx.fillStyle = '#ffffff';
         this.ctx.fillRect(_x - this.config.PADDING * 2 + _width , _y + _width, _w - 2 * _width, _h - 2 * _width);
-        this.ctx.fillStyle = state === 'upper' ? "#FFC28D": '#9ECCB8';
+        this.ctx.fillStyle = state === 'upper' ? CONFIG.DEF_COLS[0]: CONFIG.DEF_COLS[3];
         this.ctx.fillRect(_x - this.config.PADDING * 2 + _innderWidth , _y + _innderWidth, _w - 2 * _innderWidth, _h - 2 * _innderWidth);
         this.ctx.fill();
         this.ctx.stroke();  
