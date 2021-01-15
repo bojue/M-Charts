@@ -13,6 +13,8 @@ class ArcDiagramComponent extends React.Component {
     config: any;
     data:any;
     cols:any[];
+    points:any[];
+    edges:any[];
     constructor(props:any) {
         super(props);
     }
@@ -24,14 +26,16 @@ class ArcDiagramComponent extends React.Component {
     }
 
     initData() {
+        this.points = [];
         this.cols = CONFIG.DEF_COLS;
         this.config = {
             START_X: 10,
-            START_Y: 340,
+            START_Y: 350,
             WIDTH:500,
             PADDING_TXT: 5
         }
         this.data = arcDiagramData;
+        this.edges = arcDiagramData.edges;
     }
 
     initCanvas() {
@@ -46,7 +50,15 @@ class ArcDiagramComponent extends React.Component {
     }
     
     initDraw() {
+        this.defSetting();
         this.drawNodes();
+        this.drawEdges();
+        // this.drawNameText();
+    }
+
+    defSetting() {
+        this.ctx.font="10px microsoft yahei";
+        this.ctx.textAlign = 'center';
     }
 
     drawNodes() {
@@ -58,14 +70,12 @@ class ArcDiagramComponent extends React.Component {
         let _w_per_val = width / 4 / vals / 2;
         let _space_per_arc = width / 4 * 3 / (len -1);
         let _current_x = this.config.START_X;
-        this.ctx.font="10px microsoft yahei";
         
         for(let i=0;i<len;i++) {
             let item = nodes[i];
             let x = _current_x;
             let y = this.config.START_Y;
             let r = item.value * _w_per_val;
-            this.ctx.fillStyle = this.getCols();
             if(i === len -1) {
                 _current_x = _current_x + _space_per_arc + r ;
             }else {
@@ -73,24 +83,73 @@ class ArcDiagramComponent extends React.Component {
             }
 
             this.ctx.beginPath();
+            this.ctx.fillStyle = this.getCols();
             this.ctx.arc(_current_x, y, r, 0,  Math.PI * 2);
             this.ctx.fill();
-            this.ctx.stroke();
-            if(i < 4) {
-                this.drawText(item, _current_x, y + this.config.PADDING_TXT * 3);
-                // this.ctx.rotate(-Math.PI / 180 * 10);
-            }
+            // 绘制下标
+            this.drawText(i + 1, _current_x, y + this.config.PADDING_TXT * 4);
 
+            // catch  point info
+            let point = {
+                val:item.value,
+                name:item.name,
+                x:_current_x,
+                y:y, 
+                r:r,
+                id:i,
+                data:item,
+            }
+            this.points.push(point)
         }
     }
 
+    drawEdges() {
+        let list = this.edges;
+        let len = list.length;
+        for(let i =0;i<len;i++) {
+            let edge = list[i];
+            if(edge && edge.source !== edge.target) {
+                let s = Math.min(edge.source, edge.target);
+                let e = Math.max(edge.source, edge.target);
+                let sPoint = this.points[s];
+                let ePoint = this.points[e];
+                let _x = ePoint.x - sPoint.x;
+                this.ctx.beginPath();
+                this.ctx.strokeStyle = this.getCols();
+                let _arcX = _x / 2 + sPoint.x;
+                if(e - s > 12) {
+                    let _arxY = _x / 2 + this.config.START_Y;
+                    let r = _x / 2 
+                    this.ctx.arc(_arcX, _arxY -  _x / 2 , r,  Math.PI ,  Math.PI * 2);
+                }else {
+                    let _arxY = _x / 2 + this.config.START_Y;
+                    let r = _x / 2 /  Math.sin(Math.PI / 4);
+                    this.ctx.arc(_arcX, _arxY, r,  Math.PI * 5 / 4,  Math.PI * 7 / 4);
+                }
+
+                this.ctx.stroke();
+            }
+        }
+      
+    }
+
     drawText(item:any, x:number, y:number) {
-        // this.ctx.beginPath();
-        // this.ctx.rotate(Math.PI / 180 * 10);
-        console.log(item.name, x, y)
-        this.ctx.fillText(item.name, x, y );
+        this.ctx.beginPath();
+        this.ctx.fillText(item, x, y );
         this.ctx.fill();
-        this.ctx.stroke();
+    }
+
+    drawNameText() {
+        let len = this.points.length;
+
+        for(let i=0;i<len;i++) {
+            let point = this.points[i];
+            this.ctx.beginPath();
+            this.ctx.rotate(Math.PI*2/(i));
+            this.ctx.fillText(point.name, point.x, point.y + this.config.PADDING_TXT * 5 );
+            this.ctx.fill();
+        }
+
     }
 
     getCols() {
