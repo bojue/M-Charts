@@ -2,7 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const chunkChangeWebpackPlugin = require('chunk-change-time-webpack-plugin');
-
+var HappyPack = require('happypack');
+var happyThreadPool = HappyPack.ThreadPool({ size: 5 });
 module.exports = {
   entry: {
     app:'./src/index.tsx',
@@ -53,6 +54,11 @@ module.exports = {
       ]
   },
   plugins: [
+    new HappyPack({
+      id: 'js',
+      threadPool: happyThreadPool,
+      loaders: [ 'babel-loader' ]
+    }),
     new webpack.ProvidePlugin({
         "React": "react",
     }),

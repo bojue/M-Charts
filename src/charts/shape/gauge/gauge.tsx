@@ -1,6 +1,7 @@
 
 import * as React from 'react';
 import CanvasComponent from './../../comps/canvas';
+import { CONFIG } from './../../config/color_def';
 import "./gauge.scss";
 
 class GuageComponent extends React.Component {
@@ -27,9 +28,10 @@ class GuageComponent extends React.Component {
             MIDDLE_WIDTH:10,
             MIDDLE_RADIUS: 160, // middle半径
             OUBLINE_RADIUS: 200, // 外部半径
-            COORDINATE_X:250, // x坐标
+            COORDINATE_X:300, // x坐标
             COORDINATE_Y:250, // y坐标
-            NUMS:75
+            NUMS:75,
+            PADDING_TEXT:5
         }
         this.data = [
 
@@ -60,13 +62,31 @@ class GuageComponent extends React.Component {
         this.ctx.save();
         this.ctx.translate(this.config.COORDINATE_X,this.config.COORDINATE_Y);
         let len = this.config.NUMS;
-        let number = 90;
+        let number = 73;
+        let angle = ( (number / 100) * 4 / 3 + 2 / 3 )* Math.PI;
 
         let ShortCell = 2 * Math.PI / len;
         // text 
         this.ctx.font='30px Arial';
         this.ctx.textAlign = 'center';
-        this.ctx.fillText(`${number}%`,0,0);
+        this.ctx.fillStyle = this.getCol()[0];
+        this.ctx.fillText(`${number}%`,0,this.config.PADDING_TEXT * 12);
+
+        // 指针
+        this.ctx.save();
+        this.ctx.beginPath();
+        this.ctx.lineWidth = 5;
+        this.ctx.strokeStyle = '#dddddd';
+        let _r_inner = 10;
+        let r = this.config.INTERNAL_RADIUS / 5 * 4;
+        this.ctx.arc(0, 0, _r_inner,  0 , Math.PI * 2 , false);
+        let _angle = Math.PI / 6 + angle;
+        this.ctx.moveTo((_r_inner) * Math.cos(_angle),  (_r_inner) * Math.sin(_angle));
+        this.ctx.lineTo( r* Math.cos(_angle),  r* Math.sin(_angle));
+        this.ctx.stroke();
+        this.ctx.restore();
+        this.ctx.closePath();
+
 
 
         // 短刻度
@@ -101,7 +121,6 @@ class GuageComponent extends React.Component {
             this.ctx.font = '12px Microsoft'; 
             this.ctx.textAlign = 'right';
             this.ctx.fillText(20 * (i), this.config.INTERNAL_RADIUS - 25, 0);
-  
             this.ctx.closePath();
         }
 
@@ -109,7 +128,7 @@ class GuageComponent extends React.Component {
         let Middlecell =  2 * Math.PI / this.config.NUMS;
         for(let i=0;i<=50;i++) {
             this.ctx.beginPath();
-            this.ctx.strokeStyle = '#4988FE';
+            this.ctx.strokeStyle = this.getCol()[4]
             this.ctx.lineWidth = 1;
             this.ctx.moveTo(this.config.MIDDLE_RADIUS,0);
             this.ctx.lineTo(this.config.MIDDLE_RADIUS + 30, 0);
@@ -127,12 +146,9 @@ class GuageComponent extends React.Component {
         // outline
         this.ctx.save();
         this.ctx.beginPath();
-        this.ctx.lineWidth = 5;
-        var gradient = this.ctx.createLinearGradient(0, 0, 360, 0);
-        gradient.addColorStop("0", "#4988FE");
-        gradient.addColorStop("0.8", "#4944FE");
-        this.ctx.strokeStyle = gradient;
-        let angle = ( (number / 100) * 4 / 3 + 2 / 3 )* Math.PI;
+        this.ctx.lineWidth = 10;
+        this.ctx.strokeStyle =  this.getCol()[0];
+   
         this.ctx.arc(0, 0, this.config.OUBLINE_RADIUS,  2 / 3 * Math.PI , angle , false);
         this.ctx.stroke();
         this.ctx.restore();
@@ -149,9 +165,13 @@ class GuageComponent extends React.Component {
 
         this.ctx.beginPath(); 
         this.ctx.arc( (this.config.OUBLINE_RADIUS )* Math.cos(angle),  (this.config.OUBLINE_RADIUS )* Math.sin(angle), 7,0,Math.PI*2,true); 
-        this.ctx.fillStyle="#4944FE"; 
+        this.ctx.fillStyle= this.getCol()[0]
         this.ctx.closePath(); 
         this.ctx.fill()
+    }
+
+    getCol() {
+        return CONFIG.DEF_COLS;
     }
 
     render() {

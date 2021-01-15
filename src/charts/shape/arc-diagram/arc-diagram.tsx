@@ -1,7 +1,6 @@
 
 import * as React from 'react';
 import CanvasComponent from '../../comps/canvas';
-import { CONFIG } from './../../config/color_def';
 import { arcDiagramData } from './../../mock/index';
 import { getColByRandom } from './../../provider/getColorByRandom';
 import './arc-diagram.scss'
@@ -27,7 +26,18 @@ class ArcDiagramComponent extends React.Component {
 
     initData() {
         this.points = [];
-        this.cols = CONFIG.DEF_COLS;
+        this.cols = [
+            'rgb(91, 143, 249)',
+            'rgb(90, 216, 166)',
+            'rgb(93, 112, 146)',
+            'rgb(246, 189, 22)',
+            'rgb(232, 104, 74)',
+            'rgb(109, 200, 236)',
+            'rgb(146, 112, 202)',
+            'rgb(255, 157, 77)',
+            'rgb(38, 154, 153)',
+            'rgb(227, 137, 163)',
+        ];
         this.config = {
             START_X: 10,
             START_Y: 350,
@@ -53,7 +63,6 @@ class ArcDiagramComponent extends React.Component {
         this.defSetting();
         this.drawNodes();
         this.drawEdges();
-        // this.drawNameText();
     }
 
     defSetting() {
@@ -139,18 +148,6 @@ class ArcDiagramComponent extends React.Component {
         this.ctx.fill();
     }
 
-    drawNameText() {
-        let len = this.points.length;
-
-        for(let i=0;i<len;i++) {
-            let point = this.points[i];
-            this.ctx.beginPath();
-            this.ctx.rotate(Math.PI*2/(i));
-            this.ctx.fillText(point.name, point.x, point.y + this.config.PADDING_TXT * 5 );
-            this.ctx.fill();
-        }
-
-    }
 
     getCols() {
         return getColByRandom();
