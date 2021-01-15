@@ -25,6 +25,7 @@ let imgBoxPlot = require('./../../assets/imgs/shape/boxplot.png');
 let imgPolarArea = require('./../../assets/imgs/shape/polar-area.png');
 let imgRedialBar = require('./../../assets/imgs/shape/radialBar.png');
 let imgArcDiagram = require('./../../assets/imgs/shape/arcDiagram.png');
+let imgLiquid = require('./../../assets/imgs/shape/liquid.png');
 interface Charts {
     name: string, // 组件名称
     type: string, // 组件类型
@@ -139,6 +140,11 @@ class ChartsList extends React.Component<{}, object>  {
             name:'基本弧线图',
             type:'arcDiagram',
             thumbnail: imgArcDiagram
+        },
+        {
+            name:"流动图",
+            type:'liquid',
+            thumbnail: imgLiquid
         }
         
     ];

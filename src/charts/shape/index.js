@@ -19,6 +19,7 @@ import BoxPlotComponent from './boxplot/boxplot';
 import PolarAreaComponent from './polar-area/polar-area';
 import RadialBarComponent from './radial-bar/radial-bar';
 import ArcDiagramComponent from './arc-diagram/arc-diagram';
+import LiquidComponent from './liquid/liquid';
 
 export { 
     PieComponent, // 饼图
@@ -41,5 +42,6 @@ export {
     BoxPlotComponent, // 盒箱图
     PolarAreaComponent, // 极地图
     RadialBarComponent, // 玉珏图
-    ArcDiagramComponent // 基础弧线图
+    ArcDiagramComponent, // 基础弧线图
+    LiquidComponent // 水波图
 }
