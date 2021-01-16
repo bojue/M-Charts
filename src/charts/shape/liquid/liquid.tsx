@@ -65,6 +65,7 @@ class LiquidComponent extends React.Component {
     }
 
     drawWave() {
+        this.ctx.fillStyle = CONFIG.DEF_COLS[0];
         let _s_x = this.config.COORDINATE_X - this.config.RADIUS;
         let _w = this.config.RADIUS * 2;
         let _h = this.config.COORDINATE_Y  + this.config.RADIUS;
@@ -91,9 +92,7 @@ class LiquidComponent extends React.Component {
         this.ctx.lineTo(_w + _s_x, _h);
         this.ctx.lineTo(_s_x, _h);
         this.ctx.lineTo(_startPoit.x, _startPoit.y);        
-        this.ctx.fillStyle = CONFIG.DEF_COLS[0];
         this.ctx.fill();
-        this.ctx.stroke();
         this.drawText();
     }
 
@@ -117,10 +116,9 @@ class LiquidComponent extends React.Component {
 
     animation() {
         this.OFFSET_X_START += 0.05;
-        if(this.OFFSET_X_START > this.config.RADIUS) {
-            this.OFFSET_X_START -= this.config.RADIUS
+        if(this.OFFSET_X_START > 10 * this.config.RADIUS) {
+            this.OFFSET_X_START -= 10 * this.config.RADIUS
         }
-        console.log(this.OFFSET_X_START);
         this.drawWave();
         requestAnimationFrame(this.animation.bind(this))
     }

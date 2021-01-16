@@ -27,7 +27,8 @@ import {
     PolarAreaComponent,
     RadialBarComponent,
     ArcDiagramComponent,
-    LiquidComponent
+    LiquidComponent,
+    CurveComponent
 } from './../../charts/shape/index';
 
 import {
@@ -116,6 +117,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
                 break;
             case 'liquid':
                 chartComp = <LiquidComponent/>
+                break;
+            case 'curve':
+                chartComp = <CurveComponent/>
                 break;
             default:
                 chartComp = <NoMatchChart/>

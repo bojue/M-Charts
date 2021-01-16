@@ -145,6 +145,11 @@ class ChartsList extends React.Component<{}, object>  {
             name:"流动图",
             type:'liquid',
             thumbnail: imgLiquid
+        },
+        {
+            name:"曲线图",
+            type:'curve',
+            thumbnail: imgLiquid
         }
         
     ];

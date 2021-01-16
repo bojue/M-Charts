@@ -5,6 +5,7 @@ import { sunburstData } from './shape/sunburst';
 import { ringData } from './shape/ring';
 import { radialBarData } from './shape/radial-bar';
 import { arcDiagramData } from './shape/arc-diagram';
+import { curveData } from './shape/curve';
 
 export { 
     pieData, 
@@ -13,5 +14,6 @@ export {
     sunburstData,
     ringData,
     radialBarData,
-    arcDiagramData
+    arcDiagramData,
+    curveData
 }
