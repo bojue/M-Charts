@@ -154,10 +154,13 @@ class ChartsList extends React.Component<{}, object>  {
         
     ];
     render() {
-        const items = this.charts.map((item:any) => {
+        const items = this.charts.map((item:any, index:number) => {
            return  <div className="charts-item">
                <Link to={`/detail/${item.type}`}>
-                <div className="name">{item.name}</div>
+                <div className="lab">
+                    <span className="index">{index + 1}.</span>
+                    <span className="name">{item.name}</span>
+                </div>
                 {
                     item.eventBool
                     && <img className="icon" src={imgEventIcon!.default} alt="支持事件" title="支持事件"/>
