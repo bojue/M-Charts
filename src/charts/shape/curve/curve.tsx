@@ -93,7 +93,6 @@ class CurveComponent extends React.Component {
                 let Ay = item.y + (next1.y - item.y) / 4;
                 let Bx = next1.x - (next1.x - item.x) / 4;
                 let By = next1.y - (next1.y - item.y) / 4;
-                
                 this.ctx.bezierCurveTo(item.x, item.y , Ax, Ay, Bx, By);
             }
         }

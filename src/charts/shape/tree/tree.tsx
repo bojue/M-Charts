@@ -155,7 +155,7 @@ class TreeComponent extends React.Component {
         this.ctx.beginPath();
         this.ctx.linewidth = 1;
         this.ctx.moveTo(sX, sY);
-        this.ctx.quadraticCurveTo(sX, sY, eX, eY);
+        this.ctx.bezierCurveTo((sX + eX ) / 2, sY, (sX +  eX) / 2 , eY , eX, eY);
         this.ctx.stroke();
     }
 
