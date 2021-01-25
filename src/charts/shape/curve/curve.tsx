@@ -51,6 +51,10 @@ class CurveComponent extends React.Component {
         this.drawAxisLine();
         this.drawDate();
     }
+
+    getCol() {
+        return CONFIG.DEF_COLS[0];
+    }
     
     drawDate() {
         let len = this.data.length;
@@ -71,7 +75,29 @@ class CurveComponent extends React.Component {
             }
             points.push(perNode);
         } 
-        console.log(points)
+        this.drawLines(points)
+    }
+
+    drawLines(list:any[]) {
+        let len = list.length;
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = this.getCol();
+
+        for(let i=0;i<len;i++) {
+            let item = list[i];
+            if(i === 0) {
+                this.ctx.moveTo(item.x, item.y);
+            }else if(i && i < len -3){
+                let next1 = list[i+1];
+                let Ax = item.x + (next1.x - item.x) / 4;
+                let Ay = item.y + (next1.y - item.y) / 4;
+                let Bx = next1.x - (next1.x - item.x) / 4;
+                let By = next1.y - (next1.y - item.y) / 4;
+                
+                this.ctx.bezierCurveTo(item.x, item.y , Ax, Ay, Bx, By);
+            }
+        }
+        this.ctx.stroke(); 
     }
 
     initDraw() {
