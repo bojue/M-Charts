@@ -37,8 +37,8 @@ class MapComponent extends React.Component {
     initData() {
         this.data = mapData.features;
         this.config = {
-            WIDTH:800,
-            HEIGHT: 600
+            WIDTH:800 || 600,
+            HEIGHT: 600 || 500
         }
     }
 
