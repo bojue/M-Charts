@@ -21,6 +21,7 @@ import RadialBarComponent from './radial-bar/radial-bar';
 import ArcDiagramComponent from './arc-diagram/arc-diagram';
 import LiquidComponent from './liquid/liquid';
 import CurveComponent from './curve/curve';
+import MapComponent from './map/map';
 
 export { 
     PieComponent, // 饼图
@@ -45,5 +46,6 @@ export {
     RadialBarComponent, // 玉珏图
     ArcDiagramComponent, // 基础弧线图
     LiquidComponent, // 水波图
-    CurveComponent
+    CurveComponent,
+    MapComponent
 }

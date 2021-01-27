@@ -6,6 +6,7 @@ import { ringData } from './shape/ring';
 import { radialBarData } from './shape/radial-bar';
 import { arcDiagramData } from './shape/arc-diagram';
 import { curveData } from './shape/curve';
+import { mapData } from './shape/map';
 
 export { 
     pieData, 
@@ -15,5 +16,6 @@ export {
     ringData,
     radialBarData,
     arcDiagramData,
-    curveData
+    curveData,
+    mapData
 }

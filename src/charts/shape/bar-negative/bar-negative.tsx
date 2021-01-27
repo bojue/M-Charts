@@ -95,7 +95,6 @@ class BarNagativeComponent extends React.Component {
             let _h = h * 0.8;
             if(val < 0) {
                 let _sX = w / 0.2 * (0 - val);
-                console.log(_sY, i)
                 this.ctx.fillRect(ZeroX - _sX, _sY, _sX, _h);
                 this.ctx.fillStyle = '#ffffff'
                 this.ctx.fillText( lab,  ZeroX -  _sX /2 ,  h * i + 0.5 * h + this.config.startY );
