@@ -29,7 +29,8 @@ import {
     ArcDiagramComponent,
     LiquidComponent,
     CurveComponent,
-    MapComponent
+    MapComponent,
+    LiquidCustomComponent
 } from './../../charts/shape/index';
 
 import {
@@ -118,6 +119,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
                 break;
             case 'liquid':
                 chartComp = <LiquidComponent/>
+                break;
+            case 'liquidCustom':
+                chartComp = <LiquidCustomComponent></LiquidCustomComponent>
                 break;
             case 'curve':
                 chartComp = <CurveComponent/>

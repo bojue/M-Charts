@@ -51,6 +51,7 @@ npm run dev
 22. 流动图
 23. 极地图
 24. 地图
+25. 自定义流动图
 ## TODO List 
 
 - 实现基础Chart Demo展示(Doing) 

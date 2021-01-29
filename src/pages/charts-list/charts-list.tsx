@@ -28,6 +28,7 @@ let imgArcDiagram = require('./../../assets/imgs/shape/arcDiagram.png');
 let imgLiquid = require('./../../assets/imgs/shape/liquid.png');
 let imgCurve = require('./../../assets/imgs/shape/curve.png');
 let imgMap = require('./../../assets/imgs/shape/map.png');
+let imgLiquidCustom = require('./../../assets/imgs/shape/liquidCustom.png');
 interface Charts {
     name: string, // 组件名称
     type: string, // 组件类型
@@ -152,6 +153,11 @@ class ChartsList extends React.Component<{}, object>  {
             name:"流动图",
             type:'liquid',
             thumbnail: imgLiquid
+        },
+        {
+            name:"自定义流动图",
+            type:"liquidCustom",   
+            thumbnail: imgLiquidCustom
         },
         {
             name:"地图",
