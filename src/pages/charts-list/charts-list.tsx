@@ -29,6 +29,7 @@ let imgLiquid = require('./../../assets/imgs/shape/liquid.png');
 let imgCurve = require('./../../assets/imgs/shape/curve.png');
 let imgMap = require('./../../assets/imgs/shape/map.png');
 let imgLiquidCustom = require('./../../assets/imgs/shape/liquidCustom.png');
+let imgStreamgraph = require('./../../assets/imgs/shape/streamgraph.png');
 interface Charts {
     name: string, // 组件名称
     type: string, // 组件类型
@@ -165,9 +166,9 @@ class ChartsList extends React.Component<{}, object>  {
             thumbnail: imgMap
         },
         {
-            name:'流图',
+            name:'河流图',
             type:"streamgraph",
-            thumbnail: imgMap
+            thumbnail: imgStreamgraph
         }
         
     ];
