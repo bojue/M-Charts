@@ -78,27 +78,6 @@ class CurveComponent extends React.Component {
         this.drawLines(points)
     }
 
-    drawLines(list:any[]) {
-        let len = list.length;
-        this.ctx.beginPath();
-        this.ctx.strokeStyle = this.getCol();
-
-        for(let i=0;i<len;i++) {
-            let item = list[i];
-            if(i === 0) {
-                this.ctx.moveTo(item.x, item.y);
-            }else if(i && i < len -3){
-                let next1 = list[i+1];
-                let Ax = item.x + (next1.x - item.x) / 4;
-                let Ay = item.y + (next1.y - item.y) / 4;
-                let Bx = next1.x - (next1.x - item.x) / 4;
-                let By = next1.y - (next1.y - item.y) / 4;
-                this.ctx.bezierCurveTo(item.x, item.y , Ax, Ay, Bx, By);
-            }
-        }
-        this.ctx.stroke(); 
-    }
-
     initDraw() {
         this.ctx.textAlign = 'right';
         this.ctx.strokeStyle = '#555555';
@@ -106,6 +85,40 @@ class CurveComponent extends React.Component {
         this.ctx.textBaseline = 'middle';
         this.ctx.font = "12px serif";    
         this.ctx.lineWidth = 1;
+    }
+
+    drawLines(list:any[]) {
+        let len = list.length;
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = this.getCol();
+        let _sx = 0;
+        let _sy = 0;
+        let _ex = 0;
+        let _ey = 0;
+        for(let i=0;i<len;i++) {
+            let item = list[i];
+            if(i === 0) {
+                this.ctx.moveTo(item.x, item.y);
+                _sx = item.x ;
+                _sy = item.y;
+            }else if(i && i < len -3){
+                let next1 = list[i+1];
+                let Ax = item.x + (next1.x - item.x) / 4;
+                let Ay = item.y + (next1.y - item.y) / 4;
+                let Bx = next1.x - (next1.x - item.x) / 4;
+                let By = next1.y - (next1.y - item.y) / 4;
+                this.ctx.bezierCurveTo(item.x, item.y , Ax, Ay, Bx, By);
+                _ex = Bx;
+                _ey = By;
+            }else if(i === len -3) {
+                // 面积
+                this.ctx.fillStyle = 'rgba(73,136,254,0.1)';
+                this.ctx.lineTo(_ex,  this.config.START_Y);
+                this.ctx.lineTo( this.config.START_X,  this.config.START_Y);
+                this.ctx.fill();
+            }
+        }
+        this.ctx.stroke(); 
     }
 
     drawAxisLine() {

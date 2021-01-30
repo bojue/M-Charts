@@ -23,6 +23,7 @@ import LiquidComponent from './liquid/liquid';
 import CurveComponent from './curve/curve';
 import MapComponent from './map/map';
 import LiquidCustomComponent from './liquid-custom/liquid-custom';
+import GridLightComponent from './streamgraph/streamgraph';
 
 export { 
     PieComponent, // 饼图
@@ -49,5 +50,6 @@ export {
     LiquidComponent, // 水波图
     CurveComponent, // 曲线
     MapComponent, // 地图
-    LiquidCustomComponent
+    LiquidCustomComponent, // 自定义流动图
+    GridLightComponent
 }

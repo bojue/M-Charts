@@ -76,7 +76,7 @@ class LiquidCustomComponent extends React.Component {
     }
 
     drawArc() {
-        this.ctx.strokeStyle = CONFIG.DEF_COLS[2];
+        this.ctx.strokeStyle = CONFIG.DEF_COLS[0];
         this.ctx.lineWidth = 1;
         this.ctx.fillStyle = '#ffffff';
         this.ctx.beginPath();
@@ -89,7 +89,7 @@ class LiquidCustomComponent extends React.Component {
     }
 
     drawWave() {
-        this.ctx.fillStyle = CONFIG.DEF_COLS[2];
+        this.ctx.fillStyle = CONFIG.DEF_COLS[0];
         let _s_x = this.config.COORDINATE_X - this.config.RADIUS;
         let _w = this.config.RADIUS * 2;
         let _h = this.config.START_Y  + this.config.LINE_SUN_WIDHT_MAX * 5;
@@ -117,15 +117,6 @@ class LiquidCustomComponent extends React.Component {
         this.ctx.lineTo(_s_x, _h);
         this.ctx.lineTo(_startPoit.x, _startPoit.y);        
         this.ctx.fill();
-        this.drawText();
-    }
-
-    drawText() {
-        this.ctx.beginPath();
-        this.ctx.fillStyle = '#ffffff';
-        this.ctx.fillText(`50%`, this.config.COORDINATE_X , this.config.COORDINATE_Y + this.config.RADIUS / 5);
-        this.ctx.fill();
-        this.ctx.stroke();
     }
 
     clearArc() {
@@ -135,7 +126,7 @@ class LiquidCustomComponent extends React.Component {
         this.ctx.fillStyle = '#ffffff';
         this.ctx.fill();
         this.ctx.fillRect(this.config.START_X + 1 , this.config.START_Y, this.config.LINE_SUN_WIDHT_MIN - 2, this.config.LINE_SUN_WIDHT_MIN  * 2 + this.config.LINE_SUN_WIDHT);
-        this.ctx.fillRect(this.config.START_X + 1 - this.config.LINE_SUN_WIDHT_MIN , this.config.START_Y + this.config.LINE_SUN_WIDHT, this.config.LINE_SUN_WIDHT_MIN * 3 - 2, this.config.LINE_SUN_WIDHT_MIN  * 2 + this.config.LINE_SUN_WIDHT);
+        this.ctx.fillRect(this.config.START_X + 0 - this.config.LINE_SUN_WIDHT_MIN , this.config.START_Y + this.config.LINE_SUN_WIDHT, this.config.LINE_SUN_WIDHT_MIN * 3 , this.config.LINE_SUN_WIDHT_MIN  * 2 + this.config.LINE_SUN_WIDHT);
         this.ctx.restore();
     }
 

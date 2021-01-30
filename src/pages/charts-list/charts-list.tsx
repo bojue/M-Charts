@@ -163,6 +163,11 @@ class ChartsList extends React.Component<{}, object>  {
             name:"地图",
             type:'map',
             thumbnail: imgMap
+        },
+        {
+            name:'流图',
+            type:"streamgraph",
+            thumbnail: imgMap
         }
         
     ];

@@ -72,7 +72,7 @@ class MapComponent extends React.Component {
         let _xScale = this.config.WIDTH / _x;
         let _yScale = this.config.HEIGHT / _y;
         let _scale = Math.abs(Math.min(_xScale, _yScale)) || 1;
-        let _xOffset = this.config.WIDTH / 2 - _x;
+        let _xOffset = this.config.WIDTH / 2 ;
         let _yOffset = this.config.HEIGHT /2 - _y;
         this.mapObj = {
             scale:_scale,
@@ -88,8 +88,7 @@ class MapComponent extends React.Component {
     getPoint(p:any[]) {
         let x = p[0];
         let y = p[1];
-        console.log( this.mapObj.scale)
-        let scale = 8 ||  this.mapObj.scale;
+        let scale = this.mapObj.scale / 21;
         let point = [
             (x - this.mapObj.xMin) * scale + this.mapObj.xOffset,
             (this.mapObj.yMax - y) * scale + this.mapObj.yOffset

@@ -30,7 +30,8 @@ import {
     LiquidComponent,
     CurveComponent,
     MapComponent,
-    LiquidCustomComponent
+    LiquidCustomComponent,
+    GridLightComponent
 } from './../../charts/shape/index';
 
 import {
@@ -121,13 +122,16 @@ class ChartsView extends React.Component<ChartsProps, MState> {
                 chartComp = <LiquidComponent/>
                 break;
             case 'liquidCustom':
-                chartComp = <LiquidCustomComponent></LiquidCustomComponent>
+                chartComp = <LiquidCustomComponent/>
                 break;
             case 'curve':
                 chartComp = <CurveComponent/>
                 break;
             case 'map':
                 chartComp = <MapComponent/>
+                break;
+            case 'streamgraph': 
+                chartComp =<GridLightComponent/>
                 break;
             default:
                 chartComp = <NoMatchChart/>

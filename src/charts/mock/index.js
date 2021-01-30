@@ -7,6 +7,7 @@ import { radialBarData } from './shape/radial-bar';
 import { arcDiagramData } from './shape/arc-diagram';
 import { curveData } from './shape/curve';
 import { mapData } from './shape/map';
+import * as  streamgraphData from './shape/streamgraph';
 
 export { 
     pieData, 
@@ -17,5 +18,6 @@ export {
     radialBarData,
     arcDiagramData,
     curveData,
-    mapData
+    mapData,
+    streamgraphData
 }
