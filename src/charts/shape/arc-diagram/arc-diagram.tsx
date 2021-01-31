@@ -126,16 +126,18 @@ class ArcDiagramComponent extends React.Component {
                 this.ctx.beginPath();
                 this.ctx.strokeStyle = this.getCols();
                 let _arcX = _x / 2 + sPoint.x;
-                if(e - s > 12) {
-                    let _arxY = _x / 2 + this.config.START_Y;
-                    let r = _x / 2 
-                    this.ctx.arc(_arcX, _arxY -  _x / 2 , r,  Math.PI ,  Math.PI * 2);
-                }else {
-                    let _arxY = _x / 2 + this.config.START_Y;
-                    let r = _x / 2 /  Math.sin(Math.PI / 4);
-                    this.ctx.arc(_arcX, _arxY, r,  Math.PI * 5 / 4,  Math.PI * 7 / 4);
-                }
-
+                // if(e - s > 12) {
+                //     let _arxY = _x / 2 + this.config.START_Y;
+                //     let r = _x / 2 
+                //     this.ctx.arc(_arcX, _arxY -  _x / 2 , r,  Math.PI ,  Math.PI * 2);
+                // }else {
+                //     let _arxY = _x / 2 + this.config.START_Y;
+                //     let r = _x / 2 /  Math.sin(Math.PI / 4);
+                //     this.ctx.arc(_arcX, _arxY, r,  Math.PI * 5 / 4,  Math.PI * 7 / 4);
+                // }
+                this.ctx.moveTo(sPoint.x, sPoint.y)
+                this.ctx.quadraticCurveTo(sPoint.x + _x /2 , sPoint.y - _x / 2,  ePoint.x, ePoint.y);
+                // this.ctx.bezierCurveTo(sPoint.x + _x / 3, sPoint.y - _x /2, sPoint.x + _x / 3 * 2 , sPoint.y - _x /2, ePoint.x, ePoint.y)
                 this.ctx.stroke();
             }
         }
