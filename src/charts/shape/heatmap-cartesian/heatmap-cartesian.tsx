@@ -128,7 +128,7 @@ class HeatmapCartesianComponent extends React.Component {
             let yNumber = parseInt((i / xLen) +'')
             this.ctx.beginPath();
             this.ctx.fillStyle = this.getCols(val);
-            this.ctx.fillRect(x + w * xNumber, y - h - h * yNumber,  w, h);
+            this.ctx.fillRect(x + w * xNumber + 0.25,  y - h - h * yNumber + 0.25,  w -0.5, h- 0.5);
             this.ctx.fillStyle = '#FFFFFF';
             this.ctx.fillText(val,x + w * xNumber + w /2, y - h /2 - h * yNumber)
             this.ctx.fill();
