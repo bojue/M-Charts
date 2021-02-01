@@ -31,7 +31,8 @@ import {
     CurveComponent,
     MapComponent,
     LiquidCustomComponent,
-    GridLightComponent
+    GridLightComponent,
+    SankeyComponent
 } from './../../charts/shape/index';
 
 import {
@@ -132,6 +133,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
                 break;
             case 'streamgraph': 
                 chartComp =<GridLightComponent/>
+                break;
+            case 'sankey': 
+                chartComp =<SankeyComponent/>
                 break;
             default:
                 chartComp = <NoMatchChart/>

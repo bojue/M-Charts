@@ -8,6 +8,7 @@ import { arcDiagramData } from './shape/arc-diagram';
 import { curveData } from './shape/curve';
 import { mapData } from './shape/map';
 import * as  streamgraphData from './shape/streamgraph';
+import * as sankeyData from './shape/sankey';
 
 export { 
     pieData, 
@@ -19,5 +20,6 @@ export {
     arcDiagramData,
     curveData,
     mapData,
-    streamgraphData
+    streamgraphData,
+    sankeyData
 }

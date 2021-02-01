@@ -14,7 +14,7 @@ let imgRadar = require('./../../assets/imgs/shape/radar.png');
 let imgParallel = require('./../../assets/imgs/shape/parallel.png');
 let imgTree = require('./../../assets/imgs/shape/tree.png');
 let imgCandlestick = require('./../../assets/imgs/shape/candlestick.png');
-let imgAreaStartk = require('./../../assets/imgs/shape/area-stacked.png');
+let imgAreaStartk = require('./../../assets/imgs/shape/areaStartk.png');
 let imgHeatmapCartesian = require('./../../assets/imgs/shape/heatmap-cartesian.png');
 let imgCalendarCharts = require('./../../assets/imgs/shape/calendarCharts.png');
 let imgRingCharts = require('./../../assets/imgs/shape/ring.png');
@@ -168,6 +168,11 @@ class ChartsList extends React.Component<{}, object>  {
         {
             name:'河流图',
             type:"streamgraph",
+            thumbnail: imgStreamgraph
+        },
+        {
+            name:'桑基图',
+            type:"sankey",
             thumbnail: imgStreamgraph
         }
         
