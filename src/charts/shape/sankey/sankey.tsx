@@ -3,6 +3,7 @@ import * as React from 'react';
 import CanvasComponent from './../../comps/canvas';
 import { getColByRandom } from './../../provider/getColorByRandom';
 import { sankeyData } from './../../mock';
+const groupBy = require('loadsh/groupBy');
 const find = require('loadsh/find');
 import "./sankey.scss";
 class SankeyComponent extends React.Component {
@@ -47,25 +48,31 @@ class SankeyComponent extends React.Component {
     }
 
     drawInit( ) {
-        console.log(this.dataLines, this.data);
         let lines = this.dataLines;
-        let len = lines.length;
+        let group2 = groupBy(this.data, 'source');
+        let group2Data = [];
+        let group1Data = []; // 第二层
+        let group0Data = []; // 第一层
+        for(let key in group2) {
+            group2Data.push(find(this.data, {source: key}))
+        }
+        console.log(group2Data)
+        
 
-        let firstData = [
-            "SuperiorCard",
-            "Vista",
-            "ColonialVouice",
-            "Distinguish"
-        ]
-
-        let len_first = firstData.length;
-        for(let i = 0;i<len_first;i++) {
-            let item = firstData[i];
+        let len_group2 = group2Data.length;
+        for(let i=0;i<len_group2;i++) {
+            let item = group2Data[i];
             console.log(item);
-            let arr = find(lines, 'source', item);
-            console.log(item,"item,------>",arr)
+            let findBool = find(group2Data, {'source': item.target});
+            if(findBool) {
+                group1Data.push(item)
+            }else {
+                group0Data.push(item);
+            }
         }
 
+        console.log(group0Data)
+        console.log(group1Data)
     }
 
     getColor() {

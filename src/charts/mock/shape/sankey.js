@@ -1,4 +1,4 @@
-const node = [
+const link = [
     {
         'name': 'Werne',
         'itemStyle': {
@@ -693,7 +693,7 @@ const node = [
         }
     }
 ];
-const link = [
+const node = [
         {
             'source': 'FRF',
             'target': 'Colomiers',
