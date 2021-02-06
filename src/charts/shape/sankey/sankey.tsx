@@ -5,6 +5,7 @@ import { sankeyData } from './../../mock';
 import { CONFIG } from './../../config/color_def';
 const groupBy = require('loadsh/groupBy');
 const find = require('loadsh/find');
+const cloneDeep = require('loadsh/cloneDeep');
 import "./sankey.scss";
 class SankeyComponent extends React.Component {
     canvas:any;
@@ -26,14 +27,17 @@ class SankeyComponent extends React.Component {
     initData() {
         this.config = {
             W: 500, //长度
-            H: 490, //高度
+            H: 450, //高度
+            PER_W: 20,
+            SOURCE_H:100, // source的高度
             START_X: 50, // 起点X
             START_Y: 495, // 起点Y
-            Label_X_PADDING: 2, // 间距 
+            Label_PADDING: 5, // 间距 
+            Label_PADDING_MIN: 1, // 间距 
             R:4 //半径
         }
-        this.data = sankeyData.node;
-        this.dataLines = sankeyData.link;
+        this.data = sankeyData.data;
+        this.dataLines = sankeyData.links;
     }
 
     componentWillUnmount() {
@@ -46,57 +50,143 @@ class SankeyComponent extends React.Component {
         this.clientRect = this.canvas.getBoundingClientRect();
         this.ctx.textAlign = 'left';
         this.ctx.textBaseline = "middle";
-        this.ctx.font = '6px Arial';
+        this.ctx.font = '12px Arial';
     }
 
-    drawInit( ) {
-        let group2 = groupBy(this.data, 'source');
-        let groupGroupCatch= []
-        let group2Data = []; // 第三层
-        let group1Data = []; // 第二层
-        let group0Data = []; // 第一层
-        for(let key in group2) {
-            groupGroupCatch.push(find(this.data, {source: key}))
-        }
-        console.log(groupGroupCatch)
-        let len = this.data.length;
-        for(let i=0;i<len;i++) {
-            let item = this.data[i];
-            let bool = find(this.data , {
-                name:item.name
-            })
-            if(!bool) {
-                group2Data.push(item);
-            }
-        }
-        let len_group2 = groupGroupCatch.length;
-        for(let i=0;i<len_group2;i++) {
-            let item = groupGroupCatch[i];
-            console.log(item);
-            let findBool = find(groupGroupCatch, {'source': item.target});
-            if(findBool) {
-                group0Data.push(item)
-            }else {
-                group1Data.push(item);
-            }
-        }
-
-        this.drawData(group0Data, this.config.START_X, this.config.Label_X_PADDING * 2);
-        this.drawData(group1Data, this.config.START_X + this.config.W /3, this.config.Label_X_PADDING * 2);
-        this.drawData(group2Data, this.config.START_X +this.config.W /3 * 2 , this.config.Label_X_PADDING);
-        console.log(group0Data, group1Data, group2Data)
-        this.drawLines(group0Data, group1Data);
+    drawInit() {
+        let dataObj = this.getData();
+        this.drawRect(dataObj.rootData);
+        this.drawRect(dataObj.nextData);
+        this.drawRect(dataObj.data);
+        this.drawLines(dataObj.rootData, dataObj.nextData, dataObj.groupSource);
+        this.drawLines(dataObj.nextData, dataObj.data, dataObj.groupSource, true)
     }
 
-    drawLines(source:any[], target:any[]) {
+    drawLines(source:any[], target:any[], groupSource:any[], targetBool:boolean = false) {
         let len = source.length;
         for(let i=0;i<len;i++) {
             let item = source[i];
-            console.log(item);
+            let sourcekey = item.source;
+            let sourceObjs = groupSource[sourcekey];
+            for(let index in sourceObjs) {
+                let tarObj = targetBool ?
+                    find(target, {target:sourceObjs[index].target}): 
+                    find(target, {source:sourceObjs[index].target});
+                if(tarObj && item) {
+                    let col = this.getCol();
+                    this.drawLine(item.x + this.config.PER_W, item.y + item.h /2, tarObj.x , tarObj.y + tarObj.h / 2, col );
+                }
+            }
+
         }
     }
 
-    drawData(list:any[],_x:number, padding:number) {
+    drawLine(x1:number, y1:number, x2:number, y2:number, color:string) {
+        this.ctx.beginPath();
+        let mX = (x1 + x2) /2;
+        this.ctx.strokeStyle = color;
+        this.ctx.moveTo(x1, y1);
+        this.ctx.bezierCurveTo(mX, y1, mX ,y2, x2, y2);
+        this.ctx.stroke();   
+    }
+
+    drawRect(list:any[]) {
+        let len = list.length;
+        for(let i=0;i<len;i++) {
+            let item = list[i];
+            this.ctx.beginPath();
+            this.ctx.fillStyle = this.getCol();
+            this.ctx.fillRect(item.x, item.y, this.config.PER_W, item.h);
+            this.ctx.fill();
+        }
+    }
+
+    getData() {
+        let catchObj = this.getCatchKeys();
+        let groupSource = catchObj.groupSource;
+        let catchRootData = catchObj.catchRootData;
+        let catchNextData = catchObj.catchNextData;
+        let catchData = catchObj.catchData;
+
+        let _catchRootDataCount = this.getListCount(catchRootData);
+        let _catchNextDataCount = this.getListCount(catchNextData);
+        let _catchDataCount = this.getListCount(catchData);
+        let catchRootDataCoordinate = this.getCoordinateByData(catchRootData, _catchRootDataCount)
+        let catchNextDataCoordinate = this.getCoordinateByData(catchNextData, _catchNextDataCount, this.config.START_X + (this.config.W / 6 * 2.5));
+        let catchDataCoordinate = this.getCoordinateByData(catchData, _catchDataCount, this.config.START_X + this.config.W / 6 * 5, this.config.H, this.config.Label_PADDING_MIN);
+        return {
+            rootData:catchRootDataCoordinate,
+            nextData:catchNextDataCoordinate,
+            data:catchDataCoordinate,
+            groupSource:groupSource
+        }
+
+    }
+
+    getCoordinateByData(list:any[], count:number, startX:number = this.config.START_X, h:number =  this.config.SOURCE_H, padding = this.config.Label_PADDING ) {
+        let len = list.length;
+        let _perY = (h- padding * (len -1))/ count;
+        let _y = this.config.H / 2 + (h+ padding * (len -1) )/ 2;
+        for(let i=0;i<len;i++) {
+            let item = list[i];
+            item.h = _perY * item.value;
+            item.x = startX;
+            item.y = _y - item.h;
+            _y = item.y - padding
+        }
+        return list;
+    }
+
+    getCatchKeys() {
+        let data = this.dataLines;
+        let len = data.length;
+        let groupSource = groupBy(data, 'source'); // 根据source分类
+        let _catchSourceKeys:any = new Object(); // 缓存来源数据keys
+        let _catchTargetKeys:any = new Object(); // 缓存目标数据keys
+        let _catchRootSourceKey:any = new Object(); // 缓存根来源数据keys
+        let _catchNextSourceKey:any = new Object(); // 缓存二级来源数据keys
+        let catchRootData = [];
+        let catchNextData = [];
+        let catchData = [];
+        for(let i=0;i<len ;i++) {
+            let item = data[i];
+            _catchSourceKeys[item.source] = item.source;
+            _catchTargetKeys[item.target] = item;
+        }
+
+        for(let key in _catchSourceKeys) {
+            if(_catchTargetKeys[key]) {
+                _catchNextSourceKey[key] = _catchSourceKeys[key];
+            }else {
+                _catchRootSourceKey[key] = _catchSourceKeys[key];
+            }
+        }
+
+        for(let key in _catchRootSourceKey) {
+            catchRootData.push(find(data, {'source': key}));
+        }
+
+        for(let key in _catchNextSourceKey) {
+            catchNextData.push(find(data, {'source': key}));
+        }
+        for(let key in data) {
+            let item = data[key];
+            let sourceKey = item.target;
+    
+            if(!_catchSourceKeys[sourceKey]) {
+                catchData.push(item);
+            }
+        }
+
+        return {
+            groupSource:groupSource,
+            catchRootData:catchRootData,
+            catchNextData:catchNextData,
+            catchData:cloneDeep(catchData)
+        }
+    }
+
+    drawData(list:any[],_x:number, padding:number, textState = 'source', font = '12px Arial') {
         let len = list.length;
         let count = this.getListCount(list);
         let startY = this.config.START_Y;
@@ -110,16 +200,32 @@ class SankeyComponent extends React.Component {
             this.ctx.beginPath();
             this.ctx.fillStyle = this.getCurrentBg(item);
             this.ctx.lineWidth = 1;
+            this.ctx.font = font;
             this.ctx.rect(_x, _y , _w, _h);
-            this.drawText(item.target, _x + _w + this.config.Label_X_PADDING * 2, _y + _h /2);
+            this.drawText(item[textState], _x + _w + this.config.Label_PADDING * 2, _y + _h /2);
             item.sx = _x + _w;
             item.sy = _y;
             item.w = _w;
             item.h = _h;
-
             this.ctx.fill();  
             currY = _y;
         }
+    }
+
+    getCol() {
+        let cols: any[] = [
+            '#F3E2A0', '#f28f43',
+            '#EDCD96', '#77a1e5', '#c42525', '#a6c96a',
+            '#DE9A7E', '#C0474E',
+            '#4572A7', '#AA4643', '#89A54E', '#80699B', '#3D96AE',
+            '#E6B78C',
+            '#DB843D', '#92A8CD', 
+            '#E1A483',
+            '#A47D7C', '#B5CA92', "#8085e9", 
+            "#f15c80", "#e4d354", "#2b908f", "#f45b5b", "#91e8e1"
+        ]
+        let index = parseInt((Math.random() * cols.length ) + '', 10)
+        return cols[index]
     }
 
     drawText(name:any, x:number, y:number) {
