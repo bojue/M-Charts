@@ -7,8 +7,10 @@ import { radialBarData } from './shape/radial-bar';
 import { arcDiagramData } from './shape/arc-diagram';
 import { curveData } from './shape/curve';
 import { mapData } from './shape/map';
+import { treeMapData } from './shape/tree-map';
 import * as  streamgraphData from './shape/streamgraph';
 import * as sankeyData from './shape/sankey';
+import { LesMiserableData } from './shape/les-miserables';
 
 export { 
     pieData, 
@@ -21,5 +23,7 @@ export {
     curveData,
     mapData,
     streamgraphData,
-    sankeyData
+    sankeyData,
+    treeMapData,
+    LesMiserableData
 }

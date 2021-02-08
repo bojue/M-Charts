@@ -25,6 +25,7 @@ import MapComponent from './map/map';
 import LiquidCustomComponent from './liquid-custom/liquid-custom';
 import GridLightComponent from './streamgraph/streamgraph';
 import SankeyComponent from './sankey/sankey';
+import GraphCircularLayoutComponent from './graph-circular-layout/graph-circular-layout';
 
 export { 
     PieComponent, // 饼图
@@ -53,5 +54,6 @@ export {
     MapComponent, // 地图
     LiquidCustomComponent, // 自定义流动图
     GridLightComponent,
-    SankeyComponent // 桑基图
+    SankeyComponent, // 桑基图
+    GraphCircularLayoutComponent
 }

@@ -32,7 +32,8 @@ import {
     MapComponent,
     LiquidCustomComponent,
     GridLightComponent,
-    SankeyComponent
+    SankeyComponent,
+    GraphCircularLayoutComponent
 } from './../../charts/shape/index';
 
 import {
@@ -136,6 +137,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
                 break;
             case 'sankey': 
                 chartComp =<SankeyComponent/>
+                break;
+            case 'graph-circular-layout': 
+                chartComp =<GraphCircularLayoutComponent/>
                 break;
             default:
                 chartComp = <NoMatchChart/>

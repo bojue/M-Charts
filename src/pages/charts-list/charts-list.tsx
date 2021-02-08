@@ -31,6 +31,7 @@ let imgMap = require('./../../assets/imgs/shape/map.png');
 let imgLiquidCustom = require('./../../assets/imgs/shape/liquidCustom.png');
 let imgStreamgraph = require('./../../assets/imgs/shape/streamgraph.png');
 let imgSankey = require('./../../assets/imgs/shape/sankey.png');
+let imgGraphCircularLayout = require('./../../assets/imgs/shape/graph-circular-layout.png');
 interface Charts {
     name: string, // 组件名称
     type: string, // 组件类型
@@ -175,6 +176,11 @@ class ChartsList extends React.Component<{}, object>  {
             name:'桑基图',
             type:"sankey",
             thumbnail: imgSankey
+        },
+        {
+            name:'环形关系图',
+            type:"graph-circular-layout",
+            thumbnail: imgGraphCircularLayout
         }
         
     ];
