@@ -177,6 +177,7 @@ class RadarComponent extends React.Component {
         }
     
         this.ctx.strokeStyle = '#4988FE';
+        this.ctx.fillStyle ='rgba(73,136,254,0.1)';
         if(length) {
             let a = args[0];
             let data = this.data[0];
@@ -186,6 +187,7 @@ class RadarComponent extends React.Component {
             this.ctx.lineTo(x, y);
         }
         this.ctx.stroke();
+        this.ctx.fill();
 
         // 绘制坐标点
         this.ctx.strokeStyle = '#4988FE';
