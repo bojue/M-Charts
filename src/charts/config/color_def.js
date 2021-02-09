@@ -3,7 +3,7 @@ let defColor = [
     '#22D3AA',
     '#00b33c',
     '#99cc00',
-    '#4944FE'
+    '#4944FE',
 ]
 
 let appendColor = [

@@ -2,6 +2,7 @@
 import { timingSafeEqual } from 'crypto';
 import * as React from 'react';
 import { init } from '../../provider/canvas';
+import { CONFIG } from './../../config/color_def';
 import "./calendar-charts.scss";
 
 class CalendarChartsComponent extends React.Component {
@@ -83,7 +84,7 @@ class CalendarChartsComponent extends React.Component {
             this.ctx.fill();
 
             this.ctx.beginPath();
-            this.ctx.fillStyle = '#4944FE';
+            this.ctx.fillStyle = CONFIG.DEF_COLS[3];
             this.ctx.moveTo(startX + (xIndex + 0.5)* _w, startY + (yIndex + 0.5 + 0.1) * _h );
             this.ctx.arc(startX + (xIndex + 0.5)* _w, startY + (yIndex + 0.5 + 0.1) * _h ,_w / 3,  fir_end_angle, 2* Math.PI);
             this.ctx.fill();

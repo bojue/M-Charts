@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import CanvasComponent from './../../comps/canvas';
-import { sprialBarData } from './../../mock';
+import { sprialBarData } from './../../mock/index';
 import { CONFIG } from './../../config/color_def';
 import "./spiral-bar.scss";
 import { max } from 'lodash';
@@ -113,9 +113,7 @@ class SprialBarComponent extends React.Component {
                 this.ctx.stroke();
             }
         }
-    
     }
-
 
     drawText(i:number, x:number, y:number, w:number) {
         let pVal = this.config.MAX_VALUE / (this.config.COUNT * 1);

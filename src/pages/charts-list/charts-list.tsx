@@ -114,19 +114,14 @@ class ChartsList extends React.Component<{}, object>  {
             thumbnail: imgCandlestick
         },
         {
-            name:'热力图',
-            type:'heatmapCartesian',
-            thumbnail: imgHeatmapCartesian
+            name:'蜂窝矩阵',
+            type:'hexagon',
+            thumbnail: imgHexagon
         },
         {
             name:'日历坐标系',
             type:'calendarCharts',
             thumbnail: imgCalendarCharts
-        },
-        {
-            name:'蜂窝矩阵',
-            type:'hexagon',
-            thumbnail: imgHexagon
         },
         {            
             name:'盒须图',
@@ -167,11 +162,16 @@ class ChartsList extends React.Component<{}, object>  {
             name:"地图",
             type:'map',
             thumbnail: imgMap
-        },
+        },    
         {
             name:'螺旋条状图',
             type:'sprial-bar',
             thumbnail: imgSprialBar
+        },
+        {
+            name:'热力图',
+            type:'heatmapCartesian',
+            thumbnail: imgHeatmapCartesian
         },
         {
             name:'河流图',
