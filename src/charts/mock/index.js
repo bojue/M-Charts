@@ -11,6 +11,7 @@ import { treeMapData } from './shape/tree-map';
 import * as  streamgraphData from './shape/streamgraph';
 import * as sankeyData from './shape/sankey';
 import { LesMiserableData } from './shape/les-miserables';
+import { sprialBarData } from './shape/sprial-bar';
 
 export { 
     pieData, 
@@ -25,5 +26,6 @@ export {
     streamgraphData,
     sankeyData,
     treeMapData,
-    LesMiserableData
+    LesMiserableData,
+    sprialBarData
 }

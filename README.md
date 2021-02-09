@@ -54,6 +54,7 @@ npm run dev
 25. 自定义流动图
 26. 河流图
 26. 桑基图
+27. 螺旋条状图
 ## TODO List 
 
 - 实现基础Chart Demo展示(Doing) 

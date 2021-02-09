@@ -213,17 +213,7 @@ class SankeyComponent extends React.Component {
     }
 
     getCol() {
-        let cols: any[] = [
-            '#F3E2A0', '#f28f43',
-            '#EDCD96', '#77a1e5', '#c42525', '#a6c96a',
-            '#DE9A7E', '#C0474E',
-            '#4572A7', '#AA4643', '#89A54E', '#80699B', '#3D96AE',
-            '#E6B78C',
-            '#DB843D', '#92A8CD', 
-            '#E1A483',
-            '#A47D7C', '#B5CA92', "#8085e9", 
-            "#f15c80", "#e4d354", "#2b908f", "#f45b5b", "#91e8e1"
-        ]
+        let cols: any[] = CONFIG.APP_COLS;
         let index = parseInt((Math.random() * cols.length ) + '', 10)
         return cols[index]
     }

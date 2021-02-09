@@ -33,7 +33,8 @@ import {
     LiquidCustomComponent,
     GridLightComponent,
     SankeyComponent,
-    GraphCircularLayoutComponent
+    GraphCircularLayoutComponent,
+    SprialBarComponent
 } from './../../charts/shape/index';
 
 import {
@@ -140,6 +141,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
                 break;
             case 'graph-circular-layout': 
                 chartComp =<GraphCircularLayoutComponent/>
+                break;
+            case 'sprial-bar':
+                chartComp = <SprialBarComponent/>
                 break;
             default:
                 chartComp = <NoMatchChart/>

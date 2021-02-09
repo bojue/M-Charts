@@ -32,6 +32,7 @@ let imgLiquidCustom = require('./../../assets/imgs/shape/liquidCustom.png');
 let imgStreamgraph = require('./../../assets/imgs/shape/streamgraph.png');
 let imgSankey = require('./../../assets/imgs/shape/sankey.png');
 let imgGraphCircularLayout = require('./../../assets/imgs/shape/graph-circular-layout.png');
+let imgSprialBar = require('./../../assets/imgs/shape/sprial-bar.png');
 interface Charts {
     name: string, // 组件名称
     type: string, // 组件类型
@@ -168,6 +169,11 @@ class ChartsList extends React.Component<{}, object>  {
             thumbnail: imgMap
         },
         {
+            name:'螺旋条状图',
+            type:'sprial-bar',
+            thumbnail: imgSprialBar
+        },
+        {
             name:'河流图',
             type:"streamgraph",
             thumbnail: imgStreamgraph
@@ -182,7 +188,6 @@ class ChartsList extends React.Component<{}, object>  {
             type:"graph-circular-layout",
             thumbnail: imgGraphCircularLayout
         }
-        
     ];
     render() {
         const items = this.charts.map((item:any, index:number) => {

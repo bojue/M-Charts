@@ -26,6 +26,7 @@ import LiquidCustomComponent from './liquid-custom/liquid-custom';
 import GridLightComponent from './streamgraph/streamgraph';
 import SankeyComponent from './sankey/sankey';
 import GraphCircularLayoutComponent from './graph-circular-layout/graph-circular-layout';
+import SprialBarComponent from './spiral-bar/spiral-bar';
 
 export { 
     PieComponent, // 饼图
@@ -55,5 +56,6 @@ export {
     LiquidCustomComponent, // 自定义流动图
     GridLightComponent,
     SankeyComponent, // 桑基图
-    GraphCircularLayoutComponent
+    GraphCircularLayoutComponent, // 环形关系图
+    SprialBarComponent // 螺旋图
 }
