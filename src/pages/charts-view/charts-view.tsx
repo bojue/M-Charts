@@ -34,8 +34,10 @@ import {
     GridLightComponent,
     SankeyComponent,
     GraphCircularLayoutComponent,
-    SprialBarComponent
-} from './../../charts/shape/index';
+    SprialBarComponent,
+    ForceDirectedComponent,
+    SerpentineTimelineComponent
+} from './../../charts/shape';
 
 import {
     DownLoadPicture
@@ -145,6 +147,12 @@ class ChartsView extends React.Component<ChartsProps, MState> {
             case 'sprial-bar':
                 chartComp = <SprialBarComponent/>
                 break;
+            case 'serpentine-timeline':
+                chartComp = <SerpentineTimelineComponent/>
+                break;
+            // case 'force-directed':
+            //     chartComp = <ForceDirectedComponent/>
+            //     break;
             default:
                 chartComp = <NoMatchChart/>
                 break;

@@ -164,14 +164,14 @@ class ChartsList extends React.Component<{}, object>  {
             thumbnail: imgMap
         },    
         {
-            name:'螺旋条状图',
-            type:'sprial-bar',
-            thumbnail: imgSprialBar
-        },
-        {
             name:'热力图',
             type:'heatmapCartesian',
             thumbnail: imgHeatmapCartesian
+        },
+        {
+            name:'螺旋条状图',
+            type:'sprial-bar',
+            thumbnail: imgSprialBar
         },
         {
             name:'河流图',
@@ -186,6 +186,11 @@ class ChartsList extends React.Component<{}, object>  {
         {
             name:'环形关系图',
             type:"graph-circular-layout",
+            thumbnail: imgGraphCircularLayout
+        }, 
+        {
+            name: '时间轴',
+            type: 'serpentine-timeline',
             thumbnail: imgGraphCircularLayout
         }
     ];

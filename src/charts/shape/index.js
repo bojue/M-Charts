@@ -27,6 +27,8 @@ import GridLightComponent from './streamgraph/streamgraph';
 import SankeyComponent from './sankey/sankey';
 import GraphCircularLayoutComponent from './graph-circular-layout/graph-circular-layout';
 import SprialBarComponent from './spiral-bar/spiral-bar';
+import ForceDirectedComponent from './force-directed/force-directed';
+import SerpentineTimelineComponent from './serpentine-timeline/serpentine-timeline';
 
 export { 
     PieComponent, // 饼图
@@ -57,5 +59,7 @@ export {
     GridLightComponent,
     SankeyComponent, // 桑基图
     GraphCircularLayoutComponent, // 环形关系图
-    SprialBarComponent // 螺旋图
+    SprialBarComponent, // 螺旋图
+    ForceDirectedComponent, // 导力图
+    SerpentineTimelineComponent // 时间轴
 }

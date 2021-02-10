@@ -12,6 +12,8 @@ import * as  streamgraphData from './shape/streamgraph';
 import * as sankeyData from './shape/sankey';
 import { LesMiserableData } from './shape/les-miserables';
 import { sprialBarData } from './shape/sprial-bar';
+import { forceDirectedData } from './shape/force-directed';
+import { serpentineTimeLineData } from './shape/serpentine-timeline';
 
 export { 
     pieData, 
@@ -27,5 +29,7 @@ export {
     sankeyData,
     treeMapData,
     LesMiserableData,
-    sprialBarData
+    sprialBarData,
+    forceDirectedData,
+    serpentineTimeLineData
 }
