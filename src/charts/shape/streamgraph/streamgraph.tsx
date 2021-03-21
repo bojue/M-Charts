@@ -2,7 +2,7 @@
 import * as React from 'react';
 import CanvasComponent from '../../comps/canvas';
 import { getColByRandom } from './../../provider/getColorByRandom';
-import { streamgraphData } from '../../mock';
+import { streamgraphData } from './../../mock/mock-model';
 import { CONFIG }  from './../../config/color_def';
 import "./streamgraph.scss";
 

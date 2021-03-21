@@ -3,7 +3,7 @@ import * as React from 'react';
 import CanvasComponent from '../../comps/canvas';
 import "./ring.scss";
 import { CONFIG } from './../../config/color_def';
-import { ringData } from './../../mock/index';
+import { ringData } from './../../mock/mock-model';
 
 class RingComponent extends React.Component {
     canvas:any;

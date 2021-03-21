@@ -1,7 +1,8 @@
 
 import * as React from 'react';
+import { getMockJsonUrlByType } from '../../provider/getMockJsonService';
 import CanvasComponent from './../../comps/canvas';
-import { lineData } from './../../mock/index';
+import { lineData } from './../../mock/mock-model';
 import "./line.scss";
 
 class PieComponent extends React.Component {
@@ -37,7 +38,8 @@ class PieComponent extends React.Component {
             300,
             400
         ]
-        this.data = lineData;
+        // this.data = lineData;
+        this.getData();
         this.config = {
             W: 500, //长度
             H: 405, //高度
@@ -48,6 +50,11 @@ class PieComponent extends React.Component {
             R:4 //半径
 
         }
+    }
+
+    getData() {
+        let jsonData = getMockJsonUrlByType('line');
+        this.data = jsonData!.data
     }
 
     drawInit() {
@@ -77,14 +84,15 @@ class PieComponent extends React.Component {
             if(i< xLen-1) {
                 this.ctx.beginPath();
                 this.ctx.strokeStyle = '#4988fe';
-                this.ctx.moveTo(this.config.START_X - x / 2  + _currW, this.data[i]['conut']);
-                this.ctx.lineTo(this.config.START_X + x / 2 + _currW, this.data [i+1]['conut']);
+                this.ctx.moveTo(this.config.START_X - x / 2  + _currW, this.data[i]['count']);
+                this.ctx.lineTo(this.config.START_X + x / 2 + _currW, this.data [i+1]['count']);
                 this.ctx.stroke();    
             }
 
+            console.log(this.data[i])
             this.ctx.beginPath();
             this.ctx.strokeStyle = '#4988fe';
-            this.ctx.arc(this.config.START_X - x / 2 + _currW + 0.5 ,this.data[i]['conut'],this.config.R , 0, 2 * Math.PI);
+            this.ctx.arc(this.config.START_X - x / 2 + _currW + 0.5 ,this.data[i]['count'],this.config.R , 0, 2 * Math.PI);
             
             this.ctx.fillStyle = '#fff';
             this.ctx.fill();

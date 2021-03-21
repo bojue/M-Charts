@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { init } from '../../provider/canvas';
-import { sunburstData } from './../../mock';
+import { sunburstData } from './../../mock/mock-model';
 import "./sunburst.scss";
 class SunburstComponent extends React.Component {
     canvas:any;

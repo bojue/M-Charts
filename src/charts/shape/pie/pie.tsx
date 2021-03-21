@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import { init, getEventCoordinates } from './../../provider/canvas';
-import { pieData } from './../../mock/index'
+import { pieData } from './../../mock/mock-model';
 import "./pie.scss";
 
 class PieComponent extends React.Component {

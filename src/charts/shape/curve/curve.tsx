@@ -1,7 +1,7 @@
 import * as React from 'react';
 import CanvasComponent from '../../comps/canvas';
 import { CONFIG} from './../../config/color_def';
-import { curveData } from './../../mock';
+import { curveData } from './../../mock/mock-model';;
 import "./curve.scss";
 
 class CurveComponent extends React.Component {

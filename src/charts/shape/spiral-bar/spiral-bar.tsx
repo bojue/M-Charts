@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import CanvasComponent from './../../comps/canvas';
-import { sprialBarData } from './../../mock/index';
+import { sprialBarData } from './../../mock/mock-model';
 import { CONFIG } from './../../config/color_def';
 import "./spiral-bar.scss";
 import { max } from 'lodash';
