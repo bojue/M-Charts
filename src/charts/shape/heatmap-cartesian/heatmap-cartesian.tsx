@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import CanvasComponent from './../../comps/canvas';
-import { heatmapCartesianData } from './../../mock/index';
+import { heatmapCartesianData } from './../../mock/mock-model';
 import { getColByIndex } from './../../provider/getColorByRandom';
 import "./heatmap-cartesian.scss";
 

@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import CanvasComponent from './../../comps/canvas';
-import { sankeyData } from './../../mock';
+import { sankeyData } from './../../mock/mock-model';
 import { CONFIG } from './../../config/color_def';
 const groupBy = require('loadsh/groupBy');
 const find = require('loadsh/find');

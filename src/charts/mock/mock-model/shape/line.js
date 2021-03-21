@@ -1,24 +1,24 @@
 let lineData =  [{
     name:"星期一",
-    conut:  329,
+    count:  329,
 },{
     name:"星期二",
-    conut:  220,
+    count:  220,
 },{
     name:"星期三",
-    conut:  220,
+    count:  220,
 },{
     name:"星期四",
-    conut:  315,
+    count:  315,
 },{
     name:"星期五",
-    conut:  389,
+    count:  389,
 },{
     name:"星期六",
-    conut:  309,
+    count:  309,
 },{
     name:"星期日",
-    conut:  129,
+    count:  129,
 }]
 
 export { lineData };

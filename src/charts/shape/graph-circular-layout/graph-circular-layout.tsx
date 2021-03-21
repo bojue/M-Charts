@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import CanvasComponent from '../../comps/canvas';
-import { LesMiserableData  } from './../../mock/index';
+import { LesMiserableData  } from './../../mock/mock-model';
 import { CONFIG }  from './../../config/color_def';
 import { find } from 'lodash';
 import "./graph-circular-layout.scss";

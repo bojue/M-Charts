@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import CanvasComponent from './../../comps/canvas';
-import { serpentineTimeLineData } from './../../mock/index';
+import { serpentineTimeLineData } from './../../mock/mock-model';
 import { CONFIG } from './../../config/color_def';
 import "./serpentine-timeline.scss";
 

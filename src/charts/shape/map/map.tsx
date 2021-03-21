@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import CanvasComponent from './../../comps/canvas';
-import { mapData } from './../../mock';
+import { mapData } from './../../mock/mock-model';
 import { getColByRandom } from './../../provider/getColorByRandom';
 import "./map.scss";
 
