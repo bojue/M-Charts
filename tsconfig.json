@@ -15,7 +15,8 @@
       "allowUnreachableCode": true
     },
     "include":[ 
-        "./src/**/*"
+        "./src/**/*",
+        "./imgs.d.ts"
     ],
     "exclude": [
       "node_modules",
