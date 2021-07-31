@@ -36,7 +36,7 @@ npm run dev
 - 动画
 - 变量封装
 - 框架封装
-
+<!-- 
 ## chart效果
 
-https://www.zingchart.com/gallery/radar-chart-heatmap
+https://www.zingchart.com/gallery/radar-chart-heatmap -->
