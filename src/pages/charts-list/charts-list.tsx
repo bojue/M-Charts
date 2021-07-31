@@ -32,7 +32,8 @@ let imgLiquidCustom = require('./../../assets/imgs/shape/liquidCustom.png');
 let imgStreamgraph = require('./../../assets/imgs/shape/streamgraph.png');
 let imgSankey = require('./../../assets/imgs/shape/sankey.png');
 let imgGraphCircularLayout = require('./../../assets/imgs/shape/graph-circular-layout.png');
-let imgSprialBar = require('./../../assets/imgs/shape/sprial-bar.png');
+let imgSprialBar = require('./../../assets/imgs/shape/sprial-bar.png')
+let imgRoseRange = require('./../../assets/imgs/shape/rose-range.png')
 interface Charts {
     name: string, // 组件名称
     type: string, // 组件类型
@@ -169,6 +170,11 @@ class ChartsList extends React.Component<{}, object>  {
             thumbnail: imgHeatmapCartesian
         },
         {
+            name: '玫瑰图-限定角度范围',
+            type: 'rose-range',
+            thumbnail:  imgRoseRange 
+        },
+        {
             name:'螺旋条状图',
             type:'sprial-bar',
             thumbnail: imgSprialBar
@@ -188,11 +194,12 @@ class ChartsList extends React.Component<{}, object>  {
             type:"graph-circular-layout",
             thumbnail: imgGraphCircularLayout
         }, 
-        {
-            name: '时间轴',
-            type: 'serpentine-timeline',
-            thumbnail: imgGraphCircularLayout
-        }
+        // {
+        //     name: '时间轴',
+        //     type: 'serpentine-timeline',
+        //     thumbnail: imgGraphCircularLayout
+        // },
+
     ];
     render() {
         const items = this.charts.map((item:any, index:number) => {
@@ -200,7 +207,7 @@ class ChartsList extends React.Component<{}, object>  {
                <Link to={`/detail/${item.type}`}>
                 <div className="lab">
                     <span className="index">{index + 1}.</span>
-                    <span className="name">{item.name}</span>
+                    <span className="name" title={item?.name}>{item.name}</span>
                 </div>
                 {
                     item.eventBool

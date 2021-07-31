@@ -14,6 +14,7 @@ import { LesMiserableData } from './shape/les-miserables';
 import { sprialBarData } from './shape/sprial-bar';
 import { forceDirectedData } from './shape/force-directed';
 import { serpentineTimeLineData } from './shape/serpentine-timeline';
+import { roseRangedData  } from './shape/rose-range';
 
 export { 
     pieData, 
@@ -31,5 +32,6 @@ export {
     LesMiserableData,
     sprialBarData,
     forceDirectedData,
-    serpentineTimeLineData
+    serpentineTimeLineData,
+    roseRangedData
 }

@@ -42,6 +42,7 @@ import {
 import {
     DownLoadPicture
 } from './../../plugins/index';
+import RoseRangeComponent from '../../charts/shape/rose-range/rose-range';
 
 
 interface MProps {}
@@ -153,6 +154,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
             // case 'force-directed':
             //     chartComp = <ForceDirectedComponent/>
             //     break;
+            case 'rose-range':
+                chartComp = <RoseRangeComponent/>
+                break;
             default:
                 chartComp = <NoMatchChart/>
                 break;

@@ -29,6 +29,7 @@ import GraphCircularLayoutComponent from './graph-circular-layout/graph-circular
 import SprialBarComponent from './spiral-bar/spiral-bar';
 import ForceDirectedComponent from './force-directed/force-directed';
 import SerpentineTimelineComponent from './serpentine-timeline/serpentine-timeline';
+import RoseRangeComponent from './rose-range/rose-range';
 
 export { 
     PieComponent, // 饼图
@@ -61,5 +62,6 @@ export {
     GraphCircularLayoutComponent, // 环形关系图
     SprialBarComponent, // 螺旋图
     ForceDirectedComponent, // 导力图
-    SerpentineTimelineComponent // 时间轴
+    SerpentineTimelineComponent, // 时间轴
+    RoseRangeComponent // 玫瑰图
 }
