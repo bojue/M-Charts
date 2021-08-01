@@ -30,7 +30,7 @@ class ParallelComponent extends React.Component {
         ]
         this.config = {
             startX: 30.5,
-            startY: 470.5,
+            startY: 480.5,
             count_h:5,
             count_w:8,
             lines: [
