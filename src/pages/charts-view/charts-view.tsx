@@ -59,16 +59,18 @@ class ChartsView extends React.Component<ChartsProps, MState> {
             tetxt:1
         }
     })
+    
     constructor(props:ChartsProps) {
         super(props);
         this.parms = this.props.match.params;
+        document.title = this.parms?.name
     }
     componentDidMount() {
-     
+
     }
     render() {
         let chartComp ;
-        let type = this.parms!.type;
+        const {type, name} = this.parms 
         switch(type) {
             case 'pie':
                 chartComp = <PieComponent/>
@@ -182,8 +184,8 @@ class ChartsView extends React.Component<ChartsProps, MState> {
               
                         {/* 3.示例数据组件 */}
                         {/* <DataShow/> */}
-                 
-                        </Provider>
+                    </Provider>
+                    <span className="compName">{name}</span>
                 </div>
         }
     }

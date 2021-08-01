@@ -40,7 +40,15 @@ interface Charts {
     thumbnail: any, // 缩略图
     eventBool?:boolean // 支持鼠标事件
 }
-class ChartsList extends React.Component<{}, object>  {
+
+interface propsType {
+
+}
+class ChartsList extends React.Component<propsType, object>  {
+    constructor(props:propsType) {
+        super(props)
+        document.title = "M-Charts"
+    }
     charts:Charts[] =  [
         {
             name:"折线",
@@ -204,7 +212,7 @@ class ChartsList extends React.Component<{}, object>  {
     render() {
         const items = this.charts.map((item:any, index:number) => {
            return  <div className="charts-item">
-               <Link to={`/detail/${item.type}`}>
+               <Link to={`/detail/${item.type}/${item?.name}`}>
                 <div className="lab">
                     <span className="index">{index + 1}.</span>
                     <span className="name" title={item?.name}>{item.name}</span>
