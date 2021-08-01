@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import CanvasComponent from './../../comps/canvas';
+import CanvasComponent from '../../comps/canvas/canvas';;
 import "./area-stacked.scss";
 
 class AreaStackedComponent extends React.Component {

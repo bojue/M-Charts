@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import CanvasComponent from './../../comps/canvas';
+import CanvasComponent from '../../comps/canvas/canvas';;
 import "./tree.scss";
 
 class TreeComponent extends React.Component {

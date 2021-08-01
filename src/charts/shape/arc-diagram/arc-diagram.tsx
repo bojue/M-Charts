@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import CanvasComponent from '../../comps/canvas';
+import CanvasComponent from '../../comps/canvas/canvas';
 import { arcDiagramData } from './../../mock/mock-model';
 import { getColByRandom } from './../../provider/getColorByRandom';
 import './arc-diagram.scss'

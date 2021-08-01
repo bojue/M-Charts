@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import CanvasComponent from './../../comps/canvas';
+import CanvasComponent from '../../comps/canvas/canvas';;
 import { sprialBarData } from './../../mock/mock-model';
 import { CONFIG } from './../../config/color_def';
 import "./spiral-bar.scss";

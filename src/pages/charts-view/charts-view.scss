@@ -1,4 +1,11 @@
-.charts {
+.chartsView {
     margin: 20px;
+    display: grid;
+    grid-template-columns: 640px 40px auto;
+}
 
+.customEvent {
+    display: grid;
+    grid-template-columns: 40px 40px;
+    margin-left: -60px;
 }

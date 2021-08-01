@@ -43,13 +43,22 @@ import {
     DownLoadPicture
 } from './../../plugins/index';
 import RoseRangeComponent from '../../charts/shape/rose-range/rose-range';
-
+import DataShow from '../../charts/comps/data-show/data-show';
+import {observable} from 'mobx';
+import { updateChartDataCreater } from '../../redux/actions';
+import { Provider } from 'react-redux';
+import store from '../../redux/store';
 
 interface MProps {}
 interface MState {}
 type ChartsProps = MProps & RouteComponentProps;
 class ChartsView extends React.Component<ChartsProps, MState> {
     parms:any;
+    observableData = observable({
+        data:{
+            tetxt:1
+        }
+    })
     constructor(props:ChartsProps) {
         super(props);
         this.parms = this.props.match.params;
@@ -161,10 +170,20 @@ class ChartsView extends React.Component<ChartsProps, MState> {
                 chartComp = <NoMatchChart/>
                 break;
         }
-        return  <div className="charts">
-                    <RouteBackComponent/>
-                    <DownLoadPicture/>
-                    {chartComp}
+        return  <div className="chartsView">
+                    <Provider store={store}>
+                        {/* 1.chart组件 */}
+                        <>{chartComp}</> 
+                        {/* 2.下载组件 */}
+                        <span className="customEvent">
+                            <DownLoadPicture/>
+                            <RouteBackComponent/>
+                        </span>
+              
+                        {/* 3.示例数据组件 */}
+                        {/* <DataShow/> */}
+                 
+                        </Provider>
                 </div>
         }
     }

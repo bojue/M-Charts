@@ -45,7 +45,7 @@ class DownLoadPicture extends React.Component  {
 
     render() {
         return  <div className="download-png">
-                <img className="icon" src={imgDownloadPng!.default} onClick={e => this.savePic()} alt="下载图片" title="下载"/>
+                <img className="icon" src={imgDownloadPng!.default} onClick={e => this.savePic()} alt="下载图片" title="下载示例"/>
             </div>
         }
     }

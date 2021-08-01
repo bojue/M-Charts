@@ -1,7 +1,8 @@
 
 import * as React from 'react';
-import { init, getEventCoordinates } from '../provider/canvas';
+import { init, getEventCoordinates } from '../../provider/canvas';
 import "./canvas.scss";
+
 
 
 class CanvasComponent extends React.Component {

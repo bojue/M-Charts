@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import CanvasComponent from '../../comps/canvas';
+import CanvasComponent from '../../comps/canvas/canvas';
 import "./radial-bar.scss";
 import { CONFIG } from './../../config/color_def';
 import { radialBarData } from './../../mock/mock-model';

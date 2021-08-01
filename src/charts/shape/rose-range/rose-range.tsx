@@ -2,17 +2,24 @@
 import {  maxBy, sumBy } from 'lodash';
 import * as React from 'react';
 import { roseRangedData } from '../../mock/mock-model';
-import CanvasComponent from './../../comps/canvas';
-
+import CanvasComponent from './../../comps/canvas/canvas';
 import { CONFIG } from './../../config/color_def';
-
 import "./rose-range.scss";
+import store from '../../../redux/store';
+import { UPDATE_CHART_DATA } from '../../../redux/action-type';
 
 interface dataType {
     type: string 
     value: number
 }
-class RoseRangeComponent extends React.Component {
+
+interface Actions {
+    updateChartDataCreater:Function
+}
+interface  propTypes {
+
+}
+class RoseRangeComponent extends React.Component<propTypes>{
     canvas:any;
     ctx:any;
     clientRect:any;
@@ -20,8 +27,9 @@ class RoseRangeComponent extends React.Component {
     data:dataType[];
     dataLines:any[];
     text_fillStyle  = 'rgba(0,0,0,0.8)'
-    constructor(props:any) {
+    constructor(props:propTypes) {
         super(props);
+        console.log(props)
     }
 
     componentDidMount() {
@@ -44,6 +52,14 @@ class RoseRangeComponent extends React.Component {
     }
 
     componentWillUnmount() {
+        // this.props.actions.updateChartDataCreater({
+        //     type:UPDATE_CHART_DATA,
+        //     data:this.data
+        // })
+        store.dispatch({
+            type: UPDATE_CHART_DATA,
+            data:this.data
+        })
     }
 
     initCanvas() {
@@ -189,7 +205,9 @@ class RoseRangeComponent extends React.Component {
 
 
     render() {
-        return  <><CanvasComponent/></>
+        return  <>
+            <CanvasComponent/>
+        </>
     }
 }
 export default RoseRangeComponent;

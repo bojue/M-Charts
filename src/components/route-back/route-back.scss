@@ -1,11 +1,11 @@
 .back {
     user-select: none;
-    position: absolute;
-    left: 600px;
+
 }
 .img {
-    width: 40px;
+    width: 30px;
     padding: 0px;
+    margin-left: 6px;
     opacity: 0.8;
     &:hover {
         opacity: 1;

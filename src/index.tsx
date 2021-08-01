@@ -10,6 +10,8 @@ import GitHubComponent from './components/github/github'
 const icon = require('./assets/imgs/icon.png');
 // css
 import './style.scss';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 let App = function() {
     return <Router >
         <div className="nav">

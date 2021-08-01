@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import "./route-back.scss";
-let backIcon = require('./../../assets/imgs/return.png');
+let backIcon = require('./../../assets/imgs/return.svg');
 
 class RouteBackComponent extends React.Component {
   

@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import CanvasComponent from './../../comps/canvas';
+import CanvasComponent from '../../comps/canvas/canvas';;
 import "./radar.scss";
 import { array } from 'prop-types';
 class RadarComponent extends React.Component {

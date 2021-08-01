@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import { getMockJsonUrlByType } from '../../provider/getMockJsonService';
-import CanvasComponent from './../../comps/canvas';
+import CanvasComponent from '../../comps/canvas/canvas';;
 import { lineData } from './../../mock/mock-model';
 import "./line.scss";
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import CanvasComponent from '../../comps/canvas';
+import CanvasComponent from '../../comps/canvas/canvas';
 import { CONFIG} from './../../config/color_def';
 import { curveData } from './../../mock/mock-model';;
 import "./curve.scss";
