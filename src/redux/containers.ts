@@ -6,7 +6,7 @@ import { RoseRangeComponent  } from '../charts/shape'
 
 export default connect(
     state => ({
-        data:state?.data
+        // data:state
     }),
     { updateChartDataCreater }
 )(RoseRangeComponent)
