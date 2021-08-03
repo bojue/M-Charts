@@ -15,6 +15,7 @@ import { sprialBarData } from './shape/sprial-bar';
 import { forceDirectedData } from './shape/force-directed';
 import { serpentineTimeLineData } from './shape/serpentine-timeline';
 import { roseRangedData  } from './shape/rose-range';
+import { radiusAxisData } from './shape/radius-axis';
 
 export { 
     pieData, 
@@ -33,5 +34,6 @@ export {
     sprialBarData,
     forceDirectedData,
     serpentineTimeLineData,
-    roseRangedData
+    roseRangedData,
+    radiusAxisData
 }

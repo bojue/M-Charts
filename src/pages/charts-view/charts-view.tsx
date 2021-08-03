@@ -36,16 +36,15 @@ import {
     GraphCircularLayoutComponent,
     SprialBarComponent,
     ForceDirectedComponent,
-    SerpentineTimelineComponent
+    SerpentineTimelineComponent,
+    RadiusAxisComponent
 } from './../../charts/shape';
 
 import {
     DownLoadPicture
 } from './../../plugins/index';
 import RoseRangeComponent from '../../charts/shape/rose-range/rose-range';
-import DataShow from '../../charts/comps/data-show/data-show';
 import {observable} from 'mobx';
-import { updateChartDataCreater } from '../../redux/actions';
 import { Provider } from 'react-redux';
 import store from '../../redux/store';
 
@@ -167,6 +166,9 @@ class ChartsView extends React.Component<ChartsProps, MState> {
             //     break;
             case 'rose-range':
                 chartComp = <RoseRangeComponent/>
+                break;
+            case 'radius-axis':
+                chartComp = <RadiusAxisComponent/>
                 break;
             default:
                 chartComp = <NoMatchChart/>

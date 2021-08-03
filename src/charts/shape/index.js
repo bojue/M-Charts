@@ -30,6 +30,7 @@ import SprialBarComponent from './spiral-bar/spiral-bar';
 import ForceDirectedComponent from './force-directed/force-directed';
 import SerpentineTimelineComponent from './serpentine-timeline/serpentine-timeline';
 import RoseRangeComponent from './rose-range/rose-range';
+import RadiusAxisComponent  from './radius-axis-in-polar-coordinates/radius-axis'
 
 export { 
     PieComponent, // 饼图
@@ -63,5 +64,6 @@ export {
     SprialBarComponent, // 螺旋图
     ForceDirectedComponent, // 导力图
     SerpentineTimelineComponent, // 时间轴
-    RoseRangeComponent // 玫瑰图
+    RoseRangeComponent, // 玫瑰图
+    RadiusAxisComponent //
 }

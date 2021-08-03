@@ -34,6 +34,7 @@ let imgSankey = require('./../../assets/imgs/shape/sankey.png');
 let imgGraphCircularLayout = require('./../../assets/imgs/shape/graph-circular-layout.png');
 let imgSprialBar = require('./../../assets/imgs/shape/sprial-bar.png')
 let imgRoseRange = require('./../../assets/imgs/shape/rose-range.png')
+const imgRadiusAxis = require('./../../assets/imgs/shape/radius-axis.png')
 interface Charts {
     name: string, // 组件名称
     type: string, // 组件类型
@@ -177,6 +178,11 @@ class ChartsList extends React.Component<propsType, object>  {
             type:'heatmapCartesian',
             thumbnail: imgHeatmapCartesian
         },
+        {
+            name:'极坐标下的半径轴',
+            type:"radius-axis",
+            thumbnail: imgRadiusAxis
+        }, 
         {
             name: '玫瑰图-限定角度范围',
             type: 'rose-range',

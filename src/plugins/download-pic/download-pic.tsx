@@ -3,23 +3,17 @@ import * as React from 'react';
 import { useLocation } from 'react-router-dom'
 let imgDownloadPng = require('./../../assets/imgs/download.svg');
 import "./download-pic.scss";
-class DownLoadPicture extends React.Component  {
+class DownLoadPicture extends React.Component<any>  {
     MIME = 'image/png';
     route_param:string;
 
     constructor(props:any) {
         super(props);
+        this.route_param  = this.props?.match?.params?.name
     }
 
     componentDidMount() {
-        let locaHash = location.hash;
-        let reg = new RegExp(`#/detail/`);
-        if(locaHash.match(reg)) {
-            let arr = locaHash.split('#/detail/')
-            if(arr.length > 1) {
-                this.route_param = arr[1];
-            }
-        }
+
     }
 
     getParams() {
