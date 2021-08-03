@@ -4,7 +4,7 @@
 ## DEMO
 [在线预览](https://bojue.github.io/M-Charts)
 
-![Demo](src/assets/demo/demo.20210801.png)
+![Demo](src/assets/demo/demo.png)
 
 ## 下载
 
