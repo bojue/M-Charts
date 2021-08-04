@@ -64,7 +64,7 @@ class HeatmapComponent extends React.Component {
         const {W, H,START_X:X, START_Y:Y,carat_len, prices_per, carat_per, prices_min,prices_len } = this.config
         const w_per = W / ( prices_len * prices_per)
         const h_per = H / ( carat_per  *  carat_len)
-        this.ctx.strokeStyle = '#4988FE'
+        this.ctx.strokeStyle = '#4988FE'    
         for(let i=0;i<len;i++) {
             let {
                 price,
@@ -72,7 +72,7 @@ class HeatmapComponent extends React.Component {
             } = this.data[i]
             this.ctx.beginPath()
             const _x = w_per * carat + X
-            const _y = H - h_per * price
+            const _y = Y - h_per * price
             this.drawNode(_x , _y)
             this.ctx.stroke()
         }
@@ -108,7 +108,7 @@ class HeatmapComponent extends React.Component {
         for(let i=0;i <= prices_len;i++) {
             this.ctx.beginPath();
             const curr_y = Y + 0.5
-            const curr_x = X +  w_per * i + 0.5
+            const curr_x = X +  w_per * i 
             this.ctx.moveTo(curr_x, curr_y)
             this.ctx.lineTo(curr_x, curr_y + labPadding)
             this.ctx.fillText(i , curr_x, curr_y + 3 * labPadding)
