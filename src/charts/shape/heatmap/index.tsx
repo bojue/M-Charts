@@ -64,7 +64,7 @@ class HeatmapComponent extends React.Component {
         const {W, H,START_X:X, START_Y:Y,carat_len, prices_per, carat_per, prices_min,prices_len } = this.config
         const w_per = W / ( prices_len * prices_per)
         const h_per = H / ( carat_per  *  carat_len)
-        this.ctx.strokeStyle = '#4988FE'    
+        this.ctx.strokeStyle = 'rgba(73,136,254,0.6)'    
         for(let i=0;i<len;i++) {
             let {
                 price,
@@ -79,7 +79,7 @@ class HeatmapComponent extends React.Component {
     } 
 
     drawNode(x:number, y:number) {
-        this.ctx.arc(x,y,3,0,2*Math.PI)
+        this.ctx.arc(x,y,4,0,2*Math.PI)
     }
 
     // 绘制坐标系统
