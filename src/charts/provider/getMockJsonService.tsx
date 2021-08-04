@@ -1,5 +1,6 @@
 import {
-    lineJson
+    lineJson,
+    heatmapJson
 } from './../mock/mock-json'
 
 const getMockJsonUrlByType = function(type:string) {
@@ -11,15 +12,18 @@ const getMockJsonUrlByType = function(type:string) {
 }
 
 const _getMockJsonURL = function(type:string):any {
-    let url = '';
+    let url = ''
     switch(type) {
         case 'line':
             url = lineJson
-            break;
+            break
+        case 'heatmap':
+            url = heatmapJson
+            break
         default:
-            break;
+            break
     }
-    return url;
+    return url
 }
 
 export {

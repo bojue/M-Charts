@@ -1,36 +1,37 @@
-import PieComponent  from './pie/pie';
-import LineComponent from './line/line';
-import ScatterComponent from './scatter/scatter';
-import GuageComponent from './gauge/gauge';
-import FunnelComponent from './funnel/funnel';
-import BarComponent from './bar/bar';
-import RadarComponent from './radar/radar';
-import ParallelComponent from './parallel/parallel';
-import TreeComponent from './tree/tree';
-import CandlestickComponent from './candlestick/candlestick';
-import AreaStackedComponent from './area-stacked/area-stacked';
-import HeatmapCartesianComponent from './heatmap-cartesian/heatmap-cartesian';
-import CalendarChartsComponent from './calendar-charts/calendar-charts';
-import RingComponent from './ring/ring';
-import BarNagativeComponent from './bar-negative/bar-negative';
-import HexagonComponent from './hexagon/hexagon';
-import SunburstComponent from './sunburst/sunburst';
-import BoxPlotComponent from './boxplot/boxplot';
-import PolarAreaComponent from './polar-area/polar-area';
-import RadialBarComponent from './radial-bar/radial-bar';
-import ArcDiagramComponent from './arc-diagram/arc-diagram';
-import LiquidComponent from './liquid/liquid';
-import CurveComponent from './curve/curve';
-import MapComponent from './map/map';
-import LiquidCustomComponent from './liquid-custom/liquid-custom';
-import GridLightComponent from './streamgraph/streamgraph';
-import SankeyComponent from './sankey/sankey';
-import GraphCircularLayoutComponent from './graph-circular-layout/graph-circular-layout';
-import SprialBarComponent from './spiral-bar/spiral-bar';
-import ForceDirectedComponent from './force-directed/force-directed';
-import SerpentineTimelineComponent from './serpentine-timeline/serpentine-timeline';
-import RoseRangeComponent from './rose-range/rose-range';
+import PieComponent  from './pie/pie'
+import LineComponent from './line/line'
+import ScatterComponent from './scatter/scatter'
+import GuageComponent from './gauge/gauge'
+import FunnelComponent from './funnel/funnel'
+import BarComponent from './bar/bar'
+import RadarComponent from './radar/radar'
+import ParallelComponent from './parallel/parallel'
+import TreeComponent from './tree/tree'
+import CandlestickComponent from './candlestick/candlestick'
+import AreaStackedComponent from './area-stacked/area-stacked'
+import HeatmapCartesianComponent from './heatmap-cartesian/heatmap-cartesian'
+import CalendarChartsComponent from './calendar-charts/calendar-charts'
+import RingComponent from './ring/ring'
+import BarNagativeComponent from './bar-negative/bar-negative'
+import HexagonComponent from './hexagon/hexagon'
+import SunburstComponent from './sunburst/sunburst'
+import BoxPlotComponent from './boxplot/boxplot'
+import PolarAreaComponent from './polar-area/polar-area'
+import RadialBarComponent from './radial-bar/radial-bar'
+import ArcDiagramComponent from './arc-diagram/arc-diagram'
+import LiquidComponent from './liquid/liquid'
+import CurveComponent from './curve/curve'
+import MapComponent from './map/map'
+import LiquidCustomComponent from './liquid-custom/liquid-custom'
+import GridLightComponent from './streamgraph/streamgraph'
+import SankeyComponent from './sankey/sankey'
+import GraphCircularLayoutComponent from './graph-circular-layout/graph-circular-layout'
+import SprialBarComponent from './spiral-bar/spiral-bar'
+import ForceDirectedComponent from './force-directed/force-directed'
+import SerpentineTimelineComponent from './serpentine-timeline/serpentine-timeline'
+import RoseRangeComponent from './rose-range/rose-range'
 import RadiusAxisComponent  from './radius-axis-in-polar-coordinates/radius-axis'
+import HeatmapComponent from './heatmap'
 
 export { 
     PieComponent, // 饼图
@@ -65,5 +66,6 @@ export {
     ForceDirectedComponent, // 导力图
     SerpentineTimelineComponent, // 时间轴
     RoseRangeComponent, // 玫瑰图
-    RadiusAxisComponent //
+    RadiusAxisComponent, //
+    HeatmapComponent // 热力图
 }

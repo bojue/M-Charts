@@ -208,6 +208,11 @@ class ChartsList extends React.Component<propsType, object>  {
             type:"graph-circular-layout",
             thumbnail: imgGraphCircularLayout
         }, 
+        {
+            name:'热力图',
+            type:'heatmap',
+            thumbnail: imgArcDiagram
+        }
         // {
         //     name: '时间轴',
         //     type: 'serpentine-timeline',

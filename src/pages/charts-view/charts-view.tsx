@@ -37,7 +37,8 @@ import {
     SprialBarComponent,
     ForceDirectedComponent,
     SerpentineTimelineComponent,
-    RadiusAxisComponent
+    RadiusAxisComponent,
+    HeatmapComponent
 } from './../../charts/shape';
 
 import {
@@ -170,9 +171,13 @@ class ChartsView extends React.Component<ChartsProps, MState> {
             case 'radius-axis':
                 chartComp = <RadiusAxisComponent/>
                 break;
+            case 'heatmap':
+                chartComp = <HeatmapComponent/>
+                break
             default:
                 chartComp = <NoMatchChart/>
                 break;
+                
         }
         return  <div className="chartsView">
                     <Provider store={store}>
