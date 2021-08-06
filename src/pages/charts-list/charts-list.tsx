@@ -31,10 +31,11 @@ let imgMap = require('./../../assets/imgs/shape/map.png');
 let imgLiquidCustom = require('./../../assets/imgs/shape/liquidCustom.png');
 let imgStreamgraph = require('./../../assets/imgs/shape/streamgraph.png');
 let imgSankey = require('./../../assets/imgs/shape/sankey.png');
-let imgGraphCircularLayout = require('./../../assets/imgs/shape/graph-circular-layout.png');
+let imgGraphCircularLayout = require('./../../assets/imgs/shape/graph-circular-layout.png')
 let imgSprialBar = require('./../../assets/imgs/shape/sprial-bar.png')
 let imgRoseRange = require('./../../assets/imgs/shape/rose-range.png')
 const imgRadiusAxis = require('./../../assets/imgs/shape/radius-axis.png')
+const imgHeatmap = require('./../../assets/imgs/shape/heatmap.png')
 interface Charts {
     name: string, // 组件名称
     type: string, // 组件类型
@@ -211,7 +212,7 @@ class ChartsList extends React.Component<propsType, object>  {
         {
             name:'热力图',
             type:'heatmap',
-            thumbnail: imgArcDiagram
+            thumbnail: imgHeatmap
         }
         // {
         //     name: '时间轴',
