@@ -56,15 +56,39 @@ class HeatmapComponent extends React.Component {
 
     drawInit() {
         this.drawCoordinateSystem()
-        this.drawData()
+        this.drawNodeData()
+        this.drawImageData()
     }
 
-    drawData(){
+    // 绘制位像素
+    drawImageData() {
+        const {
+            START_X,
+            START_Y,
+            W,
+            H
+        } = this.config
+        const imgData = this.ctx.getImageData( START_X * 2, (START_Y -H) * 2, W * 2, H * 2)
+        const { data: pix } = imgData // 位数据
+        const len = pix?.length
+        for(let i=0;i<len;i+=4) {
+          const alpha = pix[i +3 ]
+           pix [i   ]  = 128  * Math. sin ((1  / 256  *  alpha - 0.5  )  * Math. PI  )  +  200 
+           pix [i +1 ]  = 128  * Math. sin ((1  / 128  * alpha  - 0.5  )  * Math. PI  )  +  127 
+           pix [i +2 ]  = 256  * Math. sin ((1  / 256  * alpha  + 0.5  )  * Math. PI  ) 
+           pix [i +3 ]  = pix [i + 3 ]  *  0.8 ;
+        }
+        this.ctx.putImageData(imgData, START_X * 2, (START_Y - H) * 2)
+    }
+
+    // 绘制点数据
+    drawNodeData(){
         let len = this.data.length
-        const {W, H,START_X:X, START_Y:Y,carat_len, prices_per, carat_per, prices_min,prices_len } = this.config
+        const {W, H,START_X:X, START_Y:Y,carat_len, prices_per, carat_per,prices_len } = this.config
         const w_per = W / ( prices_len * prices_per)
         const h_per = H / ( carat_per  *  carat_len)
-        this.ctx.fillStyle = 'rgba(73,136,254,0.1)'    
+        const _R = 8
+        this.ctx.fillStyle = 'rgba(73,136,254,0.15)'    
         for(let i=0;i<len;i++) {
             let {
                 price,
@@ -73,18 +97,20 @@ class HeatmapComponent extends React.Component {
             this.ctx.beginPath()
             const _x = w_per * carat + X
             const _y = Y - h_per * price
-            this.drawNode(_x , _y)
+            var radgrad  =  this.ctx.createRadialGradient (_x , _y , 1 , _x , _y , 8 )
+            radgrad.addColorStop (0 ,  'rgba(255,30,0,1)' )
+            radgrad.addColorStop (1 ,  'rgba(255,30,0,0)' )
+            this.ctx.fillStyle  = radgrad ;
+            this.ctx.arc(_x,_y,_R ,0,2 * Math.PI)
+            this.ctx.closePath()
             this.ctx.fill()
         }
+              
     } 
-
-    drawNode(x:number, y:number) {
-        this.ctx.arc(x,y,4,0,2*Math.PI)
-    }
 
     // 绘制坐标系统
     drawCoordinateSystem() {    
-        const {W, H,START_X:X, START_Y:Y,carat_len,labPadding, carat_per, prices_min,prices_len } = this.config
+        const {W, H,START_X:X, START_Y:Y,carat_len,labPadding, carat_per,prices_len } = this.config
         const h_per = H / carat_len
         const w_per = W / prices_len
         this.ctx.lineWidth = 1;
