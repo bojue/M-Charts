@@ -97,10 +97,11 @@ class HeatmapComponent extends React.Component {
             this.ctx.beginPath()
             const _x = w_per * carat + X
             const _y = Y - h_per * price
-            var radgrad  =  this.ctx.createRadialGradient (_x , _y , 1 , _x , _y , 8 )
+            const radgrad  =  this.ctx.createRadialGradient (_x , _y , 1 , _x , _y , 8 )
             radgrad.addColorStop (0 ,  'rgba(255,30,0,1)' )
             radgrad.addColorStop (0.2 , 'rgba(255,30,0,0.8)' )
-            radgrad.addColorStop (1 ,  'rgba(255,30,0,0)' )
+            radgrad.addColorStop (0.9 ,  'rgba(255,30,0,0.1)' )
+            radgrad.addColorStop (1 ,  'rgba(255,30,0,0.0)' )
             this.ctx.fillStyle  = radgrad ;
             this.ctx.arc(_x,_y,_R ,0,2 * Math.PI)
             this.ctx.closePath()
