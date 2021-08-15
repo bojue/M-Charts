@@ -1,7 +1,7 @@
 # M-Charts
 基于Canvas的Charts实现的技术预研
 
-## DEMO
+## Preview
 [在线预览](https://bojue.github.io/M-Charts)
 
 ![Demo](src/assets/demo/demo.png)
