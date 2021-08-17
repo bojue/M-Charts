@@ -12,6 +12,7 @@ const icon = require('./assets/imgs/icon.png');
 import './style.scss';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import Home from './pages/home/Home';
 let App = function() {
     return <Router >
         <div className="nav">
@@ -25,9 +26,9 @@ let App = function() {
             <GitHubComponent/>
         </div>
         <Switch>
-            <Route exact path="/" component={ChartsList}/>
-            <Route path="/charts" component={ChartsList}/>
-            <Route path="/detail/:type/:name" component={ChartsView}/>
+            <Route exact path="/" component={ Home }/>
+            <Route path="/charts" component={ ChartsList }/>
+            <Route path="/detail/:type/:name" component={ ChartsView }/>
             <Route>
                 <NoMatch/>
             </Route>

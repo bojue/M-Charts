@@ -1,4 +1,54 @@
 .home {
-    
+    width: 500px;
+    margin: 0 auto;
+    margin-top:20vh;
+    text-align: center;
+
+    .title {
+        font-weight: 800;
+        color: #081642;
+        line-height: 1.2em;
+        font-size: 50px;
+    }
+    .title-sub {
+        font-size: 21px;
+        color: #1d2b5a;
+        margin-top: 15px;
+        opacity: 0.65;
+    }
+    .panel {
+        margin-top: 40px;
+        position: relative;
+        display: inline-block;
+        .btn {
+            cursor: pointer;
+            display: inline-block;
+            width: 150px;
+            padding: 10px 15px;
+            border-radius: 30px;
+            background-color: #fff;
+            border: 1px solid #4988fe;
+            color: #4988fe;
+            opacity: 0.8;
+            font-size: 16px;
+            margin: 0px 8px;
+            &.active {
+                background-color: #4988fe;
+                color: #fff;
+                opacity: 1;
+            }
+            
+        }
+        .icon {
+            width: 30px;
+        }
+        .lab {
+            position: relative;
+            width: 70px;
+            margin-top: 2px;
+            display: inline-table;
+            top: -8px;
+        }
+    }
 }
 

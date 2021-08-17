@@ -7,7 +7,7 @@ class RouteBackComponent extends React.Component {
   
     render() {
         return <div className="back">
-        <a href="#/"><img className="img" src={backIcon!.default} alt="返回" title='返回'/></a>
+        <a href="#/charts"><img className="img" src={backIcon!.default} alt="返回" title='返回'/></a>
     </div>
     }
 }
