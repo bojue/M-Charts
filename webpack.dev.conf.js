@@ -5,6 +5,7 @@ const chunkChangeWebpackPlugin = require('chunk-change-time-webpack-plugin');
 var HappyPack = require('happypack');
 var happyThreadPool = HappyPack.ThreadPool({ size: 5 });
 module.exports = {
+  mode: 'development',
   entry: {
     app:'./src/index.tsx',
     vendor: ['react', 'react-dom']
@@ -62,23 +63,17 @@ module.exports = {
     new webpack.ProvidePlugin({
         "React": "react",
     }),
-    new chunkChangeWebpackPlugin({
-      name:'chunk-change-time-webpack-plugin'
-    }),
     new htmlWebpackPlugin({
         template: path.join(__dirname, './public/index.html'),
         favicon:'./public/favicon.ico',
         filename:'index.html',
     })
   ],
-  watch:true,
   devServer: {
-    stats: false,
-    contentBase: path.join(__dirname, 'public'),
-    port: 3000,
-    hot:true,
-    host:"localhost",
+    static: {
+      directory: path.join(__dirname, 'src'),
+    },
     compress: true,
-    open:true,
+    port: 9000,
   },
 };
